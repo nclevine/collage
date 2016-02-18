@@ -1,0 +1,25 @@
+{
+  "name": "collage",
+  "description": "interactive collage app using react",
+  "main": ".app/app.js",
+  "authors": [
+    "Noah Levine"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "paper": "^0.9.25"
+  }
+}
