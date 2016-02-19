@@ -1,17 +1,13 @@
 'use strict'
 
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 
-export default class RawImage extends Component{
-	constructor (props) {
-		super(props)
-	}
-
-	render () {
-		return (
-			<div className='image raw-image'>
-				<img src={this.props.url} />
-			</div> 
-		)
-	}
+const RawImage = (props) => {
+	return (
+		<div className='image raw-image'>
+			<img src={props.url} />
+		</div> 
+	)
 }
+
+export default RawImage

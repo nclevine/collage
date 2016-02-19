@@ -14,7 +14,9 @@ var babelify = require('babelify');
 // but include in your application deployment
 var dependencies = [
 	'react',
-  	'react-dom'
+  	'react-dom',
+  	'redux',
+  	'react-redux'
 ];
 
 // keep a count of the times a task refires
