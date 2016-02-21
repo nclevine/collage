@@ -27,68 +27,136 @@ const IMPORT_SEARCH_SOURCES = {
 }
 
 const sampleState = {
-	imagePanelVisibility: true,
-	imageImportPanelVisiblity: true,
-	imageImportMethod: BY_SEARCH,
-	imageSearchSource: ARTSY,
-	imageSearchResults: [
-		{
-			id: 1,
-			url: 'http://images.com/image.jpg',
-			width: 500,
-			height: 500
-		}
-	]
-	images: [
-		{
-			id: 1,
-			type: RAW,
-			url: 'http://images.com/anotherimage.jpg',
-			SVGString: null,
-			width: 200,
-			height: 400
-
+	imagePanel: {
+		open: true,
+		importPanel: {
+			open: true,
+			importMethod: BY_SEARCH,
+			searchSource: ARTSY,
+			searchResults: [
+				{
+					id: 1,
+					url: 'http://images.com/image.jpg'
+				}
+			]
 		},
+		imageList: {
+			raw: [
+				{
+					id: 1,
+					url: 'http://images.com/anotherimage.jpg',
+				}
+			],
+			cutout: [
+				{
+					id: 1,
+					SVGString: '<svg>...</svg>'
+				}
+			]
+		},
+		editor: {
+			open: true,
+			tool: POLYGON_LASSO,
+			image: {imageType: RAW, id: 1}
+		}
+	}
+	collageBoard: {
+		active: false,
+		menuOpen: true,
+		background: 1, // id from raw image list
+		elements: [
+			{
+				id: 1,
+				imageType: RAW,
+				imageListId: 1,
+				dimensions: {
+					width: 700,
+					height: 200
+				},
+				position: {
+					x: 400,
+					y: 30
+				}
+			},
+			{
+				id: 2,
+				imageType: CUTOUT,
+				imageListId: 1,
+				dimensions: {
+					width: 350,
+					height: 100
+				},
+				position: {
+					x: 20,
+					y: 300
+				}
+			}
+		],
+		selectedElement: 1
+	}
+}
+
+
+/*
+
+old state structure:
+
+imageImportPanelVisiblity: true,
+imageImportMethod: BY_SEARCH,
+imageSearchSource: ARTSY,
+imageSearchResults: [
+	{
+		id: 1,
+		url: 'http://images.com/image.jpg'
+	}
+]
+imageList: {
+	rawImages: [
 		{
-			id: 2,
-			type: CUTOUT,
-			url: null,
-			SVGString: '<svg>...</svg>',
-			width: 350,
-			height: 100
+			id: 1,
+			url: 'http://images.com/anotherimage.jpg',
 		}
 	],
-	imageEditorVisibility: true,
-	imageEditorTool: POLYGON_LASSO,
-	imageEditorContentId: 1 // id of the raw image
-	collageBoardActive: false,
-	collageBoardBackground: 
-	collageBoardElements: [
+	cutoutImages: [
 		{
 			id: 1,
-			imageListId: 2,
-			dimensions: {
-				width: 700,
-				height: 200
-			},
-			position: {
-				x: 400,
-				y: 30
-			}
-		},
-		{
-			id: 2,
-			imageListId: 2, // note that the first two collage elements are both derived from the same cutout
-			dimensions: {
-				width: 350,
-				height: 100
-			},
-			position: {
-				x: 20,
-				y: 300
-			}
+			SVGString: '<svg>...</svg>'
 		}
 	]
-	collageBoardSelectionId: 2, // id of the collage element or null
-	collageBoardMenuVisibility: true
-}
+},
+imageEditorVisibility: true,
+imageEditorTool: POLYGON_LASSO,
+imageEditorContentId: 1 // id of the raw image
+collageBoardActive: false,
+collageBoardBackground: 1 // id of a raw image
+collageBoardElements: [
+	{
+		id: 1,
+		imageType: RAW,
+		imageListId: 1,
+		dimensions: {
+			width: 700,
+			height: 200
+		},
+		position: {
+			x: 400,
+			y: 30
+		}
+	},
+	{
+		id: 2,
+		imageType: CUTOUT,
+		imageListId: 1,
+		dimensions: {
+			width: 350,
+			height: 100
+		},
+		position: {
+			x: 20,
+			y: 300
+		}
+	}
+]
+collageBoardSelectionId: 2, // id of the collage element or null
+collageBoardMenuVisibility: true
+*/
