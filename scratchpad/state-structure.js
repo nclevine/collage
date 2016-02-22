@@ -41,18 +41,22 @@ const sampleState = {
 			]
 		},
 		imageLists: {
-			raw: [
-				{
-					id: 1,
-					url: 'http://images.com/anotherimage.jpg',
-				}
-			],
-			cutout: [
-				{
-					id: 1,
-					SVGString: '<svg>...</svg>'
-				}
-			]
+			raw: {
+				expanded: true,
+				images: [
+					{
+						id: 1,
+						url: 'http://images.com/anotherimage.jpg',
+					}
+				]
+			cutout:
+				expanded: false, 
+				images: [
+					{
+						id: 1,
+						SVGString: '<svg>...</svg>'
+					}
+				]
 		},
 		editor: {
 			open: true,

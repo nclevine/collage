@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { ADD_RAW_IMAGE, ADD_CUTOUT_IMAGE } from '../../actions'
+import { ADD_RAW_IMAGE, ADD_CUTOUT_IMAGE, REMOVE_RAW_IMAGE, REMOVE_CUTOUT_IMAGE } from '../../actions'
 
 const image = (state, action) => {
 	switch (action.type) {
@@ -18,24 +18,34 @@ const image = (state, action) => {
 	}
 }
 
-const raw = (state = [], action) => {
+const raw = (state = {expanded: true, images: []}, action) => {
 	switch (action.type) {
 		case ADD_RAW_IMAGE:
 			return [
 				...state,
 				image(undefined, action)
 			]
+		case REMOVE_RAW_IMAGE:
+			return [
+				...state.slice(0, action.id),
+				...state.slice(action.id + 1)
+			]
 		default:
 			return state
 	}
 }
 
-const cutout = (state = [], action) => {
+const cutout = (state = {expanded: false, images: []}, action) => {
 	switch (action.type) {
 		case ADD_CUTOUT_IMAGE:
 			return [
 				...state,
 				image(undefined, action)
+			]
+		case REMOVE_RAW_IMAGE:
+			return [
+				...state.slice(0, action.id),
+				...state.slice(action.id + 1)
 			]
 		default:
 			return state

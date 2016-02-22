@@ -10,9 +10,11 @@ export const TOGGLE_IMAGE_EDITOR_OPEN = 'TOGGLE_IMAGE_EDITOR_OPEN'
 export const SET_IMAGE_EDITOR_TOOL = 'SET_IMAGE_EDITOR_TOOL'
 export const IMPORT_IMAGE_TO_EDITOR = 'IMPORT_IMAGE_TO_EDITOR'
 
+export const TOGGLE_IMAGE_LIST_EXPANDED = 'TOGGLE_IMAGE_LIST_EXPANDED'
 export const ADD_RAW_IMAGE = 'ADD_RAW_IMAGE'
 export const ADD_CUTOUT_IMAGE = 'ADD_CUTOUT_IMAGE'
-export const REMOVE_IMAGE = 'REMOVE_IMAGE'
+export const REMOVE_RAW_IMAGE = 'REMOVE_RAW_IMAGE'
+export const REMOVE_CUTOUT_IMAGE = 'REMOVE_CUTOUT_IMAGE'
 
 export const TOGGLE_COLLAGE_BOARD_ACTIVE = 'TOGGLE_COLLAGE_BOARD_ACTIVE'
 export const TOGGLE_COLLAGE_BOARD_MENU_OPEN = 'TOGGLE_COLLAGE_BOARD_MENU_OPEN'
@@ -89,6 +91,12 @@ export const importImageToEditor = (imageType, id) => {
 	}
 }
 
+export const toggleImageListExpanded = () => {
+	return {
+		type: TOGGLE_IMAGE_LIST_EXPANDED,
+	}
+}
+
 let nextRawImageId = 0
 export const addRawImage = (url) => {
 	return {
@@ -107,9 +115,16 @@ export const addCutoutImage = (SVGString) => {
 	}
 }
 
-export const removeImage = (id) => {
+export const removeRawImage = (id) => {
 	return {
-		type: REMOVE_IMAGE,
+		type: REMOVE_RAW_IMAGE,
+		id
+	}
+}
+
+export const removeCutoutImage = (id) => {
+	return {
+		type: REMOVE_CUTOUT_IMAGE,
 		id
 	}
 }

@@ -24,7 +24,7 @@ Presentational Components:
 	-	onImageHover: callback to show options for each image (passed to ImageList and on to Image)
 
 *	ImageList
-	-	open: Boolean
+	-	expanded: Boolean
 	-	imageType: String (passed to Image component)
 	- 	images: Array of objects representing images of a given type (e.g. {id: 1, url: 'http://...'} or {id: 1, SVGString: '<svg>...'})
 	- onImageHover: callback passed to Image to show available options
@@ -84,9 +84,17 @@ Presentational Components:
 Container Components:
 
 *	Images
+	-	gets images (eventually from  Mongo async)
+	-	gets info regarding what is open and closed
+	-	creates function to dispatch image import / search
+	-	creates function to dispatch adding image to editor
+	-	creates function to dispatch adding images
+	-	creates function to dispatch changing expanded list
+	-	creates function to dispatch adding image to collage
+	-	creates function to dispatch deleting an image
+
 *	Collage
-
-Other Components:
-
-*	ImportImageButton
-*	ExportCutoutButton
+	-	gets elements (eventually from Mongo async)
+	-	creates function to dispatch menu toggling
+	-	creates function to dispatch saving the collage
+	-	creates function to undo / redo changes
