@@ -7,7 +7,6 @@ Presentational Components:
 	-	searchResults: Array (passed to ImageImportPanel)
 	-	imageLists (passed to CombinedImageList)
 	-	imageEditorOpen: Boolean (passed to ImageEditor)
-	-	imageEditorTool: String (passed to ImageEditor)
 	-	imageEditorImage: Object (passed to ImageEditor)
 
 *	ImageImportPanel
@@ -54,16 +53,18 @@ Presentational Components:
 	-	tool: String representing the name of the active tool
 	-	image: Object representing the image to edit
 	-	onToolBoxButtonClick: callback to change tool
+	-	tools: Object storing the different paper.Tools (passed to ToolBox and Tools for their callbacks)
 
 *	ImageEditorCanvas
-	-	tool: String representing the active tool
 	-	image: String representing the url of the image
 
 *	ImageEditorToolbox
 	-	onToolButtonClick: callback to change tool
+	-	tools: Object containing the paper.Tools
 
 *	ImageEditorToolButton
 	-	onClick: callback to make tool active
+	-	tool: Function representing the paper.Tool to make active on click
 
 *	CollageBoard
 	-	active: Boolean determining whether board has focus and elements are editable
