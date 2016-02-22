@@ -31,16 +31,16 @@ const sampleState = {
 		open: true,
 		importPanel: {
 			open: true,
-			importMethod: BY_SEARCH,
-			searchSource: ARTSY,
-			searchResults: [
+			method: BY_SEARCH,
+			source: ARTSY,
+			results: [
 				{
 					id: 1,
 					url: 'http://images.com/image.jpg'
 				}
 			]
 		},
-		imageList: {
+		imageLists: {
 			raw: [
 				{
 					id: 1,

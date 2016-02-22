@@ -42,9 +42,9 @@ const cutout = (state = [], action) => {
 	}
 }
 
-const imageList = combineReducers({
+const imageLists = combineReducers({
 	raw,
 	cutout
 })
 
-export default imageList
+export default imageLists

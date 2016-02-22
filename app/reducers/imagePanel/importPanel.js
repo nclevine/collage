@@ -12,7 +12,7 @@ const open = (state = false, action) => {
 	}
 }
 
-const importMethod = (state = BY_URL, action) => {
+const method = (state = BY_URL, action) => {
 	switch (action.type) {
 		case SET_IMAGE_IMPORT_METHOD:
 			return action.method
@@ -21,7 +21,7 @@ const importMethod = (state = BY_URL, action) => {
 	}
 }
 
-const searchSource = (state = ARTSY, action) => {
+const source = (state = ARTSY, action) => {
 	switch (action.type) {
 		case SET_IMAGE_SEARCH_SOURCE:
 			return action.source
@@ -42,7 +42,7 @@ const image = (state, action) => {
 	}
 }
 
-const searchResults = (state = [], action) => {
+const results = (state = [], action) => {
 	switch (action.type) {
 		case ADD_IMAGE_SEARCH_RESULT:
 			return [
@@ -56,9 +56,9 @@ const searchResults = (state = [], action) => {
 
 const importPanel = combineReducers({
 	open,
-	importMethod,
-	searchSource,
-	searchResults
+	method,
+	source,
+	results
 })
 
 export default importPanel

@@ -1,0 +1,91 @@
+Presentational Components:
+
+*	ImagePanel
+	-	importPanelOpen: Boolean (passed to ImageImportPanel)
+	-	importMethod: String (passed to ImageImportPanel)
+	-	searchSource: String (passed to ImageImportPanel)
+	-	searchResults: Array (passed to ImageImportPanel)
+	-	imageLists (passed to CombinedImageList)
+	-	imageEditorOpen: Boolean (passed to ImageEditor)
+	-	imageEditorTool: String (passed to ImageEditor)
+	-	imageEditorImage: Object (passed to ImageEditor)
+
+*	ImageImportPanel
+	-	open: Boolean
+	-	method: String representing the import method
+	-	source: String representing the search source
+	-	results: Array of image objects representing RawImages
+
+*	ImageImportForm
+	-	method: String representing the import method
+
+*	CombinedImageList
+	-	lists: Object of ImageLists
+	-	onImageListClick: callback to expand the given image list (passed to ImageList)
+	-	onImageHover: callback to show options for each image (passed to ImageList and on to Image)
+
+*	ImageList
+	-	open: Boolean
+	-	imageType: String (passed to Image component)
+	- 	images: Array of objects representing images of a given type (e.g. {id: 1, url: 'http://...'} or {id: 1, SVGString: '<svg>...'})
+	- onImageHover: callback passed to Image to show available options
+
+*	Image
+	-	imageType: String (passed to ImageOptions and determines type of child componenet)
+	-	image: Object representing image of a given type (comes from ImageList images and passed to ImageOptions and either Raw- or CutoutImage)
+	-	onHover: callback to show ImageOptions corresponding to image type
+
+*	RawImage
+	-	url: String representing image url
+
+*	CutoutImage
+	-	SVGString: String representing SVG markup
+
+*	ImageOptions
+	-	visible: Boolean (comes from Image onHover callback)
+	-	imageType: String (determines available buttons)
+	-	onButtonClick: callback passed to each button
+
+*	ImageOptionsButton
+	-	onClick: performs the action, e.g. open in editor, import to collage (comes from ImageOptions)
+
+*	ImageEditor
+	- 	open: Boolean
+	-	tool: String representing the name of the active tool
+	-	image: Object representing the image to edit
+	-	onToolBoxButtonClick: callback to change tool
+
+*	ImageEditorCanvas
+	-	tool: String representing the active tool
+	-	image: String representing the url of the image
+
+*	ImageEditorToolbox
+	-	onToolButtonClick: callback to change tool
+
+*	ImageEditorToolButton
+	-	onClick: callback to make tool active
+
+*	CollageBoard
+	-	active: Boolean determining whether board has focus and elements are editable
+	-	menuOpen: Boolean determining whether menu is open
+	-	background: String representing url of raw image serving as background
+	-	elements: Array of objects representing CollageElements
+	-	selectedElement: Number respresenting the active CollageElement
+
+*	CollageElement
+	-	image: Object representing either RawImage or CutoutImage
+	-	x: Number representing left positioning
+	-	y: Number respresenting top positioning
+	-	width: Number representing element width
+	-	height: Number representing element height
+
+
+Container Components:
+
+*	Images
+*	Collage
+
+Other Components:
+
+*	ImportImageButton
+*	ExportCutoutButton
