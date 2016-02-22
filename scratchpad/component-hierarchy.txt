@@ -80,6 +80,14 @@ Presentational Components:
 	-	width: Number representing element width
 	-	height: Number representing element height
 
+*	CollageBoardMenu
+	-	open: Boolean
+	-	onButtonClick: callback for button
+
+*	CollageBoardMenuButton
+	-	onClick: callback
+
+
 
 Container Components:
 
