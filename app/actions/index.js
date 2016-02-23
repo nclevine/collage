@@ -10,11 +10,12 @@ export const TOGGLE_IMAGE_EDITOR_OPEN = 'TOGGLE_IMAGE_EDITOR_OPEN'
 export const SET_IMAGE_EDITOR_TOOL = 'SET_IMAGE_EDITOR_TOOL'
 export const IMPORT_IMAGE_TO_EDITOR = 'IMPORT_IMAGE_TO_EDITOR'
 
+export const ADD_IMAGE_LIST = 'ADD_IMAGE_LIST'
+export const REMOVE_IMAGE_LIST = 'REMOVE_IMAGE_LIST'
 export const TOGGLE_IMAGE_LIST_EXPANDED = 'TOGGLE_IMAGE_LIST_EXPANDED'
 export const ADD_RAW_IMAGE = 'ADD_RAW_IMAGE'
 export const ADD_CUTOUT_IMAGE = 'ADD_CUTOUT_IMAGE'
-export const REMOVE_RAW_IMAGE = 'REMOVE_RAW_IMAGE'
-export const REMOVE_CUTOUT_IMAGE = 'REMOVE_CUTOUT_IMAGE'
+export const REMOVE_IMAGE = 'REMOVE_IMAGE'
 
 export const TOGGLE_COLLAGE_BOARD_ACTIVE = 'TOGGLE_COLLAGE_BOARD_ACTIVE'
 export const TOGGLE_COLLAGE_BOARD_MENU_OPEN = 'TOGGLE_COLLAGE_BOARD_MENU_OPEN'
@@ -83,49 +84,61 @@ export const setImageEditorTool = (tool) => {
 	}
 }
 
-export const importImageToEditor = (imageType, id) => {
+export const importImageToEditor = (image) => {
 	return {
 		type: IMPORT_IMAGE_TO_EDITOR,
-		imageType,
-		id
+		image
 	}
 }
 
-export const toggleImageListExpanded = () => {
+let nextImageList = 2
+export const addImageList = (listName) => {
+	return {
+		type: ADD_IMAGE_LIST,
+		id: nextImageList++,
+		listName
+	}
+}
+
+export const removeImageList = (listId) => {
+	return {
+		type: REMOVE_IMAGE_LIST,
+		listId
+	}
+}
+
+export const toggleImageListExpanded = (listId) => {
 	return {
 		type: TOGGLE_IMAGE_LIST_EXPANDED,
+		listId
 	}
 }
 
 let nextRawImageId = 0
-export const addRawImage = (url) => {
+export const addRawImage = (listId, url) => {
 	return {
 		type: ADD_RAW_IMAGE,
 		id: nextRawImageId++,
+		listId,
 		url
 	}
 }
 
 let nextCutoutImageId = 0
-export const addCutoutImage = (SVGString) => {
+export const addCutoutImage = (listId, SVGString) => {
 	return {
 		type: ADD_CUTOUT_IMAGE,
 		id: nextCutoutImageId++,
+		listId,
 		SVGString
 	}
 }
 
-export const removeRawImage = (id) => {
+export const removeImage = (listId, imageId) => {
 	return {
-		type: REMOVE_RAW_IMAGE,
-		id
-	}
-}
-
-export const removeCutoutImage = (id) => {
-	return {
-		type: REMOVE_CUTOUT_IMAGE,
-		id
+		type: REMOVE_IMAGE,
+		listId,
+		imageId
 	}
 }
 
@@ -141,22 +154,19 @@ export const toggleCollageBoardMenuOpen = () => {
 	}
 }
 
-export const setCollageBackground = (id) => {
+export const setCollageBackground = (image) => {
 	return {
 		type: SET_COLLAGE_BACKGROUND,
-		id
+		image
 	}
 }
 
 let nextCollageElementId = 0
-export const addCollageElement = (imageType, imageListId, dimensions, position) => {
+export const addCollageElement = (image) => {
 	return {
 		type: ADD_COLLAGE_ELEMENT,
 		id: nextCollageElementId++,
-		imageType,
-		imageListId,
-		dimensions,
-		position
+		image
 	}
 }
 

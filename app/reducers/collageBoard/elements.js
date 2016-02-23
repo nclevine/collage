@@ -6,10 +6,7 @@ const element = (state, action) => {
 		case ADD_COLLAGE_ELEMENT:
 			return {
 				id: action.id,
-				imageType: action.imageType,
-				imageListId: action.imageListId,
-				dimensions: action.dimensions,
-				position: action.position
+				image: action.image
 			}
 		case UPDATE_COLLAGE_ELEMENT:
 			if (state.id !== action.id) {

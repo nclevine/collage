@@ -40,8 +40,10 @@ const sampleState = {
 				}
 			]
 		},
-		imageLists: {
-			raw: {
+		imageLists: [
+			{
+				id: 1,
+				name: 'Imports',
 				expanded: true,
 				images: [
 					{
@@ -49,7 +51,10 @@ const sampleState = {
 						url: 'http://images.com/anotherimage.jpg',
 					}
 				]
-			cutout:
+			},
+			{
+				id: 2,
+				name: 'Cutouts',
 				expanded: false, 
 				images: [
 					{
@@ -57,7 +62,8 @@ const sampleState = {
 						SVGString: '<svg>...</svg>'
 					}
 				]
-		},
+			}
+		],
 		editor: {
 			open: true,
 			tool: POLYGON_LASSO,

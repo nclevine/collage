@@ -24,8 +24,7 @@ const image = (state = null, action) => {
 	switch (action.type) {
 		case IMPORT_IMAGE_TO_EDITOR:
 			return {
-				imageType: action.imageType,
-				id: action.id
+				image: action.image
 			}
 		default:
 			return state

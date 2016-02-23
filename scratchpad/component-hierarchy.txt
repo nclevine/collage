@@ -30,9 +30,7 @@ Presentational Components:
 	- onImageHover: callback passed to Image to show available options
 
 *	Image
-	-	imageType: String (passed to ImageOptions and determines type of child componenet)
 	-	image: Object representing image of a given type (comes from ImageList images and passed to ImageOptions and either Raw- or CutoutImage)
-	-	onHover: callback to show ImageOptions corresponding to image type
 
 *	RawImage
 	-	url: String representing image url
@@ -41,12 +39,8 @@ Presentational Components:
 	-	SVGString: String representing SVG markup
 
 *	ImageOptions
-	-	visible: Boolean (comes from Image onHover callback)
-	-	imageType: String (determines available buttons)
-	-	onButtonClick: callback passed to each button
-
-*	ImageOptionsButton
-	-	onClick: performs the action, e.g. open in editor, import to collage (comes from ImageOptions)
+	-	image: Object representing image info (for opening it in editor or sending to collage)
+		! see other componenets for button
 
 *	ImageEditor
 	- 	open: Boolean
@@ -106,3 +100,9 @@ Container Components:
 	-	creates function to dispatch menu toggling
 	-	creates function to dispatch saving the collage
 	-	creates function to undo / redo changes
+
+
+Other Components:
+
+*	ImageOptionsButton
+	-	onClick: performs the action, e.g. open in editor, import to collage (comes from ImageOptions)

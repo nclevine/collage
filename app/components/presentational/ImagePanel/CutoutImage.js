@@ -1,14 +1,16 @@
-'use strict'
-
 import React, { PropTypes } from 'react'
 
-const CutoutImage (props) => {
+const CutoutImage = ({ SVGString }) => {
 	return (
 		<div
-			className='image cutout-image'
-			dangerouslySetInnerHTML={{__html: this.props.SVGString}}
+			className='cutout-image'
+			dangerouslySetInnerHTML={{__html: SVGString}}
 		/>
 	)
+}
+
+CutoutImage.proptypes = {
+	SVGString: PropTypes.string.isRequired
 }
 
 export default CutoutImage
