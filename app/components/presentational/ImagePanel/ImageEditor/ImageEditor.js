@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react'
 import ImageEditorCanvas from './ImageEditorCanvas'
 import ImageEditorToolBox from './ImageEditorToolBox'
+import { ToolNames } from './PaperGlobalVariables'
+
+let { LASSO, POLYGON_LASSO, MARQUEE, ELLIPSE } = ToolNames
 
 const ImageEditor = ({ open, tool, image }) => {
 	return (
@@ -10,7 +13,7 @@ const ImageEditor = ({ open, tool, image }) => {
 				display: open ? block : none
 			}}
 		>
-			<ImageEditorCanvas tool={tool} image={image} />
+			<ImageEditorCanvas open={open} tool={tool} image={image} />
 			<ImageEditorToolBox tool={tool} />
 		</div>
 	)

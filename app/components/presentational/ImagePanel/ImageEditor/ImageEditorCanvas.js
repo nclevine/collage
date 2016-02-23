@@ -1,20 +1,24 @@
 import React, { Component, PropTypes } from 'react'
+import { EditProject, CropPath, ImportedImage, DefaultStyle, instantiateProject, clearProject, importImage } from './PaperGlobalVariables'
+import EditTools from './PaperEditTools'
 
 class ImageEditorCanvas extends Component({
 	componentDidMount () {
-		let editProject = new paper.Project('editor-canvas');
-		editProject.currentStyle = {
-			strokeColor: 'rgb(0,0,0)',
-			strokeWidth: 2
-		};
+		instantiateProject()
+
+		if (this.props.image) {
+			importImage(this.props.image.url)
+		}
 	}
 
 	componentWillReceiveProps (nextProps) {
-
+		if (nextProps.image !== this.props.image) {
+			importImage(this.props.image.url)
+		}
 	}
 
 	shouldComponentUpdate (nextProps, nextState) {
-		false
+		nextProps.image !== this.props.image || nextProps.open !== this.props.open
 	}
 
 	render () {

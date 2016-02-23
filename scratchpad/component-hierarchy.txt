@@ -85,14 +85,11 @@ Presentational Components:
 
 Container Components:
 
-*	Images
+*	OrganizedImageList
 	-	gets images (eventually from  Mongo async)
 	-	gets info regarding what is open and closed
 	-	creates function to dispatch image import / search
-	-	creates function to dispatch adding image to editor
-	-	creates function to dispatch adding images
 	-	creates function to dispatch changing expanded list
-	-	creates function to dispatch adding image to collage
 	-	creates function to dispatch deleting an image
 
 *	Collage
