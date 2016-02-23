@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { addCollageElement, importImageToEditor, setCollageBackground } from '../../actions'
 
-let ImageOptionsButton = ({ method, image, dispatch }) => {
+let ImageOptionsButton = ({ method, image, children, dispatch }) => {
 	return (
 		<button
 			className="image-options-btn"
