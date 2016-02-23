@@ -3,7 +3,7 @@ import RawImage from './RawImage'
 import CutoutImage from './CutoutImage'
 import ImageOptions from './ImageOptions'
 
-const Image = ({ image }) => {
+const Image = ({ listId, image }) => {
 	let imageComponent = image.url ?
 		<RawImage url={image.url} /> :
 		<CutoutImage SVGString={image.SVGString} />
@@ -11,7 +11,7 @@ const Image = ({ image }) => {
 	return (
 		<div className='image'>
 			{imageComponent}
-			<ImageOptions image={image} />
+			<ImageOptions listId={listId} image={image} />
 		</div>
 	)
 }

@@ -40,7 +40,7 @@ Presentational Components:
 
 *	ImageOptions
 	-	image: Object representing image info (for opening it in editor or sending to collage)
-		! see other componenets for button
+		! see other components for button
 
 *	ImageEditor
 	- 	open: Boolean
@@ -102,7 +102,7 @@ Container Components:
 	-	creates function to undo / redo changes
 
 
-Other Components:
+Mixed Components:
 
 *	ImageOptionsButton
 	-	onClick: performs the action, e.g. open in editor, import to collage (comes from ImageOptions)

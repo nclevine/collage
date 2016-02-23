@@ -1,17 +1,18 @@
 import React, { PropTypes } from 'react'
 import ImageOptionsButton from '../../mixed/ImageOptionsButton'
 
-let ImageOptions = ({ image }) => {
+let ImageOptions = ({ listId, image }) => {
 	let rawButtons = image.url ?
 		[
-			<ImageOptionsButton method='EDIT' image={image}>Edit</ImageOptionsButton>,
-			<ImageOptionsButton method='BACKGROUND' image={image}>Set Background</ImageOptionsButton>
+			<ImageOptionsButton method='EDIT' listId={listId} image={image}>Edit</ImageOptionsButton>,
+			<ImageOptionsButton method='BACKGROUND' listId={listId} image={image}>Set Background</ImageOptionsButton>
 		] :
 		null
 
 	return (
 		<div className='image-options'>
-			<ImageOptionsButton method='ADD' image={image}>Add</ImageOptionsButton>
+			<ImageOptionsButton method='ADD_TO_COLLAGE' listId={listId} image={image}>Add to Collage</ImageOptionsButton>
+			<ImageOptionsButton method='DELETE' listId={listId} image={image}>Delete from List</ImageOptionsButton>
 			{rawButtons}
 		</div>
 	)

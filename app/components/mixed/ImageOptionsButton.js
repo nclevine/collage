@@ -7,10 +7,12 @@ let ImageOptionsButton = ({ method, image, dispatch }) => {
 		<button
 			className="image-options-btn"
 			onClick={() => {
-				if (method === 'ADD') {
+				if (method === 'ADD_TO_COLLAGE') {
 					dispatch(addCollageElement(image))
 				} else if (method === 'EDIT') {
 					dispatch(importImageToEditor(image))
+				} else if (method === 'DELETE') {
+					dispatch(removeImage(listId, image))
 				} else if (method === 'BACKGROUND') {
 					dispatch(setCollageBackground(image))
 				}
