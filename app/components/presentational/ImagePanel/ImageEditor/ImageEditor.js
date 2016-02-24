@@ -9,15 +9,16 @@ class ImageEditor extends Component {
 	componentDidMount () {
 		instantiateProject()
 
-		if (this.props.image) {
-			importImage(this.props.image.url)
+		if (this.props.url) {
+			importImage(this.props.url)
 			LASSO.activate()
 		}
 	}
 
 	componentWillReceiveProps (nextProps) {
-		if (nextProps.image !== this.props.image) {
-			importImage(this.props.image.url)
+		if (nextProps.url !== this.props.url) {
+			console.log(nextProps)
+			importImage(nextProps.url)
 			LASSO.activate()
 		}
 	}

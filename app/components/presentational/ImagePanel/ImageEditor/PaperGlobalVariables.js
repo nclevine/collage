@@ -8,6 +8,14 @@ export const DefaultStyle = {
 	dashArray: [10, 2]
 }
 
+const checkContents = () => {
+	console.log(EditorProject.activeLayer.children)
+}
+
+const updateProject = () => {
+	EditorProject.view.update()
+}
+
 export const instantiateProject = () => {
 	EditorProject = new paper.Project('editor-canvas')
 	EditorProject.currentStyle = DefaultStyle
@@ -23,14 +31,12 @@ export const importImage = (url) => {
 		source: url,
 		position: EditorProject.view.center
 	})
+	updateProject()
+	checkContents()
 }
 
 
 // Editor utility button functions
-
-const updateProject = () => {
-	EditorProject.view.update()
-}
 
 const makeCrop = () => {
 	if (CropPath && CropPath.clipMask) { return }
@@ -61,6 +67,7 @@ const clearPaths = () => {
 	})
 	CropPath = undefined
 	updateProject()
+	checkContents()
 }
 
 export const EditorUtilities = {

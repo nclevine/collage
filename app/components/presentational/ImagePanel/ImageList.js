@@ -6,8 +6,8 @@ const ImageList = ({ id, name, expanded, images, onNameClick }) => {
 		<div className='imageList'>
 			<h1 onClick={onNameClick}>{name}</h1>
 			<div style={{
-				height: expanded ? auto : 0,
-				overflow: hidden
+				height: expanded ? 'auto' : 0,
+				overflow: 'hidden'
 			}}>
 				{images.map(image =>
 					<Image
@@ -20,3 +20,5 @@ const ImageList = ({ id, name, expanded, images, onNameClick }) => {
 		</div>
 	)
 }
+
+export default ImageList

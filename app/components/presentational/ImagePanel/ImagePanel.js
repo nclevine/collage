@@ -8,6 +8,7 @@ const ImagePanel = () => {
 		<div>	
 			<ImageImportPanel />
 			<ImageEditorContainer />
+			<CombinedImageListContainer />
 		</div>
 	)
 }

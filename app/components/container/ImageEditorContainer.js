@@ -4,7 +4,7 @@ import ImageEditor from '../presentational/ImagePanel/ImageEditor/ImageEditor'
 const mapStateToProps = (state) => {
 	return {
 		open: state.imagePanel.editor.open,
-		image: state.imagePanel.editor.image
+		url: state.imagePanel.editor.url
 	}
 }
 

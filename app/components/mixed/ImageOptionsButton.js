@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { addCollageElement, importImageToEditor, setCollageBackground } from '../../actions'
+import { addCollageElement, importImageToEditor, toggleImageEditorOpen, setCollageBackground } from '../../actions'
 
 let ImageOptionsButton = ({ method, image, children, dispatch }) => {
 	return (
@@ -9,12 +9,14 @@ let ImageOptionsButton = ({ method, image, children, dispatch }) => {
 			onClick={() => {
 				if (method === 'ADD_TO_COLLAGE') {
 					dispatch(addCollageElement(image))
-				} else if (method === 'EDIT') {
-					dispatch(importImageToEditor(image))
 				} else if (method === 'DELETE') {
 					dispatch(removeImage(listId, image))
+				} else if (method === 'EDIT') {
+					console.log(image.url)
+					dispatch(toggleImageEditorOpen())
+					dispatch(importImageToEditor(image.url))
 				} else if (method === 'BACKGROUND') {
-					dispatch(setCollageBackground(image))
+					dispatch(setCollageBackground(image.url))
 				}
 			}}
 		>

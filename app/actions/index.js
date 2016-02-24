@@ -7,7 +7,6 @@ export const SET_IMAGE_SEARCH_SOURCE = 'SET_IMAGE_SEARCH_SOURCE'
 export const ADD_IMAGE_SEARCH_RESULT = 'ADD_IMAGE_SEARCH_RESULT'
 
 export const TOGGLE_IMAGE_EDITOR_OPEN = 'TOGGLE_IMAGE_EDITOR_OPEN'
-export const SET_IMAGE_EDITOR_TOOL = 'SET_IMAGE_EDITOR_TOOL'
 export const IMPORT_IMAGE_TO_EDITOR = 'IMPORT_IMAGE_TO_EDITOR'
 
 export const ADD_IMAGE_LIST = 'ADD_IMAGE_LIST'
@@ -77,17 +76,10 @@ export const toggleImageEditorOpen = () => {
 	}
 }
 
-export const setImageEditorTool = (tool) => {
-	return {
-		type: SET_IMAGE_EDITOR_TOOL,
-		tool
-	}
-}
-
-export const importImageToEditor = (image) => {
+export const importImageToEditor = (url) => {
 	return {
 		type: IMPORT_IMAGE_TO_EDITOR,
-		image
+		url
 	}
 }
 
@@ -154,10 +146,10 @@ export const toggleCollageBoardMenuOpen = () => {
 	}
 }
 
-export const setCollageBackground = (image) => {
+export const setCollageBackground = (url) => {
 	return {
 		type: SET_COLLAGE_BACKGROUND,
-		image
+		url
 	}
 }
 

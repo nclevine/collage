@@ -14,3 +14,5 @@ const CombinedImageList = ({ imageLists, onListClick }) => {
 		</div>
 	)
 }
+
+export default CombinedImageList

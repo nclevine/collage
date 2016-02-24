@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const CombinedImageListContainer = connect(
-	mapStateToProps,
+	mapStateToProps, 
 	mapDispatchToProps
 )(CombinedImageList)
 

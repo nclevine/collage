@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux'
-import { TOGGLE_IMAGE_EDITOR_OPEN, SET_IMAGE_EDITOR_TOOL, IMPORT_IMAGE_TO_EDITOR } from '../../actions'
-const LASSO = 'LASSO'
+import { TOGGLE_IMAGE_EDITOR_OPEN, IMPORT_IMAGE_TO_EDITOR } from '../../actions'
 
 const open = (state = false, action) => {
 	switch (action.type) {
@@ -11,21 +10,10 @@ const open = (state = false, action) => {
 	}
 }
 
-const tool = (state = LASSO, action) => {
-	switch (action.type) {
-		case SET_IMAGE_EDITOR_TOOL:
-			return action.tool
-		default:
-			return state
-	}
-}
-
-const image = (state = null, action) => {
+const url = (state = null, action) => {
 	switch (action.type) {
 		case IMPORT_IMAGE_TO_EDITOR:
-			return {
-				image: action.image
-			}
+			return action.url
 		default:
 			return state
 	}
@@ -33,8 +21,7 @@ const image = (state = null, action) => {
 
 const editor = combineReducers({
 	open,
-	tool,
-	image
+	url
 })
 
 export default editor

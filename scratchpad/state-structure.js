@@ -48,10 +48,26 @@ const initialState = {
 				name: 'Imports',
 				expanded: true,
 				images: [
+					{
+						id: 1,
+						url: 'http://41.media.tumblr.com/86a94b309e87329c6d815cebe05b4462/tumblr_o1xzaeRnuN1qfdys9o1_500.jpg'
+					},
 					// {
-					// 	id: 1,
-					// 	url: 'http://images.com/anotherimage.jpg',
-					// }
+					// 	id: 2,
+					// 	url: 'http://40.media.tumblr.com/fbe21e47846c52360b40b0f480dc6344/tumblr_o15m8wRPBj1u2evjjo1_500.jpg'
+					// },
+					// {
+					// 	id: 3,
+					// 	url: 'http://40.media.tumblr.com/13452739e5e2dbc3e8a403e2e490a730/tumblr_o1ofqzYWzi1qfdys9o1_500.jpg'
+					// },
+					// {
+					// 	id: 4,
+					// 	url: 'http://40.media.tumblr.com/b0985b0f616a530eaf282008ed1802ff/tumblr_o1coqo8Chi1ul634to1_500.jpg'
+					// },
+					{
+						id: 5,
+						url: 'http://36.media.tumblr.com/502b55ce226934abda882ddeec1effa2/tumblr_mu9zkn51g61rhhuhgo1_400.png'
+					}
 				]
 			},
 			{
@@ -67,8 +83,8 @@ const initialState = {
 			}
 		],
 		editor: {
-			open: true,
-			image: {id: null, url: 'http://www.look.co.uk/sites/default/files/imagecache/scaled_620px_wide/rihannameshtop.jpg'}
+			open: false,
+			url: null
 		}
 	},
 	collageBoard: {
