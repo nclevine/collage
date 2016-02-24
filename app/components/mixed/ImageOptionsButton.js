@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { addCollageElement, importImageToEditor, toggleImageEditorOpen, setCollageBackground } from '../../actions'
+import { addCollageElement, removeImage, importImageToEditor, toggleImageEditorOpen, setCollageBackground } from '../../actions'
 
-let ImageOptionsButton = ({ method, image, children, dispatch }) => {
+let ImageOptionsButton = ({ method, listId, image, children, dispatch }) => {
 	return (
 		<button
 			className="image-options-btn"
@@ -12,7 +12,6 @@ let ImageOptionsButton = ({ method, image, children, dispatch }) => {
 				} else if (method === 'DELETE') {
 					dispatch(removeImage(listId, image))
 				} else if (method === 'EDIT') {
-					console.log(image.url)
 					dispatch(toggleImageEditorOpen())
 					dispatch(importImageToEditor(image.url))
 				} else if (method === 'BACKGROUND') {

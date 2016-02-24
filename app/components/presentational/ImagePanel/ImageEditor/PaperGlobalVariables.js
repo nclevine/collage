@@ -32,7 +32,7 @@ export const importImage = (url) => {
 		position: EditorProject.view.center
 	})
 	updateProject()
-	checkContents()
+	// checkContents()
 }
 
 
@@ -67,7 +67,7 @@ const clearPaths = () => {
 	})
 	CropPath = undefined
 	updateProject()
-	checkContents()
+	// checkContents()
 }
 
 export const EditorUtilities = {

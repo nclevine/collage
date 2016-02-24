@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { ADD_IMAGE_LIST, REMOVE_IMAGE_LIST, ADD_RAW_IMAGE, ADD_CUTOUT_IMAGE, REMOVE_IMAGE } from '../../actions'
+import { ADD_IMAGE_LIST, REMOVE_IMAGE_LIST, TOGGLE_IMAGE_LIST_EXPANDED, ADD_RAW_IMAGE, ADD_CUTOUT_IMAGE, REMOVE_IMAGE } from '../../actions'
 
 const image = (state, action) => {
 	switch (action.type) {
@@ -41,6 +41,10 @@ const list = (state, action) => {
 					image.id !== action.imageId
 				)
 			})
+		case TOGGLE_IMAGE_LIST_EXPANDED:
+			return Object.assign({}, state, {
+				expanded: !state.expanded
+			})
 		default:
 			return state
 	}
@@ -75,8 +79,9 @@ const imageLists = (state = initialState, action) => {
 		case ADD_RAW_IMAGE:
 		case ADD_CUTOUT_IMAGE:
 		case REMOVE_IMAGE:
+		case TOGGLE_IMAGE_LIST_EXPANDED:
 			return state.map(l => {
-				if (l.listId !== action.listId) {
+				if (l.id !== action.listId) {
 					return l
 				}
 				return list(l, action)

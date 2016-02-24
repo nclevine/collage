@@ -17,7 +17,6 @@ class ImageEditor extends Component {
 
 	componentWillReceiveProps (nextProps) {
 		if (nextProps.url !== this.props.url) {
-			console.log(nextProps)
 			importImage(nextProps.url)
 			LASSO.activate()
 		}
