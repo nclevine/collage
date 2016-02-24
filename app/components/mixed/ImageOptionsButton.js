@@ -10,7 +10,7 @@ let ImageOptionsButton = ({ method, listId, image, children, dispatch }) => {
 				if (method === 'ADD_TO_COLLAGE') {
 					dispatch(addCollageElement(image))
 				} else if (method === 'DELETE') {
-					dispatch(removeImage(listId, image))
+					dispatch(removeImage(listId, image.id))
 				} else if (method === 'EDIT') {
 					dispatch(toggleImageEditorOpen())
 					dispatch(importImageToEditor(image.url))
