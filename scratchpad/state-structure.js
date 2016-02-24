@@ -26,7 +26,9 @@ const IMPORT_SEARCH_SOURCES = {
 	TUMBLR: 'TUMBLR'
 }
 
-const sampleState = {
+const { ARTSY, TUMBLR } = IMPORT_SEARCH_SOURCES
+
+const initialState = {
 	imagePanel: {
 		open: true,
 		importPanel: {
@@ -34,10 +36,10 @@ const sampleState = {
 			method: BY_SEARCH,
 			source: ARTSY,
 			results: [
-				{
-					id: 1,
-					url: 'http://images.com/image.jpg'
-				}
+				// {
+				// 	id: 1,
+				// 	url: 'http://images.com/image.jpg'
+				// }
 			]
 		},
 		imageLists: [
@@ -46,10 +48,10 @@ const sampleState = {
 				name: 'Imports',
 				expanded: true,
 				images: [
-					{
-						id: 1,
-						url: 'http://images.com/anotherimage.jpg',
-					}
+					// {
+					// 	id: 1,
+					// 	url: 'http://images.com/anotherimage.jpg',
+					// }
 				]
 			},
 			{
@@ -57,55 +59,55 @@ const sampleState = {
 				name: 'Cutouts',
 				expanded: false, 
 				images: [
-					{
-						id: 1,
-						SVGString: '<svg>...</svg>'
-					}
+					// {
+					// 	id: 1,
+					// 	SVGString: '<svg>...</svg>'
+					// }
 				]
 			}
 		],
 		editor: {
 			open: true,
-			tool: POLYGON_LASSO,
-			image: {imageType: RAW, id: 1}
+			image: {id: null, url: 'http://www.look.co.uk/sites/default/files/imagecache/scaled_620px_wide/rihannameshtop.jpg'}
 		}
-	}
+	},
 	collageBoard: {
 		active: false,
 		menuOpen: true,
-		background: 1, // id from raw image list
+		background: null,
 		elements: [
-			{
-				id: 1,
-				imageType: RAW,
-				imageListId: 1,
-				dimensions: {
-					width: 700,
-					height: 200
-				},
-				position: {
-					x: 400,
-					y: 30
-				}
-			},
-			{
-				id: 2,
-				imageType: CUTOUT,
-				imageListId: 1,
-				dimensions: {
-					width: 350,
-					height: 100
-				},
-				position: {
-					x: 20,
-					y: 300
-				}
-			}
+			// {
+			// 	id: 1,
+			// 	imageType: RAW,
+			// 	imageListId: 1,
+			// 	dimensions: {
+			// 		width: 700,
+			// 		height: 200
+			// 	},
+			// 	position: {
+			// 		x: 400,
+			// 		y: 30
+			// 	}
+			// },
+			// {
+			// 	id: 2,
+			// 	imageType: CUTOUT,
+			// 	imageListId: 1,
+			// 	dimensions: {
+			// 		width: 350,
+			// 		height: 100
+			// 	},
+			// 	position: {
+			// 		x: 20,
+			// 		y: 300
+			// 	}
+			// }
 		],
-		selectedElement: 1
+		selectedElement: null
 	}
 }
 
+export default initialState
 
 /*
 

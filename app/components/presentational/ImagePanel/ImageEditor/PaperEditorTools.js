@@ -1,4 +1,4 @@
-const EditTools = {
+const EditorTools = {
 	LASSO: new paper.Tool(),
 	POLYGON_LASSO: new paper.Tool(),
 	MARQUEE: new paper.Tool(),
@@ -8,10 +8,6 @@ const EditTools = {
 let lassoPath
 
 // LASSO
-EditTools.lasso.onMouseDown = lassoInit;
-EditTools.lasso.onMouseDrag = lassoDrag;
-EditTools.lasso.onMouseUp = lassoFinish;
-
 const lassoInit = (e) => {
 	lassoPath = new paper.Path();
 	lassoPath.add(e.point);
@@ -22,14 +18,13 @@ const lassoDrag = (e) => {
 const lassoFinish = (e) => {
 	lassoPath.closed = true;
 }
+EditorTools.LASSO.onMouseDown = lassoInit;
+EditorTools.LASSO.onMouseDrag = lassoDrag;
+EditorTools.LASSO.onMouseUp = lassoFinish;
+
 
 // POLYGON_LASSO
-EditTools.polygonLasso.onMouseUp = polygonLassoAddPoint;
-EditTools.polygonLasso.onMouseMove = polygonLassoFindPoint;
-EditTools.polygonLasso.onKeyDown = polygonLassoFinish;
-
 let polygonProgress = false;
-
 const polygonLassoAddPoint = (e) => {
 	if (!polygonProgress) {
 		lassoPath = new paper.Path();
@@ -48,5 +43,9 @@ const polygonLassoFinish = (e) => {
 		polygonProgress = false;
 	}
 }
+EditorTools.POLYGON_LASSO.onMouseUp = polygonLassoAddPoint;
+EditorTools.POLYGON_LASSO.onMouseMove = polygonLassoFindPoint;
+EditorTools.POLYGON_LASSO.onKeyDown = polygonLassoFinish;
 
-export default EditTools
+
+export default EditorTools

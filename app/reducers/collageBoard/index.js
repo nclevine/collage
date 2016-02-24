@@ -20,7 +20,7 @@ const menuOpen = (state = true, action) => {
 	}
 }
 
-const background = (state, action) {
+const background = (state = 'white', action) => {
 	switch (action.type) {
 		case SET_COLLAGE_BACKGROUND:
 			return action.id
@@ -29,7 +29,7 @@ const background = (state, action) {
 	}
 }
 
-const selectedElement = (state, action) {
+const selectedElement = (state = null, action) => {
 	switch (action.type) {
 		case TOGGLE_SELECTED_ELEMENT:
 			return action.id

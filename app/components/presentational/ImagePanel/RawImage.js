@@ -10,7 +10,7 @@ const RawImage = ({ url }) => {
 }
 
 RawImage.propTypes = {
-	url: Proptypes.string.isRequired
+	url: PropTypes.string.isRequired
 }
 
 export default RawImage

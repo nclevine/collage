@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import { TOGGLE_IMAGE_IMPORT_PANEL_OPEN, ImportMethods, SET_IMAGE_SEARCH_SOURCE, ImageSearchSources, ADD_IMAGE_SEARCH_RESULT } from '../../actions'
-const { BY_URL } from ImportMethods
-const { ARTSY } from ImageSearchSources
+import { TOGGLE_IMAGE_IMPORT_PANEL_OPEN, ImportMethods, SET_IMAGE_IMPORT_METHOD, SET_IMAGE_SEARCH_SOURCE, ImageSearchSources, ADD_IMAGE_SEARCH_RESULT } from '../../actions'
+const { BY_URL } = ImportMethods
+const { ARTSY } = ImageSearchSources
 
 const open = (state = false, action) => {
 	switch (action.type) {

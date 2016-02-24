@@ -1,4 +1,4 @@
-export let EditProject = undefined
+export let EditorProject = undefined
 export let CropPath = undefined
 export let ImportedImage = undefined
 
@@ -7,41 +7,50 @@ export const DefaultStyle = {
 	strokeWidth: 2,
 	dashArray: [10, 2]
 }
-export const ToolNames = {
-	LASSO: 'LASSO',
-	POLYGON_LASSO: 'POLYGON_LASSO',
-	MARQUEE: 'MARQUEE',
-	ELLIPSE: 'ELLIPSE'
-}
-
 
 export const instantiateProject = () => {
-	EditProject = new paper.Project('editor-canvas')
-	EditProject.currentStyle = DefaultStyle
+	EditorProject = new paper.Project('editor-canvas')
+	EditorProject.currentStyle = DefaultStyle
 }
 
 export const clearProject = () => {
-	EditProject.clear()
+	EditorProject.clear()
 }
 
 export const importImage = (url) => {
 	clearProject()
 	ImportedImage = new paper.Raster({
 		source: url,
-		position: EditProject.view.center
+		position: EditorProject.view.center
 	})
 }
 
-export const makeCrop = () => {
-	let paths = EditProject.getItems({ class: paper.Path })
+
+// Editor utility button functions
+
+const makeCrop = () => {
+	let paths = EditorProject.getItems({ class: paper.Path })
 	CropPath = new paper.CompoundPath({
 		children: paths,
 		clipMask: true
 	})
 }
 
-export const unmakeCrop = () => {
+const unmakeCrop = () => {
 	CropPath.remove()
+}
+
+const clearPaths = () => {
+	if (CropPath) { CropPath.remove() }
+	let paths = EditorProject.getItems({ class: paper.Path })
+	paths.forEach(path => path.remove())
+	EditorProject.view.update()
+}
+
+export const EditorUtilities = {
+	MAKE_CROP: makeCrop,
+	UNMAKE_CROP: unmakeCrop,
+	CLEAR_PATHS: clearPaths
 }
 
 const nodeToString = (node) => {
@@ -51,12 +60,13 @@ const nodeToString = (node) => {
 }
 
 export const exportCrop = () => {
+	if (!CropPath) { return }
 	let bounds = CropPath.bounds
 	let viewBoxString = bounds.topLeft.x + ' ' + 
 		bounds.topLeft.y + ' ' + 
 		bounds.width + ' ' + 
 		bounds.height
-	let layer = EditProject.activeLayer
+	let layer = EditorProject.activeLayer
 	let SVG = layer.exportSVG({ embedImages: false })
 	
 	SVG.setAttribute('viewBox', viewBoxString)
@@ -66,11 +76,3 @@ export const exportCrop = () => {
 
 	return nodeToString(SVG)
 }
-
-export const clearPaths = () => {
-	if (CropPath) { CropPath.remove() }
-	let paths = EditProject.getItems({ class: paper.Path })
-	paths.forEach(path => path.remove())
-	EditProject.view.update()
-}
-

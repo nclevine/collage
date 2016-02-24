@@ -1,28 +1,44 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import ImageEditorCanvas from './ImageEditorCanvas'
-import ImageEditorToolBox from './ImageEditorToolBox'
-import { ToolNames } from './PaperGlobalVariables'
+import ImageEditorControls from './ImageEditorControls'
+import { EditorProject, CropPath, ImportedImage, DefaultStyle, instantiateProject, clearProject, importImage } from './PaperGlobalVariables'
+import EditorTools from './PaperEditorTools'
+const { POLYGON_LASSO } = EditorTools
 
-let { LASSO, POLYGON_LASSO, MARQUEE, ELLIPSE } = ToolNames
+class ImageEditor extends Component {
+	componentDidMount () {
+		instantiateProject()
 
-const ImageEditor = ({ open, tool, image }) => {
-	return (
-		<div
-			className='image-editor'
-			style{{
-				display: open ? block : none
-			}}
-		>
-			<ImageEditorCanvas open={open} tool={tool} image={image} />
-			<ImageEditorToolBox tool={tool} />
-		</div>
-	)
-}
+		if (this.props.image) {
+			importImage(this.props.image.url)
+			POLYGON_LASSO.activate()
+		}
+	}
 
-ImageEditor.propTypes = {
-	open: PropTypes.string.isRequired,
-	tool: PropTypes.string.isRequired,
-	image: Proptypes.object.isRequired
+	componentWillReceiveProps (nextProps) {
+		if (nextProps.image !== this.props.image) {
+			importImage(this.props.image.url)
+			POLYGON_LASSO.activate()
+		}
+	}
+
+	shouldComponentUpdate (nextProps, nextState) {
+		return nextProps.open !== this.props.open
+	}
+
+	render () {
+		return (
+			<div
+				className='image-editor'
+				style={{
+					display: this.props.open ? 'block' : 'none'
+				}}
+			>
+				<ImageEditorCanvas />
+				<ImageEditorControls />
+			</div>
+		)
+	}
 }
 
 export default ImageEditor

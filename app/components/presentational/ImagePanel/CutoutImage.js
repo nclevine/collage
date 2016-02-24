@@ -9,7 +9,7 @@ const CutoutImage = ({ SVGString }) => {
 	)
 }
 
-CutoutImage.proptypes = {
+CutoutImage.propTypes = {
 	SVGString: PropTypes.string.isRequired
 }
 

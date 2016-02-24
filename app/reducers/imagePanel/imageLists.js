@@ -75,13 +75,14 @@ const imageLists = (state = initialState, action) => {
 		case ADD_RAW_IMAGE:
 		case ADD_CUTOUT_IMAGE:
 		case REMOVE_IMAGE:
-			return state.map(l => 
+			return state.map(l => {
 				if (l.listId !== action.listId) {
 					return l
 				}
 				return list(l, action)
-			)
-
+			})
+		default:
+			return state
 	}
 }
 

@@ -1,14 +1,13 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import ImageImportPanel from './ImageImportPanel'
-import OrganizedImageList from '../../container/OrganizedImageList'
-import ImageEditor from './ImageEditor/ImageEditor'
+import CombinedImageListContainer from '../../container/CombinedImageListContainer'
+import ImageEditorContainer from '../../container/ImageEditorContainer'
 
 const ImagePanel = () => {
 	return (
 		<div>	
 			<ImageImportPanel />
-			<OrganizedImageList />
-			<ImageEditor />
+			<ImageEditorContainer />
 		</div>
 	)
 }
