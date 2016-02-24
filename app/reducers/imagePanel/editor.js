@@ -10,10 +10,10 @@ const open = (state = false, action) => {
 	}
 }
 
-const url = (state = null, action) => {
+const image = (state = null, action) => {
 	switch (action.type) {
 		case IMPORT_IMAGE_TO_EDITOR:
-			return action.url
+			return action.image
 		default:
 			return state
 	}
@@ -21,7 +21,7 @@ const url = (state = null, action) => {
 
 const editor = combineReducers({
 	open,
-	url
+	image
 })
 
 export default editor

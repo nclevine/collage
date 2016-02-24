@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { toggleImageEditorOpen } from '../../actions'
+import { toggleImageEditorOpen, importImageToEditor } from '../../actions'
 
 let ExitEditorButton = ({ dispatch }) => {
 	return (
@@ -8,6 +8,7 @@ let ExitEditorButton = ({ dispatch }) => {
 			className='editor-exit-btn'
 			onClick={() => {
 				dispatch(toggleImageEditorOpen())
+				dispatch(importImageToEditor(null))
 			}}
 		>
 			Exit Editor

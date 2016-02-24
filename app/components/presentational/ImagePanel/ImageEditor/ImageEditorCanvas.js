@@ -1,12 +1,16 @@
 import React, { PropTypes } from 'react'
 
-const ImageEditorCanvas = () => {
+const ImageEditorCanvas = ({ imageWidth, imageHeight }) => {
 	return (
 		<canvas
 			id='editor-canvas'
 			className='image-editor-canvas'
-			width={'1000'}
-			height={'1000'}
+			width={imageWidth}
+			height={imageHeight}
+			style={{
+				width: imageWidth,
+				height: imageHeight
+			}}
 		></canvas>
 	)
 }

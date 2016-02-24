@@ -12,8 +12,8 @@ let ImageOptionsButton = ({ method, listId, image, children, dispatch }) => {
 				} else if (method === 'DELETE') {
 					dispatch(removeImage(listId, image.id))
 				} else if (method === 'EDIT') {
+					dispatch(importImageToEditor(image))
 					dispatch(toggleImageEditorOpen())
-					dispatch(importImageToEditor(image.url))
 				} else if (method === 'BACKGROUND') {
 					dispatch(setCollageBackground(image.url))
 				}

@@ -76,10 +76,10 @@ export const toggleImageEditorOpen = () => {
 	}
 }
 
-export const importImageToEditor = (url) => {
+export const importImageToEditor = (image) => {
 	return {
 		type: IMPORT_IMAGE_TO_EDITOR,
-		url
+		image
 	}
 }
 

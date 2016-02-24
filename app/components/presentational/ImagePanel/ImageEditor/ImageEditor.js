@@ -9,24 +9,24 @@ class ImageEditor extends Component {
 	componentDidMount () {
 		instantiateProject()
 
-		if (this.props.url) {
-			importImage(this.props.url)
+		if (this.props.image) {
+			importImage(this.props.image.url)
 			LASSO.activate()
 		}
 	}
 
-	componentWillReceiveProps (nextProps) {
-		if (nextProps.url !== this.props.url) {
-			importImage(nextProps.url)
+	componentDidUpdate (prevProps) {
+		instantiateProject()
+
+		if (this.props.image && this.props.image !== prevProps.image) {
+			importImage(this.props.image.url)
 			LASSO.activate()
 		}
-	}
-
-	shouldComponentUpdate (nextProps, nextState) {
-		return nextProps.open !== this.props.open
 	}
 
 	render () {
+		let imageWidth = this.props.image ? this.props.image.width : 0
+		let imageHeight = this.props.image ? this.props.image.height : 0
 		return (
 			<div
 				className='image-editor'
@@ -34,7 +34,7 @@ class ImageEditor extends Component {
 					display: this.props.open ? 'block' : 'none'
 				}}
 			>
-				<ImageEditorCanvas />
+				<ImageEditorCanvas imageWidth={imageWidth} imageHeight={imageHeight} />
 				<ImageEditorControls />
 			</div>
 		)
