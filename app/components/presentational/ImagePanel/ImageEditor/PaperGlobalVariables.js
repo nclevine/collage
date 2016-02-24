@@ -23,6 +23,8 @@ export const instantiateProject = () => {
 
 export const clearProject = () => {
 	EditorProject.clear()
+	CropPath = undefined
+	ImportedImage = undefined
 }
 
 export const importImage = (url) => {
