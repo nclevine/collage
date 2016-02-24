@@ -11,7 +11,9 @@ const ImageEditorUtilityButton = ({ utility }) => {
 	return (
 		<button
 			className='image-editor-btn'
-			onClick={utilize}
+			onClick={() => {
+				utilize(utility)
+			}}
 		>
 			{utility}
 		</button>

@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import ImageEditorToolButton from './ImageEditorToolButton'
 import ImageEditorUtilityButton from './ImageEditorUtilityButton'
 import ExportCropButton from '../../../mixed/ExportCropButton'
+import ExitEditorButton from '../../../mixed/ExitEditorButton'
 import EditorTools from './PaperEditorTools'
 import { EditorUtilities } from './PaperGlobalVariables'
 
@@ -15,6 +16,7 @@ const ImageEditorControls = () => {
 				return <ImageEditorUtilityButton key={index} utility={u} />
 			})}
 			<ExportCropButton />
+			<ExitEditorButton />
 		</div>
 	)
 }

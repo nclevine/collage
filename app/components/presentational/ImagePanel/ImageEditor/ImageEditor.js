@@ -3,7 +3,7 @@ import ImageEditorCanvas from './ImageEditorCanvas'
 import ImageEditorControls from './ImageEditorControls'
 import { EditorProject, CropPath, ImportedImage, DefaultStyle, instantiateProject, clearProject, importImage } from './PaperGlobalVariables'
 import EditorTools from './PaperEditorTools'
-const { POLYGON_LASSO } = EditorTools
+const { LASSO } = EditorTools
 
 class ImageEditor extends Component {
 	componentDidMount () {
@@ -11,14 +11,14 @@ class ImageEditor extends Component {
 
 		if (this.props.image) {
 			importImage(this.props.image.url)
-			POLYGON_LASSO.activate()
+			LASSO.activate()
 		}
 	}
 
 	componentWillReceiveProps (nextProps) {
 		if (nextProps.image !== this.props.image) {
 			importImage(this.props.image.url)
-			POLYGON_LASSO.activate()
+			LASSO.activate()
 		}
 	}
 

@@ -28,23 +28,39 @@ export const importImage = (url) => {
 
 // Editor utility button functions
 
+const updateProject = () => {
+	EditorProject.view.update()
+}
+
 const makeCrop = () => {
-	let paths = EditorProject.getItems({ class: paper.Path })
+	if (CropPath && CropPath.clipMask) { return }
+	let paths = EditorProject.activeLayer.getItems({
+		class: paper.Path,
+		visible: true
+	})
+	if (paths.length === 0) { return }
 	CropPath = new paper.CompoundPath({
 		children: paths,
 		clipMask: true
 	})
+	updateProject()
 }
 
 const unmakeCrop = () => {
-	CropPath.remove()
+	if (!CropPath) { return }
+	CropPath.clipMask = false
+	updateProject()
 }
 
 const clearPaths = () => {
-	if (CropPath) { CropPath.remove() }
-	let paths = EditorProject.getItems({ class: paper.Path })
-	paths.forEach(path => path.remove())
-	EditorProject.view.update()
+	let items = EditorProject.activeLayer.getItems({})
+	items.forEach(item => {
+		if (item.className !== 'Raster') {
+			item.remove()
+		}
+	})
+	CropPath = undefined
+	updateProject()
 }
 
 export const EditorUtilities = {
