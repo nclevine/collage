@@ -33,7 +33,7 @@ const initialState = {
 		open: true,
 		importPanel: {
 			open: true,
-			method: BY_SEARCH,
+			method: BY_URL,
 			source: ARTSY,
 			results: [
 				// {

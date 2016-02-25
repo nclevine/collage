@@ -1,12 +1,12 @@
 import React from 'react'
-import ImageImportPanel from './ImageImportPanel'
+import ImageImporterContainer from '../../container/ImageImporterContainer'
 import CombinedImageListContainer from '../../container/CombinedImageListContainer'
 import ImageEditorContainer from '../../container/ImageEditorContainer'
 
 const ImagePanel = () => {
 	return (
-		<div>	
-			<ImageImportPanel />
+		<div>
+			<ImageImporterContainer />
 			<ImageEditorContainer />
 			<CombinedImageListContainer />
 		</div>
