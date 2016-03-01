@@ -5,7 +5,7 @@ import { addCollageElement, removeImage, importImageToEditor, toggleImageEditorO
 let ImageOptionsButton = ({ method, listId, image, children, dispatch }) => {
 	return (
 		<button
-			className="image-options-btn"
+			className='image-options-btn'
 			onClick={() => {
 				if (method === 'ADD_TO_COLLAGE') {
 					dispatch(addCollageElement(image))

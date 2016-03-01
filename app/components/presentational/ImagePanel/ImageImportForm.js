@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-const ImageImportForm = ({ importMethod, searchSource }) => {
+const ImageImportForm = ({ importMethod, searchSource, onSubmit }) => {
 	let input
 	let placeholder = importMethod === 'BY_URL' ?
 		'Enter image URL' :
@@ -10,7 +10,14 @@ const ImageImportForm = ({ importMethod, searchSource }) => {
 		'Search'
 
 	return (
-		<form className='image-import-form'>
+		<form
+			className='image-import-form'
+			onSubmit={(e) => {
+				e.preventDefault()
+				onSubmit(input.value)
+				input.value = ''
+			}}
+		>
 			<input
 				type='text'
 				placeholder={placeholder}

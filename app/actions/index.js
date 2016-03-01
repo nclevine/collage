@@ -5,6 +5,7 @@ export const TOGGLE_IMAGE_IMPORT_PANEL_OPEN = 'TOGGLE_IMAGE_IMPORT_PANEL_OPEN'
 export const SET_IMAGE_IMPORT_METHOD = 'SET_IMAGE_IMPORT_METHOD'
 export const SET_IMAGE_SEARCH_SOURCE = 'SET_IMAGE_SEARCH_SOURCE'
 export const ADD_IMAGE_SEARCH_RESULT = 'ADD_IMAGE_SEARCH_RESULT'
+export const CLEAR_IMAGE_SEARCH_RESULTS = 'CLEAR_IMAGE_SEARCH_RESULTS'
 
 export const TOGGLE_IMAGE_EDITOR_OPEN = 'TOGGLE_IMAGE_EDITOR_OPEN'
 export const IMPORT_IMAGE_TO_EDITOR = 'IMPORT_IMAGE_TO_EDITOR'
@@ -70,6 +71,12 @@ export const addImageSearchResult = (url) => {
 	}
 }
 
+export const clearImageSearchResults = () => {
+	return {
+		type: CLEAR_IMAGE_SEARCH_RESULTS
+	}
+}
+
 export const toggleImageEditorOpen = () => {
 	return {
 		type: TOGGLE_IMAGE_EDITOR_OPEN
@@ -106,7 +113,7 @@ export const toggleImageListExpanded = (listId) => {
 	}
 }
 
-let nextRawImageId = 0
+let nextRawImageId = 2
 export const addRawImage = (listId, url) => {
 	return {
 		type: ADD_RAW_IMAGE,

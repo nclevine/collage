@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { TOGGLE_IMAGE_IMPORT_PANEL_OPEN, ImportMethods, SET_IMAGE_IMPORT_METHOD, SET_IMAGE_SEARCH_SOURCE, ImageSearchSources, ADD_IMAGE_SEARCH_RESULT } from '../../actions'
+import { TOGGLE_IMAGE_IMPORT_PANEL_OPEN, ImportMethods, SET_IMAGE_IMPORT_METHOD, SET_IMAGE_SEARCH_SOURCE, ImageSearchSources, ADD_IMAGE_SEARCH_RESULT, CLEAR_IMAGE_SEARCH_RESULTS } from '../../actions'
 const { BY_URL } = ImportMethods
 const { ARTSY } = ImageSearchSources
 
@@ -49,6 +49,8 @@ const results = (state = [], action) => {
 				...state,
 				image(undefined, action)
 			]
+		case CLEAR_IMAGE_SEARCH_RESULTS:
+			return []
 		default:
 			return state
 	}

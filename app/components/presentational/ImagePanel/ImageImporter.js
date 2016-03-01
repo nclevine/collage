@@ -1,17 +1,17 @@
 import React, { PropTypes } from 'react'
 import ImageImportForm from './ImageImportForm'
-import ImageSearchResults from './ImageSearchResults'
+import ImageSearchResultsList from './ImageSearchResultsList'
 
 const ImageImporter = ({ open, importMethod, searchSource, searchResults, onSearchSubmit }) => {
 	return (
 		<div
 			className='image-import-panel'
 			style={{
-				display: this.props.open ? 'block' : 'none'
+				display: open ? 'block' : 'none'
 			}}
 		>
 			<ImageImportForm importMethod={importMethod} searchSource={searchSource} onSubmit={onSearchSubmit} />
-			<ImageSearchResults />
+			<ImageSearchResultsList imageList={searchResults} />
 		</div>
 	)
 }
