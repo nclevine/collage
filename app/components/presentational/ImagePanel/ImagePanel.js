@@ -6,7 +6,7 @@ import ToggleImporterButton from '../../mixed/ToggleImporterButton'
 
 const ImagePanel = () => {
 	return (
-		<div>
+		<div className='image-panel'>
 			<ImageImporterContainer />
 			<ToggleImporterButton />
 			<ImageEditorContainer />

@@ -3,14 +3,35 @@ import RawImage from './RawImage'
 import ImageImportButton from '../../mixed/ImageImportButton'
 
 class ImageSearchResult extends Component {
+	// getImageDimensions (url) {
+	// 	let img = new Image()
+	//     img.onload = () => {
+	//         width = this.width
+	//         height = this.height
+	//     }
+	//     img.src = url
+	// }
+
 	componentDidMount () {
+		let width, height
 		let dimensionsInterval
-		let computedStyle
+		let img = new Image()
+	    img.onload = function () {
+	        width = this.width
+	        height = this.height
+	    }
+	    img.src = this.props.url
+		// let computedStyle
+		// this.getImageDimensions(this.props.url)
 		dimensionsInterval = setInterval(() => {
-			computedStyle = getComputedStyle(this.imageEl)
-			this.imageWidth = parseInt(computedStyle.width)
-			this.imageHeight = parseInt(computedStyle.height)
-			if (this.imageWidth && this.imageHeight) {
+			this.imageWidth = width
+			this.imageHeight = height
+			console.log(this.imageWidth)
+			console.log(this.imageHeight)
+			// computedStyle = getComputedStyle(this.imageEl)
+			// this.imageWidth = parseInt(computedStyle.width)
+			// this.imageHeight = parseInt(computedStyle.height)
+			if (this.imageWidth > 0 && this.imageHeight > 0) {
 				this.forceUpdate()
 				clearInterval(dimensionsInterval)
 			}
@@ -30,6 +51,7 @@ class ImageSearchResult extends Component {
 					url={this.props.url}
 					width={this.imageWidth}
 					height={this.imageHeight}
+					disabled={!this.imageWidth}
 				/>
 			</div>
 		)

@@ -5,7 +5,7 @@ import ImageSearchResultsList from './ImageSearchResultsList'
 const ImageImporter = ({ open, importMethod, searchSource, searchResults, onSearchSubmit }) => {
 	return (
 		<div
-			className='image-import-panel'
+			className='image-importer'
 			style={{
 				display: open ? 'block' : 'none'
 			}}
