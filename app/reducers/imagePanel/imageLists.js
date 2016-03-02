@@ -6,7 +6,9 @@ const image = (state, action) => {
 		case ADD_RAW_IMAGE:
 			return {
 				id: action.id,
-				url: action.url
+				url: action.url,
+				width: action.width,
+				height: action.height
 			}
 		case ADD_CUTOUT_IMAGE:
 			return {
