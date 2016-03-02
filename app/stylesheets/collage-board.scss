@@ -1,0 +1,38 @@
+.ui-wrapper {
+	position: relative;
+	
+	&:hover {
+		.ui-resizable-handle {
+			opacity: 1
+		}
+	}
+
+	.ui-resizable-handle {
+		position: absolute;
+		opacity: 0;
+		width: 10px;
+		height: 10px;
+		background-color: #2ECC40;
+		border: 1px solid white;
+	}
+
+	.ui-resizable-nw {
+		top: 0;
+		left: 0;
+	}
+
+	.ui-resizable-ne {
+		top: 0;
+		right: 0;
+	}
+
+	.ui-resizable-sw {
+		bottom: 0;
+		left: 0;
+	}
+
+	.ui-resizable-se {
+		bottom: 0;
+		right: 0;
+	}
+}

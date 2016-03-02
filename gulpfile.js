@@ -76,7 +76,7 @@ function bundleApp(isProduction) {
 			.pipe(source('vendors.js'))
 			.pipe(gulp.dest('./web/js/'));
 
-		gulp.src(bower())
+		gulp.src(bower().concat('./other_libraries/jquery-ui.min.js'))
 			.pipe(concat('bowerVendors.js'))
 			.pipe(gulp.dest('./web/js/'));
 

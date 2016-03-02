@@ -98,8 +98,10 @@ const initialState = {
 		elements: [
 			// {
 			// 	id: 1,
-			// 	imageType: RAW,
-			// 	imageListId: 1,
+			// 	image: {
+			// 		id: 1,
+			// 		url: 'http://www.blah.com/image.jpg'
+			// 	}
 			// 	dimensions: {
 			// 		width: 700,
 			// 		height: 200
@@ -111,8 +113,10 @@ const initialState = {
 			// },
 			// {
 			// 	id: 2,
-			// 	imageType: CUTOUT,
-			// 	imageListId: 1,
+			// 	image: {
+			// 		id: 5,
+			// 		SVGString: '<svg>...</svg>'
+			// 	}
 			// 	dimensions: {
 			// 		width: 350,
 			// 		height: 100

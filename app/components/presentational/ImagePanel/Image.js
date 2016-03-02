@@ -17,6 +17,7 @@ const Image = ({ listId, image }) => {
 }
 
 Image.propTypes = {
+	listId: PropTypes.number.isRequired,
 	image: PropTypes.object.isRequired
 }
 

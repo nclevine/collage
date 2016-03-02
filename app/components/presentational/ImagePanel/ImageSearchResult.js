@@ -11,4 +11,8 @@ const ImageSearchResult = ({ url }) => {
 	)
 }
 
+ImageSearchResult.propTypes = {
+	url: PropTypes.string.isRequired
+}
+
 export default ImageSearchResult

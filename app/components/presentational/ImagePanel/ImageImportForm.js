@@ -32,4 +32,10 @@ const ImageImportForm = ({ importMethod, searchSource, onSubmit }) => {
 	)
 }
 
+ImageImportForm.propTypes = {
+	importMethod: PropTypes.string.isRequired,
+	searchSource: PropTypes.string.isRequired,
+	onSubmit: PropTypes.func.isRequired
+}
+
 export default ImageImportForm

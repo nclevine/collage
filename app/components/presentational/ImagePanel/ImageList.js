@@ -21,4 +21,12 @@ const ImageList = ({ id, name, expanded, images, onNameClick }) => {
 	)
 }
 
+ImageList.propTypes = {
+	id: PropTypes.number.isRequired,
+	name: PropTypes.string.isRequired,
+	expanded: PropTypes.bool.isRequired,
+	images: PropTypes.array.isRequired,
+	onNameClick: PropTypes.func.isRequired
+}
+
 export default ImageList

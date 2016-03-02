@@ -19,6 +19,7 @@ let ImageOptions = ({ listId, image }) => {
 }
 
 ImageOptions.propTypes = {
+	listId: PropTypes.number.isRequired,
 	image: PropTypes.object.isRequired
 }
 

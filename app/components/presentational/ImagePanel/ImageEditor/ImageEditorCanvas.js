@@ -15,4 +15,9 @@ const ImageEditorCanvas = ({ imageWidth, imageHeight }) => {
 	)
 }
 
+ImageEditorCanvas.propTypes = {
+	imageWidth: PropTypes.number.isRequired,
+	imageHeight: PropTypes.number.isRequired
+}
+
 export default ImageEditorCanvas

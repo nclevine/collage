@@ -15,4 +15,9 @@ const CombinedImageList = ({ imageLists, onListClick }) => {
 	)
 }
 
+CombinedImageList.propTypes = {
+	imageLists: PropTypes.array.isRequired,
+	onListClick: PropTypes.func.isRequired
+}
+
 export default CombinedImageList

@@ -17,4 +17,8 @@ const ImageSearchResultsList = ({ imageList }) => {
 	)
 }
 
+ImageSearchResultsList.propTypes = {
+	imageList: PropTypes.array.isRequired
+}
+
 export default ImageSearchResultsList

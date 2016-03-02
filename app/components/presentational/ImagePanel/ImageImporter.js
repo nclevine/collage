@@ -16,4 +16,12 @@ const ImageImporter = ({ open, importMethod, searchSource, searchResults, onSear
 	)
 }
 
+ImageImporter.propTypes = {
+	open: PropTypes.bool.isRequired,
+	importMethod: PropTypes.string.isRequired,
+	searchSource: PropTypes.string.isRequired,
+	searchResults: PropTypes.array.isRequired,
+	onSearchSubmit: PropTypes.func.isRequired
+}
+
 export default ImageImporter
