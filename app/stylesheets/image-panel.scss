@@ -1,5 +1,9 @@
 .image-panel {
-	width: 50%
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
 }
 
 .image-importer,
@@ -14,7 +18,33 @@
 	width: 100%
 }
 
+.image-importer, .toggle-importer-btn, .image-editor {
+	position: absolute;
+	top: 0;
+	left: 100%;
+}
+
+.combined-image-list {
+	height: 100%;
+	overflow: auto;
+}
+
 .image-editor-canvas {
 	width: 100%;
 	height: 100%;
+}
+
+.toggle-image-panel-btn {
+	position: absolute;
+	z-index: 1;
+
+	&.open {
+		top: 0;
+		right: 50%;
+	}
+
+	&.closed {
+		bottom: 0;
+		left: 0;
+	}
 }

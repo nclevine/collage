@@ -1,15 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleImageImportPanelOpen } from '../../actions'
+import { toggleImageImporterOpen } from '../../../actions'
 
 let ToggleImporterButton = ({ importerOpen, dispatch }) => {
-	let text = importerOpen ? 'Hide Importer' : 'Show Importer'
+	let text = importerOpen ?
+		'Hide Importer' :
+		'Show Importer'
 	
 	return (
 		<button
-			className='editor-exit-btn'
+			className='toggle-importer-btn'
 			onClick={() => {
-				dispatch(toggleImageImportPanelOpen())
+				dispatch(toggleImageImporterOpen())
 			}}
 		>
 			{text}

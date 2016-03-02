@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
-import { TOGGLE_IMAGE_IMPORT_PANEL_OPEN, ImportMethods, SET_IMAGE_IMPORT_METHOD, SET_IMAGE_SEARCH_SOURCE, ImageSearchSources, ADD_IMAGE_SEARCH_RESULT, CLEAR_IMAGE_SEARCH_RESULTS } from '../../actions'
+import { TOGGLE_IMAGE_IMPORTER_OPEN, ImportMethods, SET_IMAGE_IMPORT_METHOD, SET_IMAGE_SEARCH_SOURCE, ImageSearchSources, ADD_IMAGE_SEARCH_RESULT, CLEAR_IMAGE_SEARCH_RESULTS } from '../../actions'
 const { BY_URL } = ImportMethods
 const { ARTSY } = ImageSearchSources
 
 const open = (state = false, action) => {
 	switch (action.type) {
-		case TOGGLE_IMAGE_IMPORT_PANEL_OPEN:
+		case TOGGLE_IMAGE_IMPORTER_OPEN:
 			return !state
 		default:
 			return state

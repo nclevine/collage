@@ -21,9 +21,7 @@ const CollageBoard = ({ active, menuOpen, background, elements, selectedElement 
 CollageBoard.propTypes = {
 	active: PropTypes.bool.isRequired,
 	menuOpen: PropTypes.bool.isRequired,
-	background: PropTypes.string.isRequired,
 	elements: PropTypes.array.isRequired,
-	selectedElement: PropTypes.number.isRequired
 }
 
 export default CollageBoard

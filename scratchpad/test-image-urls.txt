@@ -2,3 +2,4 @@ test image urls:
 
 http://www.billboard.com/files/styles/article_main_image/public/media/rihanna-anti-mama-gallery-2015-billboard-650.jpg
 http://www.lahomegirl.com/wp-content/uploads/2014/10/echo-park-lake-reopens-photo.jpg
+https://s3.amazonaws.com/tribeca_cms_production/uploads/image/gallery_image/5346df05996c07cffa000001/mattlambert_tn.jpg

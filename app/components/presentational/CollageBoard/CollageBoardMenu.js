@@ -3,7 +3,14 @@ import CollageBoardMenuButton from './CollageBoardMenuButton'
 
 const CollageBoardMenu = ({ open }) => {
 	return (
-
+		<div
+			className='collage-board-menu'
+			style={{
+				display: open ? 'block' : 'none'
+			}}
+		>
+			Collage Board Menu
+		</div>
 	)
 }
 

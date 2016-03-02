@@ -1,17 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import RawImage from './RawImage'
-import ImageImportButton from '../../mixed/ImageImportButton'
+import ImageImportButton from '../../mixed/ImagePanel/ImageImportButton'
 
 class ImageSearchResult extends Component {
-	// getImageDimensions (url) {
-	// 	let img = new Image()
-	//     img.onload = () => {
-	//         width = this.width
-	//         height = this.height
-	//     }
-	//     img.src = url
-	// }
-
 	componentDidMount () {
 		let width, height
 		let dimensionsInterval
@@ -21,21 +12,14 @@ class ImageSearchResult extends Component {
 	        height = this.height
 	    }
 	    img.src = this.props.url
-		// let computedStyle
-		// this.getImageDimensions(this.props.url)
 		dimensionsInterval = setInterval(() => {
 			this.imageWidth = width
 			this.imageHeight = height
-			console.log(this.imageWidth)
-			console.log(this.imageHeight)
-			// computedStyle = getComputedStyle(this.imageEl)
-			// this.imageWidth = parseInt(computedStyle.width)
-			// this.imageHeight = parseInt(computedStyle.height)
 			if (this.imageWidth > 0 && this.imageHeight > 0) {
 				this.forceUpdate()
 				clearInterval(dimensionsInterval)
 			}
-		}, 200)
+		}, 300)
 	}
 
 	render () {

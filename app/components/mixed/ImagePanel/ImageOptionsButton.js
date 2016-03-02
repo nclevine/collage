@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { addCollageElement, removeImage, importImageToEditor, toggleImageEditorOpen, setCollageBackground } from '../../actions'
+import { addCollageElement, removeImage, importImageToEditor, toggleImageEditorOpen, setCollageBackground } from '../../../actions'
 
 let ImageOptionsButton = ({ method, listId, image, children, dispatch }) => {
 	return (

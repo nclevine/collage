@@ -13,7 +13,9 @@ const image = (state, action) => {
 		case ADD_CUTOUT_IMAGE:
 			return {
 				id: action.id,
-				SVGString: action.SVGString
+				SVGString: action.SVGString,
+				width: action.width,
+				height: action.height
 			}
 		default:
 			return state

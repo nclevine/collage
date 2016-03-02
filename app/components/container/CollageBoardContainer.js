@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import 'CollageBoard' from '../presentational/CollageBoard/CollageBoard'
+import CollageBoard from '../presentational/CollageBoard/CollageBoard'
 
 const mapStateToProps = (state) => {
 	let { active, menuOpen, background, elements, selectedElement } = state.collageBoard

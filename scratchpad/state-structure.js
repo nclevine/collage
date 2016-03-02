@@ -32,7 +32,7 @@ const initialState = {
 	imagePanel: {
 		open: true,
 		importPanel: {
-			open: true,
+			open: false,
 			method: BY_URL,
 			source: ARTSY,
 			results: [
@@ -54,20 +54,8 @@ const initialState = {
 						width: 500,
 						height: 385
 					},
-					// {
-					// 	id: 2,
-					// 	url: 'http://40.media.tumblr.com/fbe21e47846c52360b40b0f480dc6344/tumblr_o15m8wRPBj1u2evjjo1_500.jpg'
-					// },
-					// {
-					// 	id: 3,
-					// 	url: 'http://40.media.tumblr.com/13452739e5e2dbc3e8a403e2e490a730/tumblr_o1ofqzYWzi1qfdys9o1_500.jpg'
-					// },
-					// {
-					// 	id: 4,
-					// 	url: 'http://40.media.tumblr.com/b0985b0f616a530eaf282008ed1802ff/tumblr_o1coqo8Chi1ul634to1_500.jpg'
-					// },
 					{
-						id: 5,
+						id: 2,
 						url: 'http://36.media.tumblr.com/502b55ce226934abda882ddeec1effa2/tumblr_mu9zkn51g61rhhuhgo1_400.png',
 						width: 400,
 						height: 382
@@ -107,8 +95,8 @@ const initialState = {
 			// 		height: 200
 			// 	},
 			// 	position: {
-			// 		x: 400,
-			// 		y: 30
+			// 		top: 30
+			// 		left: 400,
 			// 	}
 			// },
 			// {
@@ -122,8 +110,8 @@ const initialState = {
 			// 		height: 100
 			// 	},
 			// 	position: {
-			// 		x: 20,
-			// 		y: 300
+			// 		top: 300
+			// 		left: 20,
 			// 	}
 			// }
 		],

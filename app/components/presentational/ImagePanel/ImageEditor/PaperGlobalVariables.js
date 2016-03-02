@@ -99,5 +99,9 @@ export const exportCrop = () => {
 	SVG.setAttribute('width', bounds.width)
 	SVG.setAttribute('height', bounds.height)
 
-	return nodeToString(SVG)
+	return {
+		SVGString: nodeToString(SVG),
+		width: bounds.width,
+		height: bounds.height
+	}
 }

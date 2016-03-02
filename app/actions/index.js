@@ -1,6 +1,6 @@
 export const TOGGLE_IMAGE_PANEL_OPEN = 'TOGGLE_IMAGE_PANEL_OPEN'
 
-export const TOGGLE_IMAGE_IMPORT_PANEL_OPEN = 'TOGGLE_IMAGE_IMPORT_PANEL_OPEN'
+export const TOGGLE_IMAGE_IMPORTER_OPEN = 'TOGGLE_IMAGE_IMPORTER_OPEN'
 
 export const SET_IMAGE_IMPORT_METHOD = 'SET_IMAGE_IMPORT_METHOD'
 export const SET_IMAGE_SEARCH_SOURCE = 'SET_IMAGE_SEARCH_SOURCE'
@@ -32,9 +32,9 @@ export const toggleImagePanelOpen = () => {
 	}
 }
 
-export const toggleImageImportPanelOpen = () => {
+export const toggleImageImporterOpen = () => {
 	return {
-		type: TOGGLE_IMAGE_IMPORT_PANEL_OPEN
+		type: TOGGLE_IMAGE_IMPORTER_OPEN
 	}
 }
 
@@ -126,12 +126,14 @@ export const addRawImage = (listId, url, width, height) => {
 }
 
 let nextCutoutImageId = 0
-export const addCutoutImage = (listId, SVGString) => {
+export const addCutoutImage = (listId, SVGString, width, height) => {
 	return {
 		type: ADD_CUTOUT_IMAGE,
 		id: nextCutoutImageId++,
 		listId,
-		SVGString
+		SVGString,
+		width,
+		height
 	}
 }
 

@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import ImageEditorToolButton from './ImageEditorToolButton'
 import ImageEditorUtilityButton from './ImageEditorUtilityButton'
-import ExportCropButton from '../../../mixed/ExportCropButton'
-import ExitEditorButton from '../../../mixed/ExitEditorButton'
+import ExportCropButton from '../../../mixed/ImagePanel/ExportCropButton'
+import ExitEditorButton from '../../../mixed/ImagePanel/ExitEditorButton'
 import EditorTools from './PaperEditorTools'
 import { EditorUtilities } from './PaperGlobalVariables'
 

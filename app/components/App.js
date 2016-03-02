@@ -1,9 +1,13 @@
 import React from 'react'
-import ImagePanel from './presentational/ImagePanel/ImagePanel'
+import ImagePanel from './mixed/ImagePanel/ImagePanel'
+import CollageBoardContainer from './container/CollageBoardContainer'
+import ToggleImagePanelButton from './mixed/ImagePanel/ToggleImagePanelButton'
 
 const App = () => (
-  <div>
+  <div className='app'>
+    <CollageBoardContainer />
     <ImagePanel />
+  	<ToggleImagePanelButton />
   </div>
 )
 

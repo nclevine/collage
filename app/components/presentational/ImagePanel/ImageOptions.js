@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import ImageOptionsButton from '../../mixed/ImageOptionsButton'
+import ImageOptionsButton from '../../mixed/ImagePanel/ImageOptionsButton'
 
 let ImageOptions = ({ listId, image }) => {
 	let rawButtons = image.url ?

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleImageEditorOpen, importImageToEditor } from '../../actions'
+import { toggleImageEditorOpen, importImageToEditor } from '../../../actions'
 
 let ExitEditorButton = ({ dispatch }) => {
 	return (

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { addRawImage } from '../../actions'
+import { addRawImage } from '../../../actions'
 
 let ImageImportButton = ({ url, width, height, disabled, dispatch }) => {
 	return (
