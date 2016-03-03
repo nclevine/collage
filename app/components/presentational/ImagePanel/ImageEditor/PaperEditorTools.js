@@ -50,4 +50,42 @@ EditorTools.POLYGON_LASSO.onMouseMove = polygonLassoFindPoint
 EditorTools.POLYGON_LASSO.onKeyDown = polygonLassoFinish
 
 
+// MARQUEE
+let lastMarquee
+let curMarquee
+var marqueeStartPoint
+
+const marqueeInit = (e) => {
+    marqueeStartPoint = e.point
+    curMarquee = new paper.Path.Rectangle()
+}
+
+
+const marqueeDrag = (e) => {
+    lastMarquee = curMarquee
+    lastMarquee.remove()
+    curMarquee = new paper.Path.Rectangle(marqueeStartPoint, e.point)
+}
+EditorTools.MARQUEE.onMouseDown = marqueeInit
+EditorTools.MARQUEE.onMouseDrag = marqueeDrag
+
+
+// ELLIPSE
+let lastEllipse
+let curEllipse
+var ellipseStartPoint
+
+const ellipseInit = (e) => {
+    ellipseStartPoint = e.point
+    curEllipse = new paper.Path.Ellipse()
+}
+
+const ellipseDrag = (e) => {
+    lastEllipse = curEllipse
+    lastEllipse.remove()
+    curEllipse = new paper.Path.Ellipse(ellipseStartPoint, e.point)
+}
+EditorTools.ELLIPSE.onMouseDown = ellipseInit
+EditorTools.ELLIPSE.onMouseDrag = ellipseDrag
+
 export default EditorTools
