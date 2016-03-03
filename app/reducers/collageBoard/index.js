@@ -23,7 +23,7 @@ const menuOpen = (state = true, action) => {
 const background = (state = 'white', action) => {
 	switch (action.type) {
 		case SET_COLLAGE_BACKGROUND:
-			return action.id
+			return action.url
 		default:
 			return state
 	}

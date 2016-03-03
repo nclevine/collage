@@ -3,8 +3,16 @@ import CollageBoardMenu from './CollageBoardMenu'
 import CollageElement from './CollageElement'
 
 const CollageBoard = ({ active, menuOpen, background, elements, selectedElement }) => {
+	let backgroundString = background ?
+		'url("' + background + '")' :
+		''
 	return (
-		<div className='collage-board'>
+		<div 
+			className='collage-board'
+			style={{
+				backgroundImage: backgroundString
+			}}
+		>
 			<CollageBoardMenu open={menuOpen} />
 			{elements.map(element =>
 				<CollageElement
