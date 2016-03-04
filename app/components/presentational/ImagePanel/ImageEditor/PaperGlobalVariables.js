@@ -57,6 +57,10 @@ const makeCrop = () => {
 const unmakeCrop = () => {
 	if (!CropPath) { return }
 	CropPath.clipMask = false
+	EditorProject.activeLayer.getItems({class: paper.Path})
+		.forEach((path) => {
+			path.style = EditorProject.currentStyle
+		})
 	updateProject()
 }
 

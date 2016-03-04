@@ -14,6 +14,9 @@ class CollageElement extends Component {
 	render () {
 		let { top, left } = this.props.position
 		let { width, height } = this.props.dimensions
+		let outline = this.props.isSelected ?
+			'2px solid green' :
+			'none'
 		let element = this.props.image.url ?
 			<RawImage url={this.props.image.url} /> :
 			<CutoutImage SVGString={this.props.image.SVGString} />
@@ -24,10 +27,14 @@ class CollageElement extends Component {
 					this.container = node
 				}}
 				style={{
-					top: {top},
-					left: {left},
-					width: {width},
-					height: {height}
+					top: top,
+					left: left,
+					width: width,
+					height: height,
+					outline: outline
+				}}
+				onClick={() => {
+					this.props.onClick(this.props.id)
 				}}
 			>
 				{element}

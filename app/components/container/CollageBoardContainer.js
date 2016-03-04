@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import CollageBoard from '../presentational/CollageBoard/CollageBoard'
+import { toggleSelectedElement } from '../../actions'
 
 const mapStateToProps = (state) => {
 	let { active, menuOpen, background, elements, selectedElement } = state.collageBoard
@@ -15,7 +16,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		
+		onElementClick: (id) => {
+			dispatch(toggleSelectedElement(id))
+		} 
 	}
 }
 
