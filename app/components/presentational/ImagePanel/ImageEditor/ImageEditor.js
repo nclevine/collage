@@ -34,8 +34,17 @@ class ImageEditor extends Component {
 					display: this.props.open ? 'block' : 'none'
 				}}
 			>
-				<ImageEditorCanvas imageWidth={imageWidth} imageHeight={imageHeight} />
-				<ImageEditorControls />
+				<div className='image-editor-background-overlay'></div>
+				<div 
+					className='image-editor-container'
+					style={{
+						top: 'calc(45% - ' + (imageHeight / 2) + 'px)',
+						left: 'calc(100% - ' + (imageWidth / 2) + 'px)'
+					}}
+				>
+					<ImageEditorCanvas imageWidth={imageWidth} imageHeight={imageHeight} />
+					<ImageEditorControls />
+				</div>
 			</div>
 		)
 	}

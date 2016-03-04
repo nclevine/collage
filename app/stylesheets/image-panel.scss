@@ -18,20 +18,42 @@
 	width: 100%
 }
 
-.image-importer, .toggle-importer-btn, .image-editor {
+.image-importer, .toggle-importer-btn {
 	position: absolute;
 	top: 0;
 	left: 100%;
 }
 
-.combined-image-list {
+.image-editor {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
 	height: 100%;
-	overflow: auto;
+	z-index: 10;
+}
+
+.image-editor-container {
+	position: absolute;
+}
+
+.image-editor-background-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200%;
+	height: 100%;
+	background-color: rgba(1,1,1,0.5);
 }
 
 .image-editor-canvas {
 	width: 100%;
 	height: 100%;
+}
+
+.combined-image-list {
+	height: 100%;
+	overflow: auto;
 }
 
 .toggle-image-panel-btn {
