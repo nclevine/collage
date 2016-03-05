@@ -31,9 +31,11 @@ class CollageElement extends Component {
 					left: left,
 					width: width,
 					height: height,
-					outline: outline
+					outline: outline,
+					zIndex: 1
 				}}
 				onClick={() => {
+					console.log(this.props.id)
 					this.props.onClick(this.props.id)
 				}}
 			>

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
-import CollageBoardMenuButton from './CollageBoardMenuButton'
+import ClearBoardButton from '../../mixed/CollageBoard/ClearBoardButton'
+import DeleteSelectedElementsButton from '../../mixed/CollageBoard/DeleteSelectedElementsButton'
 
 const CollageBoardMenu = ({ open }) => {
 	return (
@@ -9,7 +10,8 @@ const CollageBoardMenu = ({ open }) => {
 				display: open ? 'block' : 'none'
 			}}
 		>
-			Collage Board Menu
+			<ClearBoardButton />
+			<DeleteSelectedElementsButton />
 		</div>
 	)
 }

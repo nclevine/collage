@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { ADD_COLLAGE_ELEMENT, REMOVE_COLLAGE_ELEMENT, UPDATE_COLLAGE_ELEMENT } from '../../actions'
+import { ADD_COLLAGE_ELEMENT, REMOVE_COLLAGE_ELEMENT, UPDATE_COLLAGE_ELEMENT, CLEAR_ALL_ELEMENTS } from '../../actions'
 
 const element = (state, action) => {
 	switch (action.type) {
@@ -41,10 +41,18 @@ const elements = (state = [], action) => {
 				element(e, action)
 			)
 		case REMOVE_COLLAGE_ELEMENT:
+			let index
+			state.forEach((el, i) => {
+				if (el.id === action.id) {
+					index = i
+				}
+			})
 			return [
-				...state.slice(0, action.id),
-				...state.slice(action.id + 1)
+				...state.slice(0, index),
+				...state.slice(index + 1)
 			]
+		case CLEAR_ALL_ELEMENTS:
+			return []
 		default:
 			return state
 	}
