@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import CollageBoardMenu from './CollageBoardMenu'
 import CollageElement from './CollageElement'
 
-const CollageBoard = ({ active, menuOpen, background, elements, selectedElement, onElementClick }) => {
+const CollageBoard = ({ active, menuOpen, background, elements, selectedElements, onBoardClick, onElementClick }) => {
 	let container
 	let backgroundString = background ?
 		'url("' + background + '")' :
@@ -15,16 +15,15 @@ const CollageBoard = ({ active, menuOpen, background, elements, selectedElement,
 			}}
 			onClick={(e) => {
 				if (e.target !== container) return
-				onElementClick(null)
+				onBoardClick()
 			}}
 			style={{
-				backgroundImage: backgroundString
+				background: backgroundString
 			}}
 		>
 			<CollageBoardMenu open={menuOpen} />
 			{elements.map(element => {
-				let isSelected = (selectedElement === element.id)
-				console.log(isSelected)
+				let isSelected = selectedElements.includes(element.id)
 				return (
 					<CollageElement
 						key={element.id}
@@ -45,6 +44,7 @@ CollageBoard.propTypes = {
 	active: PropTypes.bool.isRequired,
 	menuOpen: PropTypes.bool.isRequired,
 	elements: PropTypes.array.isRequired,
+	selectedElements: PropTypes.array.isRequired
 }
 
 export default CollageBoard

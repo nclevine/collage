@@ -1,21 +1,24 @@
 import { connect } from 'react-redux'
 import CollageBoard from '../presentational/CollageBoard/CollageBoard'
-import { toggleSelectedElement } from '../../actions'
+import { toggleSelectedElement, deselectAllElements } from '../../actions'
 
 const mapStateToProps = (state) => {
-	let { active, menuOpen, background, elements, selectedElement } = state.collageBoard
+	let { active, menuOpen, background, elements, selectedElements } = state.collageBoard
 	
 	return {
 		active: active,
 		menuOpen: menuOpen,
 		background: background,
 		elements: elements,
-		selectedElement: selectedElement
+		selectedElements: selectedElements
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
+		onBoardClick: () => {
+			dispatch(deselectAllElements())
+		},
 		onElementClick: (id) => {
 			dispatch(toggleSelectedElement(id))
 		} 

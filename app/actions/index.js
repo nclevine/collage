@@ -25,6 +25,7 @@ export const ADD_COLLAGE_ELEMENT = 'ADD_COLLAGE_ELEMENT'
 export const REMOVE_COLLAGE_ELEMENT = 'REMOVE_COLLAGE_ELEMENT'
 export const UPDATE_COLLAGE_ELEMENT = 'UPDATE_COLLAGE_ELEMENT'
 export const TOGGLE_SELECTED_ELEMENT = 'TOGGLE_SELECTED_ELEMENT'
+export const DESELECT_ALL_ELEMENTS = 'DESELECT_ALL_ELEMENTS'
 
 export const toggleImagePanelOpen = () => {
 	return {
@@ -193,5 +194,11 @@ export const toggleSelectedElement = (id) => {
 	return {
 		type: TOGGLE_SELECTED_ELEMENT,
 		id
+	}
+}
+
+export const deselectAllElements = () => {
+	return {
+		type: DESELECT_ALL_ELEMENTS
 	}
 }

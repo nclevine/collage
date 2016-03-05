@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { TOGGLE_COLLAGE_BOARD_ACTIVE, TOGGLE_COLLAGE_BOARD_MENU_OPEN, SET_COLLAGE_BACKGROUND, TOGGLE_SELECTED_ELEMENT } from '../../actions'
+import { TOGGLE_COLLAGE_BOARD_ACTIVE, TOGGLE_COLLAGE_BOARD_MENU_OPEN, SET_COLLAGE_BACKGROUND, TOGGLE_SELECTED_ELEMENT, DESELECT_ALL_ELEMENTS } from '../../actions'
 import elements from './elements'
 
 const active = (state = false, action) => {
@@ -29,10 +29,23 @@ const background = (state = 'white', action) => {
 	}
 }
 
-const selectedElement = (state = null, action) => {
+const selectedElements = (state = [], action) => {
 	switch (action.type) {
 		case TOGGLE_SELECTED_ELEMENT:
-			return action.id
+			let index = state.indexOf(action.id)
+			if (index > -1) {
+				return [
+					...state.slice(0, index),
+					...state.slice(index + 1)
+				]
+			} else {
+				return [
+					...state,
+					action.id
+				]
+			}
+		case DESELECT_ALL_ELEMENTS:
+			return []
 		default:
 			return state
 	}
@@ -43,7 +56,7 @@ const collageBoard = combineReducers({
 	menuOpen,
 	background,
 	elements,
-	selectedElement
+	selectedElements
 })
 
 export default collageBoard

@@ -115,7 +115,7 @@ const initialState = {
 			// 	}
 			// }
 		],
-		selectedElement: null
+		selectedElements: []
 	}
 }
 
