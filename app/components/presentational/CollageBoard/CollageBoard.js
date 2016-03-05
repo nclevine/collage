@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react'
 import CollageBoardMenu from './CollageBoardMenu'
 import CollageElement from './CollageElement'
+import ToggleCollageMenuButton from '../../mixed/CollageBoard/ToggleCollageMenuButton'
 
 const CollageBoard = ({ active, menuOpen, background, elements, selectedElements, onBoardClick, onElementClick }) => {
 	let container
-	let backgroundString = background ?
-		'url("' + background + '")' :
-		''
+	
 	return (
 		<div 
 			className='collage-board'
@@ -18,9 +17,10 @@ const CollageBoard = ({ active, menuOpen, background, elements, selectedElements
 				onBoardClick()
 			}}
 			style={{
-				background: backgroundString
+				background: background
 			}}
 		>
+			<ToggleCollageMenuButton />
 			<CollageBoardMenu open={menuOpen} />
 			{elements.map(element => {
 				let isSelected = selectedElements.includes(element.id)

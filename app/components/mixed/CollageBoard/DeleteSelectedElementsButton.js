@@ -9,7 +9,6 @@ let DeleteSelectedElementsButton = ({ selectedElements, dispatch }) => {
 		<button
 			className='delete-elements-btn'
 			onClick={() => {
-				console.log(selectedElements)
 				selectedElements.forEach((el) => {
 					dispatch(removeCollageElement(el))
 				})

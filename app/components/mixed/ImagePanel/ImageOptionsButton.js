@@ -15,7 +15,7 @@ let ImageOptionsButton = ({ method, listId, image, children, dispatch }) => {
 					dispatch(importImageToEditor(image))
 					dispatch(toggleImageEditorOpen())
 				} else if (method === 'BACKGROUND') {
-					dispatch(setCollageBackground(image.url))
+					dispatch(setCollageBackground('url("' + image.url + '")'))
 				}
 			}}
 		>

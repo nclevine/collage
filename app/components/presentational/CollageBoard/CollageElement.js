@@ -22,6 +22,7 @@ class CollageElement extends Component {
 			<CutoutImage SVGString={this.props.image.SVGString} />
 		return (
 			<div
+				id= {'collage-element-' + this.props.id}
 				className='collage-element'
 				ref={(node) => {
 					this.container = node
@@ -35,7 +36,6 @@ class CollageElement extends Component {
 					zIndex: 1
 				}}
 				onClick={() => {
-					console.log(this.props.id)
 					this.props.onClick(this.props.id)
 				}}
 			>

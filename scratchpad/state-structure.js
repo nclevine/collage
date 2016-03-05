@@ -82,7 +82,7 @@ const initialState = {
 	collageBoard: {
 		active: false,
 		menuOpen: true,
-		background: null,
+		background: 'none',
 		elements: [
 			// {
 			// 	id: 1,
