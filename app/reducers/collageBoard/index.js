@@ -20,10 +20,10 @@ const menuOpen = (state = true, action) => {
 	}
 }
 
-const background = (state = 'white', action) => {
+const background = (state = '#FFF', action) => {
 	switch (action.type) {
 		case SET_COLLAGE_BACKGROUND:
-			return action.url
+			return action.background
 		default:
 			return state
 	}

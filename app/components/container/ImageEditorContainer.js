@@ -2,9 +2,11 @@ import { connect } from 'react-redux'
 import ImageEditor from '../presentational/ImagePanel/ImageEditor/ImageEditor'
 
 const mapStateToProps = (state) => {
+	let { open, image, color } = state.imagePanel.editor
 	return {
-		open: state.imagePanel.editor.open,
-		image: state.imagePanel.editor.image
+		open: open,
+		image: image,
+		color: color
 	}
 }
 

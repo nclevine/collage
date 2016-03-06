@@ -107,6 +107,14 @@ export const importImageToEditor = (image) => {
 	}
 }
 
+export const IMPORT_COLOR_TO_EDITOR = 'IMPORT_COLOR_TO_EDITOR'
+export const importColorToEditor = (color) => {
+	return {
+		type: IMPORT_COLOR_TO_EDITOR,
+		color
+	}
+}
+
 let nextImageList = 2
 export const ADD_IMAGE_LIST = 'ADD_IMAGE_LIST'
 export const addImageList = (listName) => {
@@ -183,10 +191,10 @@ export const toggleCollageBoardMenuOpen = () => {
 }
 
 export const SET_COLLAGE_BACKGROUND = 'SET_COLLAGE_BACKGROUND'
-export const setCollageBackground = (url) => {
+export const setCollageBackground = (background) => {
 	return {
 		type: SET_COLLAGE_BACKGROUND,
-		url
+		background
 	}
 }
 

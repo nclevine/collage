@@ -1,6 +1,7 @@
 export let EditorProject = undefined
 export let CropPath = undefined
 export let ImportedImage = undefined
+export let ImportedColor = undefined
 
 export const DefaultStyle = {
 	strokeColor: 'rgb(0,0,0)',
@@ -25,6 +26,7 @@ export const clearProject = () => {
 	EditorProject.clear()
 	CropPath = undefined
 	ImportedImage = undefined
+	ImportedColor = undefined
 }
 
 export const importImage = (url) => {
@@ -35,6 +37,18 @@ export const importImage = (url) => {
 	})
 	updateProject()
 	// checkContents()
+}
+
+export const importColor = (color) => {
+	clearProject()
+	ImportedColor = new paper.Path.Rectangle({
+		point: [0,0],
+		size: [700, 500],
+		strokeWidth: 0,
+		fillColor: color
+	})
+	ImportedColor.rasterize()
+	updateProject()
 }
 
 

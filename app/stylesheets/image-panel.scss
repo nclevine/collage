@@ -87,6 +87,7 @@
 	flex-direction: column;
 	justify-content: space-around;
 	width: 20%;
+	height: 100%;
 	input {
 		margin-top: 20px;
 	}
@@ -94,7 +95,7 @@
 
 .color-picker-sample {
 	width: 80%;
-	height: 300px;
+	height: 100%;
 }
 
 .color-picker-inner, .image-list-inner {

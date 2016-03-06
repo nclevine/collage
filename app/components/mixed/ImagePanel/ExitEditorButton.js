@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleImageEditorOpen, importImageToEditor } from '../../../actions'
+import { toggleImageEditorOpen, importImageToEditor, importColorToEditor } from '../../../actions'
 
 let ExitEditorButton = ({ dispatch }) => {
 	return (
@@ -9,6 +9,7 @@ let ExitEditorButton = ({ dispatch }) => {
 			onClick={() => {
 				dispatch(toggleImageEditorOpen())
 				dispatch(importImageToEditor(null))
+				dispatch(importColorToEditor(null))
 			}}
 		>
 			Exit Editor

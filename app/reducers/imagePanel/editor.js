@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { TOGGLE_IMAGE_EDITOR_OPEN, IMPORT_IMAGE_TO_EDITOR } from '../../actions'
+import { TOGGLE_IMAGE_EDITOR_OPEN, IMPORT_IMAGE_TO_EDITOR, IMPORT_COLOR_TO_EDITOR } from '../../actions'
 
 const open = (state = false, action) => {
 	switch (action.type) {
@@ -19,9 +19,19 @@ const image = (state = null, action) => {
 	}
 }
 
+const color = (state = null, action) => {
+	switch (action.type) {
+		case IMPORT_COLOR_TO_EDITOR:
+			return action.color
+		default:
+			return state
+	}
+}
+
 const editor = combineReducers({
 	open,
-	image
+	image,
+	color
 })
 
 export default editor

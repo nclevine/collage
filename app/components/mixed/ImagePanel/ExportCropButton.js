@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { EditorProject, CropPath, exportCrop } from '../../presentational/ImagePanel/ImageEditor/PaperGlobalVariables'
-import { addCutoutImage, toggleImageEditorOpen, importImageToEditor } from '../../../actions'
+import { addCutoutImage, toggleImageEditorOpen, importImageToEditor, importColorToEditor } from '../../../actions'
 
 let ExportCropButton = ({ dispatch }) => {
 	return (
@@ -13,6 +13,7 @@ let ExportCropButton = ({ dispatch }) => {
 					dispatch(addCutoutImage(2, SVGString, width, height))
 					dispatch(toggleImageEditorOpen())
 					dispatch(importImageToEditor(null))
+					dispatch(importColorToEditor(null))
 				}
 			}}
 		>

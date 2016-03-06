@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import ImageEditorCanvas from './ImageEditorCanvas'
 import ImageEditorControls from './ImageEditorControls'
-import { EditorProject, CropPath, ImportedImage, DefaultStyle, instantiateProject, clearProject, importImage } from './PaperGlobalVariables'
+import { EditorProject, CropPath, ImportedImage, DefaultStyle, instantiateProject, clearProject, importImage, importColor, EditorUtilities } from './PaperGlobalVariables'
 import EditorTools from './PaperEditorTools'
 const { LASSO } = EditorTools
+const clearPaths = EditorUtilities.CLEAR_PATHS
 
 class ImageEditor extends Component {
 	componentDidMount () {
@@ -12,6 +13,10 @@ class ImageEditor extends Component {
 		if (this.props.image) {
 			importImage(this.props.image.url)
 			LASSO.activate()
+		} else if (this.props.color) {
+			importColor(this.props.color)
+			LASSO.activate()
+			clearPaths()
 		}
 	}
 
@@ -21,12 +26,20 @@ class ImageEditor extends Component {
 		if (this.props.image && this.props.image !== prevProps.image) {
 			importImage(this.props.image.url)
 			LASSO.activate()
+		} else if (this.props.color && this.props.color !== prevProps.color) {
+			importColor(this.props.color)
+			LASSO.activate()
+			clearPaths()
 		}
 	}
 
 	render () {
-		let imageWidth = this.props.image ? this.props.image.width : 0
-		let imageHeight = this.props.image ? this.props.image.height : 0
+		let imageWidth = this.props.image ? 
+			this.props.image.width :
+			(this.props.color ? 700 : 0 )
+		let imageHeight = this.props.image ?
+			this.props.image.height :
+			(this.props.color ? 500 : 0 )
 		return (
 			<div
 				className='image-editor'

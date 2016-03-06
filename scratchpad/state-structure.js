@@ -83,7 +83,8 @@ const initialState = {
 		],
 		editor: {
 			open: false,
-			image: null
+			image: null,
+			color: null
 		}
 	},
 	collageBoard: {
