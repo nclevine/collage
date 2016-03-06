@@ -42,6 +42,13 @@ const initialState = {
 				// }
 			]
 		},
+		colorPicker: {
+			open: false,
+			red: 0,
+			green: 0,
+			blue: 0,
+			alpha: 1
+		},
 		imageLists: [
 			{
 				id: 1,

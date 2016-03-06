@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import { TOGGLE_IMAGE_PANEL_OPEN } from '../../actions'
 import importPanel from './importPanel'
+import colorPicker from './colorPicker'
 import imageLists from './imageLists'
 import editor from './editor'
 
@@ -16,6 +17,7 @@ const open = (state = true, action) => {
 const imagePanel = combineReducers({
 	open,
 	importPanel,
+	colorPicker,
 	imageLists,
 	editor
 })

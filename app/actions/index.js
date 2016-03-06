@@ -53,6 +53,45 @@ export const clearImageSearchResults = () => {
 	}
 }
 
+export const TOGGLE_COLOR_PICKER_OPEN = 'TOGGLE_COLOR_PICKER_OPEN'
+export const toggleColorPickerOpen = () => {
+	return {
+		type: TOGGLE_COLOR_PICKER_OPEN
+	}
+}
+
+export const SET_RED_CHANNEL = 'SET_RED_CHANNEL'
+export const setRedChannel = (value) => {
+	return {
+		type: SET_RED_CHANNEL,
+		value
+	}
+}
+
+export const SET_GREEN_CHANNEL = 'SET_GREEN_CHANNEL'
+export const setGreenChannel = (value) => {
+	return {
+		type: SET_GREEN_CHANNEL,
+		value
+	}
+}
+
+export const SET_BLUE_CHANNEL = 'SET_BLUE_CHANNEL'
+export const setBlueChannel = (value) => {
+	return {
+		type: SET_BLUE_CHANNEL,
+		value
+	}
+}
+
+export const SET_ALPHA_CHANNEL = 'SET_ALPHA_CHANNEL'
+export const setAlphaChannel = (value) => {
+	return {
+		type: SET_ALPHA_CHANNEL,
+		value
+	}
+}
+
 export const TOGGLE_IMAGE_EDITOR_OPEN = 'TOGGLE_IMAGE_EDITOR_OPEN'
 export const toggleImageEditorOpen = () => {
 	return {
