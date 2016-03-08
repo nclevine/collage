@@ -6,17 +6,29 @@ import ExitEditorButton from '../../../mixed/ImagePanel/ExitEditorButton'
 import EditorTools from './PaperEditorTools'
 import { EditorUtilities } from './PaperGlobalVariables'
 
-const ImageEditorControls = () => {
+const ImageEditorControls = ({ imageWidth, imageHeight }) => {
 	return (
-		<div className='image-editor-toolbox'>
-			{Object.keys(EditorTools).map((t, index) => {
-				return <ImageEditorToolButton key={index} tool={t} />
-			})}
-			{Object.keys(EditorUtilities).map((u, index) => {
-				return <ImageEditorUtilityButton key={index} utility={u} />
-			})}
-			<ExportCropButton />
-			<ExitEditorButton />
+		<div
+			className='image-editor-toolbox'
+			style={{
+				width: imageWidth,
+				height: imageHeight
+			}}
+		>
+			<div className='tool-buttons'>
+				{Object.keys(EditorTools).map((t, index) => {
+					return <ImageEditorToolButton key={index} tool={t} />
+				})}
+			</div>
+			<div className='utility-buttons'>
+				{Object.keys(EditorUtilities).map((u, index) => {
+					return <ImageEditorUtilityButton key={index} utility={u} />
+				})}
+			</div>
+			<div className='finish-buttons'>
+				<ExportCropButton />
+				<ExitEditorButton />
+			</div>
 		</div>
 	)
 }
