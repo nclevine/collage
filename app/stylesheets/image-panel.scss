@@ -1,3 +1,18 @@
+$defaultFont: 'Chivo', sans-serif;
+
+$black: #111;
+$blackTransparent: rgba($black,0.8);
+$midGray: #aaa;
+$white: #F0F0F0;
+$whiteTransparent: rgba($white, 0.8);
+$red: #ff4136;
+$darkRed: #c9001a;
+$green: #2ecc40;
+$darkGreen: #086d25;
+$lightBlue: #9DEFFF;
+$blue: #0074d9;
+$darkBlue: #002d90;
+
 .image-panel {
 	position: absolute;
 	top: 0;
@@ -13,7 +28,7 @@
 	left: -50%;
 	width: 200%;
 	height: 100%;
-	background: rgba(0,0,0,0.5);
+	background: $blackTransparent;
 }
 
 .image-importer,
@@ -40,49 +55,89 @@
 	justify-content: space-around;
 	position: absolute;
 	top: 25%;
-	right: 100%;
+	right: calc(100% + 1em);
 	height: max-content;
 
 }
 
-.image-panel-section-btn, .image-editor-btn, .editor-export-btn, .editor-exit-btn {
+.image-panel-section-btn,
+.color-picker-options-btn,
+.image-editor-btn,
+.editor-export-btn,
+.editor-exit-btn {
 	position: relative;
 	width: 5em;
 	height: 5em;
-	background-color: #2ECC40;
+	background-color: $black;
 	border-radius: 50%;
 	border: none;
+	transition: 0.4s;
 
 	svg {
 		display: block;
 		width: 65%;
 		height: 65%;
 		margin: 17.5% auto;
-		&, & g, & path {
-			fill: #001f3f
+		& g, & path {
+			fill: $white;
+			transition: 0.4s;
 		}
+		transition: transform 0.4s;
 	}
 
 	p {
 		position: absolute;
-		top: 100%;
+		top: calc(100% + 0.3em);
+		left: -50%;
+		width: 200%;
 		text-align: center;
+		color: $white;
+		font-family: $defaultFont;
+		font-size: 1.2em;
 	}
 
 	&:disabled {
 		color: black;
-		background-color: #001f3f;
+		background-color: $white;
 
 		svg {
 			&, & g, & path {
-				fill: #2ECC40
+				fill: $black;
 			}
+		}
+
+		&:hover {
+			svg {
+				transform: none;
+			}
+		}
+	}
+
+	&:hover {
+		svg {
+			transform: rotateZ(45deg);
 		}
 	}
 }
 
 .image-panel-section-btn {
 	margin: 1.5em 0.5em;
+}
+
+.image-editor-btn,
+.editor-export-btn,
+.editor-exit-btn {
+	&:hover, &:disabled {
+		background-color: $lightBlue;
+
+		svg {
+			&, & g, & path {
+				fill: $black;
+			}
+
+			transform: none;
+		}
+	}
 }
 
 .editor-exit-btn svg {
@@ -121,7 +176,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(1,1,1,0.5);
+	background-color: $whiteTransparent;
 }
 
 .image-editor-container {
@@ -166,10 +221,12 @@
 	height: 85%;
 	top: 7.5%;
 	background-color: #FFF;
+	border-radius: 3px;
 
 	h1 {
 		position: absolute;
 		bottom: 100%;
+		font-family: $defaultFont;
 	}
 }
 
@@ -177,24 +234,46 @@
 	width: 100%;
 }
 
+.color-picker-sample {
+    position: relative;
+    top: 2em;
+    left: 7.5%;
+    width: 85%;
+    height: 50%;
+    border-radius: 50%;
+}
+
+.color-picker-options {
+	position: relative;
+    width: 100%;
+    margin: 0 auto;
+    top: 3em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.color-picker-options-btn p {
+	color: $black;
+}
+
 .color-picker-form {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+	position: absolute;
+	bottom: 2em;
 	height: 25%;
 	input {
-		margin-top: 20px;
+		width: 80%;
+		margin: 20px auto 0;
 	}
 }
-
-.color-picker-sample {
-	height: 75%;
-}
-
 
 .image-list-inner {
 	height: 100%;
 	overflow: auto;
+	border-radius: 3px;
+
 	&::-webkit-scrollbar { 
 	    display: none; 
 	}
@@ -202,6 +281,7 @@
 
 .image {
 	position: relative;
+	padding: 5px;
 
 	&:hover {
 		.image-options {
@@ -234,8 +314,6 @@ button:active, button:visited, button:focus {
 
 input[type=range] {
 	-webkit-appearance: none;
-	width: 100%;
-	margin: 5.8px 0;
 
 	&:focus {
 	 	outline: none;
@@ -299,148 +377,148 @@ input[type=range] {
 	}
 
 	&.red::-webkit-slider-runnable-track {
-		background: #c9001a;
-		border: 0px solid #c9001a;
+		background: $darkRed;
+		border: 0px solid $darkRed;
 	}
 	&.red::-webkit-slider-thumb {
-		background: #ff4136;
+		background: $red;
 	}
 	&.red:focus::-webkit-slider-runnable-track {
-		background: #c9001a;
+		background: $darkRed;
 	}
 	&.red::-moz-range-track {
-		background: #c9001a;
-		border: 0px solid #c9001a;
+		background: $darkRed;
+		border: 0px solid $darkRed;
 	}
 	&.red::-moz-range-thumb {
-		background: #ff4136;
+		background: $red;
 	}
 	&.red::-ms-fill-lower {
-		background: #c9001a;
-		border: 0px solid #c9001a;
+		background: $darkRed;
+		border: 0px solid $darkRed;
 	}
 	&.red::-ms-fill-upper {
-		background: #c9001a;
-		border: 0px solid #c9001a;
+		background: $darkRed;
+		border: 0px solid $darkRed;
 	}
 	&.red::-ms-thumb {
-		background: #ff4136;
+		background: $red;
 	}
 	&.red:focus::-ms-fill-lower {
-		background: #c9001a;
+		background: $darkRed;
 	}
 	&.red:focus::-ms-fill-upper {
-		background: #c9001a;
+		background: $darkRed;
 	}
 
 	&.green::-webkit-slider-runnable-track {
-		background: #086d25;
-		border: 0px solid #086d25;
+		background: $darkGreen;
+		border: 0px solid $darkGreen;
 	}
 	&.green::-webkit-slider-thumb {
-		background: #2ecc40;
+		background: $green;
 	}
 	&.green:focus::-webkit-slider-runnable-track {
-		background: #086d25;
+		background: $darkGreen;
 	}
 	&.green::-moz-range-track {
-		background: #086d25;
-		border: 0px solid #086d25;
+		background: $darkGreen;
+		border: 0px solid $darkGreen;
 	}
 	&.green::-moz-range-thumb {
-		background: #2ecc40;
+		background: $green;
 	}
 	&.green::-ms-fill-lower {
-		background: #086d25;
-		border: 0px solid #086d25;
+		background: $darkGreen;
+		border: 0px solid $darkGreen;
 	}
 	&.green::-ms-fill-upper {
-		background: #086d25;
-		border: 0px solid #086d25;
+		background: $darkGreen;
+		border: 0px solid $darkGreen;
 	}
 	&.green::-ms-thumb {
-		background: #2ecc40;
+		background: $green;
 	}
 	&.green:focus::-ms-fill-lower {
-		background: #086d25;
+		background: $darkGreen;
 	}
 	&.green:focus::-ms-fill-upper {
-		background: #086d25;
+		background: $darkGreen;
 	}
 
 	&.blue::-webkit-slider-runnable-track {
-		background: #002d90;
-		border: 0px solid #002d90;
+		background: $darkBlue;
+		border: 0px solid $darkBlue;
 	}
 	&.blue::-webkit-slider-thumb {
-		background: #0074d9;
+		background: $blue;
 	}
 	&.blue:focus::-webkit-slider-runnable-track {
-		background: #002d90;
+		background: $darkBlue;
 	}
 	&.blue::-moz-range-track {
-		background: #002d90;
-		border: 0px solid #002d90;
+		background: $darkBlue;
+		border: 0px solid $darkBlue;
 	}
 	&.blue::-moz-range-thumb {
-		background: #0074d9;
+		background: $blue;
 	}
 	&.blue::-ms-fill-lower {
-		background: #002d90;
-		border: 0px solid #002d90;
+		background: $darkBlue;
+		border: 0px solid $darkBlue;
 	}
 	&.blue::-ms-fill-upper {
-		background: #002d90;
-		border: 0px solid #002d90;
+		background: $darkBlue;
+		border: 0px solid $darkBlue;
 	}
 	&.blue::-ms-thumb {
-		background: #0074d9;
+		background: $blue;
 	}
 	&.blue:focus::-ms-fill-lower {
-		background: #002d90;
+		background: $darkBlue;
 	}
 	&.blue:focus::-ms-fill-upper {
-		background: #002d90;
+		background: $darkBlue;
 	}
 
 	&.alpha::-webkit-slider-runnable-track {
-		background: #111111;
-		border: 0px solid #111111;
+		background: $black;
+		border: 0px solid $black;
 	}
 	&.alpha::-webkit-slider-thumb {
-		background-color: #aaa;
+		background-color: $midGray;
 		background-image: url("http://iconshow.me/media/images/ui/ios7-icons/png/512/eye_1.png");
 		background-size: 20px 20px;
 	}
 	&.alpha:focus::-webkit-slider-runnable-track {
-		background: #111111;
+		background: $black;
 	}
 	&.alpha::-moz-range-track {
-		background: #111111;
-		border: 0px solid #111111;
+		background: $black;
+		border: 0px solid $black;
 	}
 	&.alpha::-moz-range-thumb {
-		background-color: #aaa;
+		background-color: $midGray;
 		background-image: url("http://iconshow.me/media/images/ui/ios7-icons/png/512/eye_1.png");
 		background-size: 20px 20px;
 	}
 	&.alpha::-ms-fill-lower {
-		background: #111111;
-		border: 0px solid #111111;
+		background: $black;
+		border: 0px solid $black;
 	}
 	&.alpha::-ms-fill-upper {
-		background: #111111;
-		border: 0px solid #111111;
+		background: $black;
+		border: 0px solid $black;
 	}
 	&.alpha::-ms-thumb {
-		background-color: #aaa;
+		background-color: $midGray;
 		background-image: url("http://iconshow.me/media/images/ui/ios7-icons/png/512/eye_1.png");
 		background-size: 20px 20px;
 	}
 	&.alpha:focus::-ms-fill-lower {
-		background: #111111;
+		background: $black;
 	}
 	&.alpha:focus::-ms-fill-upper {
-		background: #111111;
+		background: $black;
 	}
 }

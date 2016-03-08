@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { TOGGLE_IMAGE_EDITOR_OPEN, IMPORT_IMAGE_TO_EDITOR, IMPORT_COLOR_TO_EDITOR } from '../../actions'
+import { TOGGLE_IMAGE_EDITOR_OPEN, IMPORT_IMAGE_TO_EDITOR, IMPORT_COLOR_TO_EDITOR, SET_EDITOR_TOOL, TOGGLE_CROPPED } from '../../actions'
 
 const open = (state = false, action) => {
 	switch (action.type) {
@@ -28,10 +28,30 @@ const color = (state = null, action) => {
 	}
 }
 
+const activeTool = (state = 'LASSO', action) => {
+	switch (action.type) {
+		case SET_EDITOR_TOOL:
+			return action.tool
+		default:
+			return state
+	}
+}
+
+const cropped = (state = false, action) => {
+	switch (action.type) {
+		case TOGGLE_CROPPED:
+			return !state
+		default:
+			return state
+	}
+}
+
 const editor = combineReducers({
 	open,
 	image,
-	color
+	color,
+	activeTool,
+	cropped
 })
 
 export default editor

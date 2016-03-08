@@ -22,8 +22,8 @@ const ColorPicker = ({ open, red, green, blue, alpha, onInputChange }) => {
 					backgroundColor: colorString
 				}}
 			>
-				<ColorPickerOptions color={colorString} />
 			</div>
+			<ColorPickerOptions color={colorString} />
 			<ColorPickerForm 
 				red={red}
 				green={green}

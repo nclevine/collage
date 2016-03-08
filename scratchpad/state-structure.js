@@ -44,9 +44,9 @@ const initialState = {
 		},
 		colorPicker: {
 			open: true,
-			red: 0,
-			green: 0,
-			blue: 0,
+			red: 128,
+			green: 128,
+			blue: 128,
 			alpha: 1
 		},
 		imageLists: [
@@ -84,7 +84,9 @@ const initialState = {
 		editor: {
 			open: false,
 			image: null,
-			color: null
+			color: null,
+			activeTool: 'LASSO',
+			cropped: false
 		}
 	},
 	collageBoard: {

@@ -6,11 +6,12 @@ import PolygonLassoIcon from '../../../icons/PolygonLassoIcon'
 import MarqueeIcon from '../../../icons/MarqueeIcon'
 import EllipseIcon from '../../../icons/EllipseIcon'
 
-const ImageEditorToolButton = ({ tool }) => {
+const ImageEditorToolButton = ({ tool, isActive, onClick }) => {
 	let toolActivate = (tool) => {
 		if (EditorProject) {
 			EditorTools[tool].activate()
 		}
+		onClick(tool)
 	}
 
 	let toolIcon
@@ -36,6 +37,7 @@ const ImageEditorToolButton = ({ tool }) => {
 			onClick={() => {
 				toolActivate(tool)
 			}}
+			disabled={isActive}
 		>
 			{toolIcon}
 		</button>

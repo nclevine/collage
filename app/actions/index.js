@@ -115,6 +115,21 @@ export const importColorToEditor = (color) => {
 	}
 }
 
+export const SET_EDITOR_TOOL = 'SET_EDITOR_TOOL'
+export const setEditorTool = (tool) => {
+	return {
+		type: SET_EDITOR_TOOL,
+		tool
+	}
+}
+
+export const TOGGLE_CROPPED = 'TOGGLE_CROPPED'
+export const toggleCropped = () => {
+	return {
+		type: TOGGLE_CROPPED
+	}
+}
+
 let nextImageList = 2
 export const ADD_IMAGE_LIST = 'ADD_IMAGE_LIST'
 export const addImageList = (listName) => {

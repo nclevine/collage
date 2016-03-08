@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import ImageEditorCanvas from './ImageEditorCanvas'
-import ImageEditorControls from './ImageEditorControls'
+import ImageEditorControls from '../../../mixed/ImagePanel/ImageEditorControls'
 import { EditorProject, CropPath, ImportedImage, DefaultStyle, instantiateProject, clearProject, importImage, importColor, EditorUtilities } from './PaperGlobalVariables'
 import EditorTools from './PaperEditorTools'
-const { LASSO } = EditorTools
 const clearPaths = EditorUtilities.CLEAR_PATHS
 
 class ImageEditor extends Component {
@@ -19,12 +18,16 @@ class ImageEditor extends Component {
 
 		if (this.props.image) {
 			importImage(this.props.image.url, size)
-			LASSO.activate()
+			EditorTools[this.props.activeTool].activate()
 		} else if (this.props.color) {
 			importColor(this.props.color)
-			LASSO.activate()
+			EditorTools[this.props.activeTool].activate()
 			clearPaths()
 		}
+	}
+
+	shouldComponentUpdate (nextProps, nextState) {
+		return (this.props.activeTool === nextProps.activeTool)
 	}
 
 	componentDidUpdate (prevProps) {
@@ -34,10 +37,10 @@ class ImageEditor extends Component {
 
 		if (this.props.image && this.props.image !== prevProps.image) {
 			importImage(this.props.image.url, size)
-			LASSO.activate()
+			EditorTools[this.props.activeTool].activate()
 		} else if (this.props.color && this.props.color !== prevProps.color) {
 			importColor(this.props.color)
-			LASSO.activate()
+			EditorTools[this.props.activeTool].activate()
 			clearPaths()
 		}
 	}
@@ -71,8 +74,14 @@ class ImageEditor extends Component {
 						left: 'calc(50% - ' + (this.imageWidth / 2) + 'px)'
 					}}
 				>
-					<ImageEditorControls imageWidth={this.imageWidth} imageHeight={this.imageHeight} />
-					<ImageEditorCanvas imageWidth={this.imageWidth} imageHeight={this.imageHeight} />
+					<ImageEditorControls	
+						imageWidth={this.imageWidth}
+						imageHeight={this.imageHeight}
+					/>
+					<ImageEditorCanvas
+						imageWidth={this.imageWidth}
+						imageHeight={this.imageHeight}
+					/>
 				</div>
 			</div>
 		)
