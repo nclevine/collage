@@ -118,7 +118,9 @@ const nodeToString = (node) => {
 }
 
 export const exportCrop = () => {
-	if (!CropPath) { return }
+	if (!CropPath || !CropPath.clipMask) {
+		return undefined
+	}
 	let bounds = CropPath.bounds
 	let viewBoxString = bounds.topLeft.x + ' ' + 
 		bounds.topLeft.y + ' ' + 
@@ -132,9 +134,15 @@ export const exportCrop = () => {
 	SVG.setAttribute('width', bounds.width)
 	SVG.setAttribute('height', bounds.height)
 
+	cropped = false
+
 	return {
 		SVGString: nodeToString(SVG),
 		width: bounds.width,
 		height: bounds.height
 	}
+}
+
+export const exitEditor = () => {
+	cropped = false
 }

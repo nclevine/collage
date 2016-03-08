@@ -1,17 +1,17 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { EditorProject, CropPath, exportCrop } from '../../presentational/ImagePanel/ImageEditor/PaperGlobalVariables'
-import { addCutoutImage, toggleColorPickerOpen, toggleImageListExpanded, toggleImageEditorOpen, importImageToEditor, importColorToEditor } from '../../../actions'
+import { addCutoutImage, toggleColorPickerOpen, toggleImageListExpanded, toggleImageEditorOpen, importImageToEditor, importColorToEditor, toggleCropped } from '../../../actions'
 import ExportIcon from '../../icons/ExportIcon'
 
-let ExportCropButton = ({ colorPickerOpen, rawImagesOpen, dispatch }) => {
+let ExportCropButton = ({ cropped, colorPickerOpen, rawImagesOpen, dispatch }) => {
 	return (
 		<button
 			className='editor-export-btn'
 			onClick={() => {
-				let { SVGString, width, height } = exportCrop()
-				if (SVGString) {
-					dispatch(addCutoutImage(2, SVGString, width, height))
+				let cropInfo = exportCrop()
+				if (cropInfo && cropInfo.SVGString) {
+					dispatch(addCutoutImage(2, cropInfo.SVGString, cropInfo.width, cropInfo.height))
 					dispatch(toggleImageEditorOpen())
 					if (colorPickerOpen) {
 						dispatch(toggleColorPickerOpen())
@@ -21,8 +21,10 @@ let ExportCropButton = ({ colorPickerOpen, rawImagesOpen, dispatch }) => {
 					dispatch(toggleImageListExpanded(2))
 					dispatch(importImageToEditor(null))
 					dispatch(importColorToEditor(null))
+					dispatch(toggleCropped())
 				}
 			}}
+			disabled={!cropped}
 		>
 			<ExportIcon />
 		</button>
@@ -32,7 +34,8 @@ let ExportCropButton = ({ colorPickerOpen, rawImagesOpen, dispatch }) => {
 const mapStateToProps = (state) => {
 	return {
 		colorPickerOpen: state.imagePanel.colorPicker.open,
-		rawImagesOpen: state.imagePanel.imageLists[0].expanded
+		rawImagesOpen: state.imagePanel.imageLists[0].expanded,
+		cropped: state.imagePanel.editor.cropped
 	}
 }
 

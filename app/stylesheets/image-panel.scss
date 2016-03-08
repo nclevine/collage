@@ -78,7 +78,7 @@ $darkBlue: #002d90;
 		width: 65%;
 		height: 65%;
 		margin: 17.5% auto;
-		& g, & path {
+		g, path {
 			fill: $white;
 			transition: 0.4s;
 		}
@@ -101,7 +101,7 @@ $darkBlue: #002d90;
 		background-color: $white;
 
 		svg {
-			&, & g, & path {
+			g, path {
 				fill: $black;
 			}
 		}
@@ -131,11 +131,48 @@ $darkBlue: #002d90;
 		background-color: $lightBlue;
 
 		svg {
-			&, & g, & path {
+			g, path {
 				fill: $black;
 			}
 
 			transform: none;
+		}
+	}
+}
+
+.crop-btn {
+	&.cropped {
+		svg {
+			g, path {
+				fill: $green;
+			}
+		}
+
+		&:hover {
+			background-color: $darkRed;
+			svg {
+				g, path {
+					fill: $white;
+				}
+			}
+		}
+	}
+}
+
+.editor-export-btn {
+	svg {
+		g, path {
+			fill: $green;
+		}
+	}
+
+	&:disabled, &:disabled:hover {
+		background-color: $black;
+
+		svg {
+			g, path {
+				fill: $darkRed;
+			}
 		}
 	}
 }

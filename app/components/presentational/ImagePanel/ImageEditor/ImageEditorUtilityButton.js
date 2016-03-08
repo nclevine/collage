@@ -3,10 +3,18 @@ import { EditorProject, CropPath, EditorUtilities } from './PaperGlobalVariables
 import CropIcon from '../../../icons/CropIcon'
 import ClearPathsIcon from '../../../icons/ClearPathsIcon'
 
-const ImageEditorUtilityButton = ({ utility }) => {
+const ImageEditorUtilityButton = ({ utility, cropped, onCropClick }) => {
+	let className = (utility === 'TOGGLE_CROP' && cropped) ?
+		(cropped ? 'image-editor-btn crop-btn cropped' : 'image-editor-btn crop-btn') :
+		'image-editor-btn'	
+
 	let utilize = (utility) => {
-		if (EditorProject) {
+		if (EditorProject && EditorProject.activeLayer.getItems({class: paper.Path}).length) {
 			EditorUtilities[utility]()
+			
+			if (utility === 'TOGGLE_CROP' || cropped) {
+				onCropClick()
+			}
 		}
 	}
 
@@ -23,7 +31,7 @@ const ImageEditorUtilityButton = ({ utility }) => {
 
 	return (
 		<button
-			className='image-editor-btn'
+			className={className}
 			onClick={() => {
 				utilize(utility)
 			}}
