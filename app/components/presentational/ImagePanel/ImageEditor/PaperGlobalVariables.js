@@ -29,11 +29,14 @@ export const clearProject = () => {
 	ImportedColor = undefined
 }
 
-export const importImage = (url) => {
+export const importImage = (url, size) => {
 	clearProject()
 	ImportedImage = new paper.Raster({
 		source: url,
-		position: EditorProject.view.center
+		position: EditorProject.view.center,
+	})
+	ImportedImage.on('load', () => {
+		ImportedImage.size = size
 	})
 	updateProject()
 	// checkContents()

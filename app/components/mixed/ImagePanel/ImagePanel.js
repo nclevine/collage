@@ -1,11 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import ImageImporterContainer from '../../container/ImageImporterContainer'
-import CombinedImageListContainer from '../../container/CombinedImageListContainer'
+import ImagePanelSectionControls from '../../presentational/ImagePanel/ImagePanelSectionControls'
+import ImagePanelSections from '../../presentational/ImagePanel/ImagePanelSections'
 import ImageEditorContainer from '../../container/ImageEditorContainer'
-import ToggleImporterButton from './ToggleImporterButton'
 
-let ImagePanel = ({ open }) => {
+let ImagePanel = ({ open, imageLists }) => {
 	return (
 		<div
 			className='image-panel'
@@ -13,17 +12,18 @@ let ImagePanel = ({ open }) => {
 				display: open ? 'block' : 'none'
 			}}
 		>
-			<ImageImporterContainer />
-			<ToggleImporterButton />
+			<div className='image-panel-overlay'></div>
+			<ImagePanelSectionControls />
 			<ImageEditorContainer />
-			<CombinedImageListContainer />
+			<ImagePanelSections imageLists={imageLists} />
 		</div>
 	)
 }
 
 const mapStateToProps = (state) => {
 	return {
-		open: state.imagePanel.open
+		open: state.imagePanel.open,
+		imageLists: state.imagePanel.imageLists
 	}
 }
 

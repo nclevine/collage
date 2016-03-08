@@ -7,11 +7,18 @@ const { LASSO } = EditorTools
 const clearPaths = EditorUtilities.CLEAR_PATHS
 
 class ImageEditor extends Component {
+	componentWillMount () {
+		this.imageWidth = 0
+		this.imageHeight = 0
+	}
+
 	componentDidMount () {
 		instantiateProject()
 
+		let size = [this.imageWidth, this.imageHeight]
+
 		if (this.props.image) {
-			importImage(this.props.image.url)
+			importImage(this.props.image.url, size)
 			LASSO.activate()
 		} else if (this.props.color) {
 			importColor(this.props.color)
@@ -23,8 +30,10 @@ class ImageEditor extends Component {
 	componentDidUpdate (prevProps) {
 		instantiateProject()
 
+		let size = [this.imageWidth, this.imageHeight]
+
 		if (this.props.image && this.props.image !== prevProps.image) {
-			importImage(this.props.image.url)
+			importImage(this.props.image.url, size)
 			LASSO.activate()
 		} else if (this.props.color && this.props.color !== prevProps.color) {
 			importColor(this.props.color)
@@ -34,12 +43,19 @@ class ImageEditor extends Component {
 	}
 
 	render () {
-		let imageWidth = this.props.image ? 
-			this.props.image.width :
-			(this.props.color ? 700 : 0 )
-		let imageHeight = this.props.image ?
+		this.imageHeight = this.props.image ?
 			this.props.image.height :
 			(this.props.color ? 500 : 0 )
+		this.imageWidth = this.props.image ? 
+			this.props.image.width :
+			(this.props.color ? 700 : 0 )
+		
+		let windowHeight = window.innerHeight
+		if (this.imageHeight > windowHeight - 250) {
+			this.imageWidth = this.imageWidth * (windowHeight - 250) / this.imageHeight
+			this.imageHeight = windowHeight - 250
+		}
+
 		return (
 			<div
 				className='image-editor'
@@ -51,11 +67,11 @@ class ImageEditor extends Component {
 				<div 
 					className='image-editor-container'
 					style={{
-						top: 'calc(45% - ' + (imageHeight / 2) + 'px)',
-						left: 'calc(100% - ' + (imageWidth / 2) + 'px)'
+						top: 'calc(45% - ' + (this.imageHeight / 2) + 'px)',
+						left: 'calc(100% - ' + (this.imageWidth / 2) + 'px)'
 					}}
 				>
-					<ImageEditorCanvas imageWidth={imageWidth} imageHeight={imageHeight} />
+					<ImageEditorCanvas imageWidth={this.imageWidth} imageHeight={this.imageHeight} />
 					<ImageEditorControls />
 				</div>
 			</div>

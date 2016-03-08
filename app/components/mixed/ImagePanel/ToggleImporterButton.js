@@ -9,7 +9,7 @@ let ToggleImporterButton = ({ importerOpen, dispatch }) => {
 	
 	return (
 		<button
-			className='toggle-importer-btn'
+			className='toggle-importer-btn image-panel-section-btn'
 			onClick={() => {
 				dispatch(toggleImageImporterOpen())
 			}}

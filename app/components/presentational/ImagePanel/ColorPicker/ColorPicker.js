@@ -2,38 +2,36 @@ import React, { PropTypes } from 'react'
 import ColorPickerForm from './ColorPickerForm'
 import ColorPickerOptions from './ColorPickerOptions'
 
-const ColorPicker = ({ open, red, green, blue, alpha, onHeaderClick, onInputChange }) => {
+const ColorPicker = ({ open, red, green, blue, alpha, onInputChange }) => {
 	let colorString = 'rgba(' +
 		red + ',' +
 		green + ',' +
 		blue + ',' +
 		alpha + ')'
 	return (
-		<div className='color-picker'>
-			<h1 onClick={onHeaderClick}>Color Picker</h1>
+		<div
+			className='color-picker'
+			style={{
+				display: open ? 'block' : 'none'
+			}}
+		>
+			<h1>Color Picker</h1>
 			<div
-				className='color-picker-inner'
-				style={{	
-					height: open ? '300px' : 0
+				className='color-picker-sample'
+				style={{
+					backgroundColor: colorString
 				}}
 			>
-				<ColorPickerForm 
-					red={red}
-					green={green}
-					blue={blue}
-					alpha={alpha}
-					onInputChange={onInputChange}
-				/>
-				<div
-					className='color-picker-sample'
-					style={{
-						backgroundColor: colorString
-					}}
-				>
-					<ColorPickerOptions color={colorString} />
-				</div>
-				<div className='clear'></div>
+				<ColorPickerOptions color={colorString} />
 			</div>
+			<ColorPickerForm 
+				red={red}
+				green={green}
+				blue={blue}
+				alpha={alpha}
+				onInputChange={onInputChange}
+			/>
+			<div className='clear'></div>
 		</div>
 	)
 }

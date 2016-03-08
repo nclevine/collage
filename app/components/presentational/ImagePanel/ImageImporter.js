@@ -10,6 +10,7 @@ const ImageImporter = ({ open, importMethod, searchSource, searchResults, onSear
 				display: open ? 'block' : 'none'
 			}}
 		>
+			<h1>Import Image</h1>
 			<ImageImportForm importMethod={importMethod} searchSource={searchSource} onSubmit={onSearchSubmit} />
 			<ImageSearchResultsList imageList={searchResults} />
 		</div>

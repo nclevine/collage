@@ -1,10 +1,19 @@
 .image-panel {
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 25%;
 	width: 50%;
 	height: 100%;
 	z-index: 1000;
+}
+
+.image-panel-overlay {
+	position: absolute;
+	top: 0;
+	left: -50%;
+	width: 200%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
 }
 
 .image-importer,
@@ -18,11 +27,25 @@
 .raw-image,
 .cutout-image,
 .cutout-image svg {
-	width: 100%
+	width: 100%;
 }
 
 .clear {
 	clear: both;
+}
+
+.image-panel-section-controls {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	position: absolute;
+	top: 30%;
+	right: 100%;
+	height: max-content;
+
+	button {
+		margin: 2em 0.5em;
+	}
 }
 
 .toggle-image-panel-btn {
@@ -30,20 +53,14 @@
 	z-index: 2000;
 
 	&.open {
-		top: 0;
-		right: 50%;
+		top: 7.5%;
+		left: 75%;
 	}
 
 	&.closed {
 		bottom: 0;
 		left: 0;
 	}
-}
-
-.image-importer, .toggle-importer-btn {
-	position: absolute;
-	top: 0;
-	left: 100%;
 }
 
 .image-editor {
@@ -74,32 +91,58 @@
 }
 
 .combined-image-list {
+	position: absolute;
 	height: 100%;
-	overflow: auto;
 }
 
-.color-picker-form, .color-picker-sample {
-	float: left;
+.color-picker, .image-importer, .image-list {
+	position: relative;
+	height: 85%;
+	top: 7.5%;
+	background-color: #FFF;
+
+	h1 {
+		position: absolute;
+		bottom: 100%;
+	}
+}
+
+// .color-picker {
+// 	top: calc(50% - 150px);
+// 	height: 300px;
+// }
+
+// .color-picker-form, .color-picker-sample {
+// 	float: left;
+// }
+
+.color-picker-sample, .color-picker-form {
+	width: 100%;
 }
 
 .color-picker-form {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	width: 20%;
-	height: 100%;
+	// width: 20%;
+	height: 25%;
 	input {
 		margin-top: 20px;
 	}
 }
 
 .color-picker-sample {
-	width: 80%;
-	height: 100%;
+	// width: 80%;
+	height: 75%;
 }
 
-.color-picker-inner, .image-list-inner {
-	overflow: hidden;
+
+.image-list-inner {
+	height: 100%;
+	overflow: auto;
+	&::-webkit-scrollbar { 
+	    display: none; 
+	}
 }
 
 .image {

@@ -1,25 +1,25 @@
 import React, { PropTypes } from 'react'
 import ImageList from './ImageList'
 import ColorPickerContainer from '../../container/ColorPickerContainer'
+import ImageImporterContainer from '../../container/ImageImporterContainer'
 
-const CombinedImageList = ({ imageLists, onListClick }) => {
+const ImagePanelSections = ({ imageLists }) => {
 	return (
 		<div className='combined-image-list'>
 			<ColorPickerContainer />
+			<ImageImporterContainer />
 			{imageLists.map(imageList => 
 				<ImageList
 					 key={imageList.id}
 					 {...imageList}
-					 onNameClick={() => onListClick(imageList.id)}
 				/>
 			)}
 		</div>
 	)
 }
 
-CombinedImageList.propTypes = {
+ImagePanelSections.propTypes = {
 	imageLists: PropTypes.array.isRequired,
-	onListClick: PropTypes.func.isRequired
 }
 
-export default CombinedImageList
+export default ImagePanelSections

@@ -43,7 +43,7 @@ const initialState = {
 			]
 		},
 		colorPicker: {
-			open: false,
+			open: true,
 			red: 0,
 			green: 0,
 			blue: 0,
@@ -52,8 +52,8 @@ const initialState = {
 		imageLists: [
 			{
 				id: 1,
-				name: 'Imports',
-				expanded: true,
+				name: 'Images',
+				expanded: false,
 				images: [
 					{
 						id: 1,
