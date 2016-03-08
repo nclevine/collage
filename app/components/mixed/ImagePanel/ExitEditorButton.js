@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { toggleImageEditorOpen, importImageToEditor, importColorToEditor } from '../../../actions'
+import CloseIcon from '../../icons/CloseIcon'
 
 let ExitEditorButton = ({ dispatch }) => {
 	return (
@@ -12,7 +13,7 @@ let ExitEditorButton = ({ dispatch }) => {
 				dispatch(importColorToEditor(null))
 			}}
 		>
-			Exit Editor
+			<CloseIcon />
 		</button>
 	)
 }

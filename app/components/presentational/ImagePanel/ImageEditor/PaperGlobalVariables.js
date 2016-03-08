@@ -57,6 +57,8 @@ export const importColor = (color) => {
 
 // Editor utility button functions
 
+let cropped = false
+
 const makeCrop = () => {
 	if (CropPath && CropPath.clipMask) { return }
 	let paths = EditorProject.activeLayer.getItems({
@@ -69,6 +71,7 @@ const makeCrop = () => {
 		clipMask: true
 	})
 	updateProject()
+	cropped = true
 }
 
 const unmakeCrop = () => {
@@ -79,6 +82,15 @@ const unmakeCrop = () => {
 			path.style = EditorProject.currentStyle
 		})
 	updateProject()
+	cropped = false
+}
+
+const toggleCrop = () => {
+	if (!cropped) {
+		makeCrop()
+	} else {
+		unmakeCrop()
+	}
 }
 
 const clearPaths = () => {
@@ -91,11 +103,11 @@ const clearPaths = () => {
 	CropPath = undefined
 	updateProject()
 	// checkContents()
+	cropped = false
 }
 
 export const EditorUtilities = {
-	MAKE_CROP: makeCrop,
-	UNMAKE_CROP: unmakeCrop,
+	TOGGLE_CROP: toggleCrop,
 	CLEAR_PATHS: clearPaths
 }
 

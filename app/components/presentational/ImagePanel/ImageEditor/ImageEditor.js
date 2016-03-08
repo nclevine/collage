@@ -67,12 +67,12 @@ class ImageEditor extends Component {
 				<div 
 					className='image-editor-container'
 					style={{
-						top: 'calc(45% - ' + (this.imageHeight / 2) + 'px)',
+						top: 'calc(50% - ' + (this.imageHeight / 2) + 'px)',
 						left: 'calc(50% - ' + (this.imageWidth / 2) + 'px)'
 					}}
 				>
-					<ImageEditorCanvas imageWidth={this.imageWidth} imageHeight={this.imageHeight} />
 					<ImageEditorControls imageWidth={this.imageWidth} imageHeight={this.imageHeight} />
+					<ImageEditorCanvas imageWidth={this.imageWidth} imageHeight={this.imageHeight} />
 				</div>
 			</div>
 		)

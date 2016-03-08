@@ -1,12 +1,39 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { toggleColorPickerOpen, toggleImageImporterOpen, toggleImageListExpanded } from '../../../actions'
+import ColorPickerIcon from '../../icons/ColorPickerIcon'
+import ImagesIcon from '../../icons/ImagesIcon'
+import CutoutsIcon from '../../icons/CutoutsIcon'
+import ImportImageIcon from '../../icons/ImportImageIcon'
 
 let ImagePanelSectionButton = ({ panel, colorPickerOpen, rawImagesOpen, cutoutImagesOpen, imageImporterOpen, dispatch }) => {
 	let disabled = ((panel === 'COLOR_PICKER' && colorPickerOpen) ||
 		(panel === 'RAW_IMAGES' && rawImagesOpen) ||
 		(panel === 'CUTOUT_IMAGES' && cutoutImagesOpen) ||
 		(panel === 'IMAGE_IMPORTER' && imageImporterOpen))
+	
+	let buttonIcon
+	let buttonText
+
+	switch (panel) {
+		case 'COLOR_PICKER':
+			buttonIcon = <ColorPickerIcon />
+			buttonText = 'Color Picker'
+			break
+		case 'RAW_IMAGES':
+			buttonIcon = <ImagesIcon />
+			buttonText = 'Images'
+			break
+		case 'CUTOUT_IMAGES':
+			buttonIcon = <CutoutsIcon />
+			buttonText = 'Cutouts'
+			break
+		case 'IMAGE_IMPORTER':
+			buttonIcon = <ImportImageIcon />
+			buttonText = 'Import Image'
+			break
+	}
+
 	return (
 		<button
 			className='image-panel-section-btn'
@@ -56,7 +83,8 @@ let ImagePanelSectionButton = ({ panel, colorPickerOpen, rawImagesOpen, cutoutIm
 			}}
 			disabled={disabled}
 		>
-			{panel}
+			{buttonIcon}
+			<p>{buttonText}</p>
 		</button>
 	)
 }

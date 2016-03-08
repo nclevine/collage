@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { EditorProject, CropPath, exportCrop } from '../../presentational/ImagePanel/ImageEditor/PaperGlobalVariables'
-import { addCutoutImage, toggleImageEditorOpen, importImageToEditor, importColorToEditor } from '../../../actions'
+import { addCutoutImage, toggleColorPickerOpen, toggleImageListExpanded, toggleImageEditorOpen, importImageToEditor, importColorToEditor } from '../../../actions'
+import ExportIcon from '../../icons/ExportIcon'
 
-let ExportCropButton = ({ dispatch }) => {
+let ExportCropButton = ({ colorPickerOpen, rawImagesOpen, dispatch }) => {
 	return (
 		<button
 			className='editor-export-btn'
@@ -12,16 +13,29 @@ let ExportCropButton = ({ dispatch }) => {
 				if (SVGString) {
 					dispatch(addCutoutImage(2, SVGString, width, height))
 					dispatch(toggleImageEditorOpen())
+					if (colorPickerOpen) {
+						dispatch(toggleColorPickerOpen())
+					} else if (rawImagesOpen) {
+						dispatch(toggleImageListExpanded(1))
+					}
+					dispatch(toggleImageListExpanded(2))
 					dispatch(importImageToEditor(null))
 					dispatch(importColorToEditor(null))
 				}
 			}}
 		>
-			Export Cutout
+			<ExportIcon />
 		</button>
 	)
 }
 
-ExportCropButton = connect()(ExportCropButton)
+const mapStateToProps = (state) => {
+	return {
+		colorPickerOpen: state.imagePanel.colorPicker.open,
+		rawImagesOpen: state.imagePanel.imageLists[0].expanded
+	}
+}
+
+ExportCropButton = connect(mapStateToProps)(ExportCropButton)
 
 export default ExportCropButton

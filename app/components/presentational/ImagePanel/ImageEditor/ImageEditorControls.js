@@ -19,8 +19,6 @@ const ImageEditorControls = ({ imageWidth, imageHeight }) => {
 				{Object.keys(EditorTools).map((t, index) => {
 					return <ImageEditorToolButton key={index} tool={t} />
 				})}
-			</div>
-			<div className='utility-buttons'>
 				{Object.keys(EditorUtilities).map((u, index) => {
 					return <ImageEditorUtilityButton key={index} utility={u} />
 				})}
