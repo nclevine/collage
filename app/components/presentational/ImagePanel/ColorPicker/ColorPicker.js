@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import ColorPickerForm from './ColorPickerForm'
 import ColorPickerOptions from './ColorPickerOptions'
+import ColorPickerSample from './ColorPickerSample'
 
 const ColorPicker = ({ open, red, green, blue, alpha, onInputChange }) => {
 	let colorString = 'rgba(' +
@@ -16,13 +17,14 @@ const ColorPicker = ({ open, red, green, blue, alpha, onInputChange }) => {
 			}}
 		>
 			<h1>Color Picker</h1>
-			<div
+			{/*<div
 				className='color-picker-sample'
 				style={{
 					backgroundColor: colorString
 				}}
 			>
-			</div>
+			</div>*/}
+			<ColorPickerSample color={colorString} />
 			<ColorPickerOptions color={colorString} />
 			<ColorPickerForm 
 				red={red}
