@@ -64,7 +64,8 @@ $darkBlue: #002d90;
 .color-picker-options-btn,
 .image-editor-btn,
 .editor-export-btn,
-.editor-exit-btn {
+.editor-exit-btn,
+.image-options-btn {
 	position: relative;
 	width: 5em;
 	height: 5em;
@@ -126,7 +127,8 @@ $darkBlue: #002d90;
 
 .image-editor-btn,
 .editor-export-btn,
-.editor-exit-btn {
+.editor-exit-btn,
+.image-options-btn {
 	&:hover, &:disabled {
 		background-color: $lightBlue;
 
@@ -263,6 +265,7 @@ $darkBlue: #002d90;
 	h1 {
 		position: absolute;
 		bottom: 100%;
+		color: $white;
 		font-family: $defaultFont;
 	}
 }
@@ -319,29 +322,49 @@ $darkBlue: #002d90;
 .image {
 	position: relative;
 	padding: 5px;
+	min-height: 135px;
 
 	&:hover {
-		.image-options {
-			display: block;
+		.image-overlay, .image-options {
+			opacity: 1;
 		}
 	}
 }
 
-.image-options {
-	display: none;
+.image-overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
+	background-color: $whiteTransparent;
+	opacity: 0;
+	transition: 0.2s
+}
+
+.image-options {
+	display: flex;
+	justify-content: space-around;
+	position: absolute;
+	top: 35%;
+	left: 0;
+	width: 100%;
+	opacity: 0;
+	transition: 0.2s;
 }
 
 .image-options-btn {
-	display: block;
-	margin: 5px auto;
+	width: 3.5em;
+	height: 3.5em;
 
-	&:first-of-type {
-		margin-top: 20%;
+	&:hover {
+		svg {
+			transform: none;
+		}
+	}
+
+	p {
+		color: $black;
 	}
 }
 

@@ -4,15 +4,15 @@ import ImageOptionsButton from '../../mixed/ImagePanel/ImageOptionsButton'
 let ImageOptions = ({ listId, image }) => {
 	let rawButtons = image.url ?
 		[
-			<ImageOptionsButton key={1} method='EDIT' listId={listId} image={image}>Edit</ImageOptionsButton>,
-			<ImageOptionsButton key={2} method='BACKGROUND' listId={listId} image={image}>Set Background</ImageOptionsButton>
+			<ImageOptionsButton key={1} method='EDIT' listId={listId} image={image} />,
+			<ImageOptionsButton key={2} method='BACKGROUND' listId={listId} image={image} />
 		] :
 		null
 
 	return (
 		<div className='image-options'>
-			<ImageOptionsButton method='ADD_TO_COLLAGE' listId={listId} image={image}>Add to Collage</ImageOptionsButton>
-			<ImageOptionsButton method='DELETE' listId={listId} image={image}>Delete from List</ImageOptionsButton>
+			<ImageOptionsButton method='ADD_TO_COLLAGE' listId={listId} image={image} />
+			<ImageOptionsButton method='DELETE' listId={listId} image={image} />
 			{rawButtons}
 		</div>
 	)
