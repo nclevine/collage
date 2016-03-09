@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react'
 import Image from './Image'
 
 const ImageList = ({ id, name, expanded, images }) => {
+	let emptyMessage = images.length > 0 ? '' :
+		<h2>No Images Yet!</h2>
+
 	return (
 		<div
 			className='image-list'
@@ -11,6 +14,7 @@ const ImageList = ({ id, name, expanded, images }) => {
 		>
 			<h1>{name}</h1>
 			<div className='image-list-inner'>
+				{emptyMessage}
 				{images.map(image =>
 					<Image
 						key={image.id}

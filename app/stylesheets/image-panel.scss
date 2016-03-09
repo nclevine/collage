@@ -57,21 +57,21 @@ $darkBlue: #002d90;
 	top: 25%;
 	right: calc(100% + 1em);
 	height: max-content;
-
 }
 
+.toggle-image-panel-btn,
 .image-panel-section-btn,
 .color-picker-options-btn,
 .image-editor-btn,
 .editor-export-btn,
 .editor-exit-btn,
-.image-options-btn {
+.image-options-btn,
+.image-import-btn {
 	position: relative;
 	width: 5em;
 	height: 5em;
 	background-color: $black;
 	border-radius: 50%;
-	border: none;
 	transition: 0.4s;
 
 	svg {
@@ -93,7 +93,6 @@ $darkBlue: #002d90;
 		width: 200%;
 		text-align: center;
 		color: $white;
-		font-family: $defaultFont;
 		font-size: 1.2em;
 	}
 
@@ -123,12 +122,21 @@ $darkBlue: #002d90;
 
 .image-panel-section-btn {
 	margin: 1.5em 0.5em;
+
+	&:last-of-type {
+		svg {
+			margin-top: 10%;
+			margin-left: 20%;
+		}
+	}
 }
 
 .image-editor-btn,
 .editor-export-btn,
 .editor-exit-btn,
-.image-options-btn {
+.image-options-btn,
+.image-import-btn,
+.color-picker-options-btn {
 	&:hover, &:disabled {
 		background-color: $lightBlue;
 
@@ -179,15 +187,24 @@ $darkBlue: #002d90;
 	}
 }
 
-.editor-exit-btn svg {
-	width: 50%;
-	height: 50%;
-	margin: 25% auto;
+.toggle-image-panel-btn,
+.editor-exit-btn {
+	svg {
+		width: 50%;
+		height: 50%;
+		margin: 25% auto;
+	}
 }
 
 .toggle-image-panel-btn {
 	position: absolute;
 	z-index: 2000;
+
+	&:hover {
+		svg {
+			transform: none;
+		}
+	}
 
 	&.open {
 		top: 7.5%;
@@ -259,14 +276,18 @@ $darkBlue: #002d90;
 	position: relative;
 	height: 85%;
 	top: 7.5%;
-	background-color: #FFF;
+	background-color: $white;
 	border-radius: 3px;
 
 	h1 {
 		position: absolute;
 		bottom: 100%;
 		color: $white;
-		font-family: $defaultFont;
+	}
+
+	h2 {
+		padding-top: 2em;
+		text-align: center;
 	}
 }
 
@@ -275,21 +296,21 @@ $darkBlue: #002d90;
 }
 
 .color-picker-sample {
-    position: relative;
-    top: 2em;
-    left: 7.5%;
-    width: 85%;
-    height: 50%;
-    border-radius: 50%;
+	position: relative;
+	top: 2em;
+	left: 7.5%;
+	width: 85%;
+	height: 50%;
+	border-radius: 50%;
 }
 
 .color-picker-options {
 	position: relative;
-    width: 100%;
-    margin: 0 auto;
-    top: 3em;
-    display: flex;
-    justify-content: space-around;
+	width: 100%;
+	margin: 0 auto;
+	top: 3em;
+	display: flex;
+	justify-content: space-around;
 }
 
 .color-picker-options-btn p {
@@ -303,6 +324,7 @@ $darkBlue: #002d90;
 	position: absolute;
 	bottom: 2em;
 	height: 25%;
+
 	input {
 		width: 80%;
 		margin: 20px auto 0;
@@ -315,7 +337,7 @@ $darkBlue: #002d90;
 	border-radius: 3px;
 
 	&::-webkit-scrollbar { 
-	    display: none; 
+		display: none; 
 	}
 }
 
@@ -328,6 +350,19 @@ $darkBlue: #002d90;
 		.image-overlay, .image-options {
 			opacity: 1;
 		}
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		border: 2px solid $blackTransparent;
+	}
+
+	&:last-of-type:after {
+		display: none;
 	}
 }
 
@@ -353,30 +388,106 @@ $darkBlue: #002d90;
 	transition: 0.2s;
 }
 
-.image-options-btn {
+.image-options-btn, .image-import-btn {
 	width: 3.5em;
 	height: 3.5em;
-
-	&:hover {
-		svg {
-			transform: none;
-		}
-	}
 
 	p {
 		color: $black;
 	}
 }
 
-button:active, button:visited, button:focus {
-	outline: none;
+.image-import-form {
+	padding: 1em;
+	display: flex;
+	justify-content: space-around;
+
+	input, button {
+		font-size: 0.9em;
+	}
+
+	input {
+		width: 75%;
+		background-color: $white;
+		border-style: none none solid none;
+		border-color: $blackTransparent;
+	}
+
+	button {
+		width: 15%;
+		background-color: $black;
+		color: $white;
+		transition: 0.2s;
+		
+		&:hover {
+			color: $black;
+			background-color: $lightBlue;
+		}
+	}
+}
+
+.image-search-results-list {
+	p {
+		padding: 10px;
+	}
+}
+
+.image-search-result {
+	position: relative;
+	padding: 5px;
+
+	.image-overlay, .btn-container {
+		opacity: 0;
+		transition: 0.2s
+	}
+
+	.image-overlay {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+
+	.btn-container {
+		position: relative;
+		margin: 0 auto;
+		top: 35%;
+		width: max-content;
+	}
+
+	&:hover {
+		.image-overlay, .btn-container {
+			opacity: 1;
+		}
+	}
+}
+
+button {
+	border: none;
+	border-radius: 2px;
+
+
+	&:active, &:visited, &:focus {
+		outline: none;
+	}
+}
+
+input {
+	&:focus, &:active, &:visited {
+		outline: none;
+	}
+
+	&::-webkit-input-placeholder {
+	   color: $blackTransparent;
+	}
 }
 
 input[type=range] {
 	-webkit-appearance: none;
 
 	&:focus {
-	 	outline: none;
+		outline: none;
 	}
 	&::-webkit-slider-runnable-track {
 		width: 100%;

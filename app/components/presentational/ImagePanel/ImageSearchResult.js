@@ -31,12 +31,16 @@ class ImageSearchResult extends Component {
 						this.imageEl = node
 					}}
 				/>
-				<ImageImportButton
-					url={this.props.url}
-					width={this.imageWidth}
-					height={this.imageHeight}
-					disabled={!this.imageWidth}
-				/>
+				<div className='image-overlay'>
+					<div className='btn-container'>
+						<ImageImportButton
+							url={this.props.url}
+							width={this.imageWidth}
+							height={this.imageHeight}
+							disabled={!this.imageWidth}
+						/>
+					</div>
+				</div>
 			</div>
 		)
 	}

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { addRawImage, toggleImageImporterOpen, toggleImageListExpanded } from '../../../actions'
+import AddElementIcon from '../../icons/AddElementIcon'
 
 let ImageImportButton = ({ url, width, height, disabled, dispatch }) => {
 	return (
@@ -13,7 +14,8 @@ let ImageImportButton = ({ url, width, height, disabled, dispatch }) => {
 				dispatch(toggleImageListExpanded(1))
 			}}
 		>
-			Add to Image List
+			<AddElementIcon />
+			<p>Add to List</p>
 		</button>
 	)
 }

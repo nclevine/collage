@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { toggleImagePanelOpen } from '../../../actions'
+import CloseIcon from '../../icons/CloseIcon'
 
 let ToggleImagePanelButton = ({ panelOpen, dispatch }) => {
 	let className = panelOpen ?
@@ -18,7 +19,7 @@ let ToggleImagePanelButton = ({ panelOpen, dispatch }) => {
 				dispatch(toggleImagePanelOpen())
 			}}
 		>
-			{text}
+			<CloseIcon />
 		</button>
 	)
 }
