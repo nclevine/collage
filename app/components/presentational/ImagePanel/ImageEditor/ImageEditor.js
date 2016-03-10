@@ -59,15 +59,15 @@ class ImageEditor extends Component {
 			this.imageHeight = windowHeight - 250
 		}
 
+		let className = 'image-editor'
+		if (this.props.open) {
+			className += ' open'
+		}
+
 		return (
-			<div
-				className='image-editor'
-				style={{
-					display: this.props.open ? 'block' : 'none'
-				}}
-			>
+			<div className={className}>
 				<div className='image-editor-background-overlay'></div>
-				<div 
+				<div
 					className='image-editor-container'
 					style={{
 						top: 'calc(50% - ' + (this.imageHeight / 2) + 'px)',
