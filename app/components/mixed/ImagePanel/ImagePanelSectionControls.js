@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react'
-import ImagePanelSectionButton from '../../mixed/ImagePanel/ImagePanelSectionButton'
+import { connect } from 'react-redux'
+import ImagePanelSectionButton from './ImagePanelSectionButton'
 
-const ImagePanelSectionControls = ({ expansion }) => {
+let ImagePanelSectionControls = ({ expansion }) => {
 	let className = 'image-panel-section-controls '
 
 	switch (expansion) {
@@ -25,5 +26,13 @@ const ImagePanelSectionControls = ({ expansion }) => {
 		</div>
 	)
 }
+
+const mapStateToProps = (state) => {
+	return {
+		expansion: state.imagePanel.expansion
+	}
+}
+
+ImagePanelSectionControls = connect(mapStateToProps)(ImagePanelSectionControls)
 
 export default ImagePanelSectionControls

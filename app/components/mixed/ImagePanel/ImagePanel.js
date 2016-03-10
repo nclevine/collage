@@ -1,18 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import ImagePanelSectionControls from '../../presentational/ImagePanel/ImagePanelSectionControls'
 import ImagePanelSections from '../../presentational/ImagePanel/ImagePanelSections'
 import ImageEditorContainer from '../../container/ImageEditorContainer'
 
 let ImagePanel = ({ expansion, imageLists }) => {
-	let overlayClass = (expansion === 'BUTTONS' || expansion === 'COLLAPSED') ?
-		'image-panel-overlay collapsed' :
-		'image-panel-overlay'
+	let panelClass = 'image-panel '
+	let overlayClass = 'image-panel-overlay '
+
+	if (expansion === 'BUTTONS' || expansion === 'COLLAPSED') {
+		panelClass += 'collapsed'
+		overlayClass += 'collapsed'
+	}
 
 	return (
-		<div className='image-panel'>
+		<div className={panelClass}>
 			<div className={overlayClass}></div>
-			<ImagePanelSectionControls expansion={expansion} />
 			<ImageEditorContainer />
 			<ImagePanelSections imageLists={imageLists} expansion={expansion} />
 		</div>

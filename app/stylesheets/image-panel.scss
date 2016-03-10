@@ -20,6 +20,10 @@ $darkBlue: #002d90;
 	width: 50%;
 	height: 100%;
 	z-index: 1000;
+
+	&.collapsed {
+		z-index: -1;
+	}
 }
 
 .image-panel-overlay {
@@ -122,10 +126,11 @@ $darkBlue: #002d90;
 	position: absolute;
 	top: 25%;
 	height: max-content;
-	transition: 1s;
+	z-index: 2000;
+	transition: 0.6s;
 	
 	&.full {
-		right: calc(100% + 1em);
+		left: calc(25% - 5em);
 	}
 
 	&.buttons, &.collapsed {
@@ -137,11 +142,11 @@ $darkBlue: #002d90;
 	}
 
 	&.buttons {
-		right: calc(150% - 5em);
+		left: 1em;
 	}
 
 	&.collapsed {
-		right: calc(160%);
+		left: -5em;
 	}
 }
 
@@ -226,7 +231,7 @@ $darkBlue: #002d90;
 	top: 7.5%;
 	z-index: 2000;
 	background-color: transparent;
-	transition: left 1s;
+	transition: left 0.6s;
 
 	svg {
 		width: 100%;
@@ -276,7 +281,7 @@ $darkBlue: #002d90;
 	position: absolute;
 	left: 0;
 	height: 100%;
-	transition: 1s;
+	transition: 0.6s;
 
 	&.collapsed {
 		left: 200%;
