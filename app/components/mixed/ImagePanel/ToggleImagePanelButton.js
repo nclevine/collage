@@ -1,32 +1,57 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleImagePanelOpen } from '../../../actions'
-import CloseIcon from '../../icons/CloseIcon'
+import { setImagePanelExpansion, toggleColorPickerOpen, toggleImageImporterOpen, toggleImageListExpanded } from '../../../actions'
+import BackArrowIcon from '../../icons/BackArrowIcon'
 
-let ToggleImagePanelButton = ({ panelOpen, dispatch }) => {
-	let className = panelOpen ?
-		'toggle-image-panel-btn open' :
-		'toggle-image-panel-btn closed'
+let ToggleImagePanelButton = ({ panelExpansion, colorPickerOpen, rawImagesOpen, cutoutImagesOpen, imageImporterOpen, dispatch }) => {
+	let className = 'image-panel-expansion-btn '
+	let nextExpansion
 
-	let text = panelOpen ?
-		'Close' :
-		'Open Image Panel'
+	switch (panelExpansion) {
+		case 'FULL':
+			className += 'full'
+			nextExpansion = 'BUTTONS'
+			break
+		case 'BUTTONS':
+			className += 'buttons'
+			nextExpansion = 'COLLAPSED'
+			break
+		case 'COLLAPSED':
+			className += 'collapsed'
+			nextExpansion = 'BUTTONS'
+			break
+	}
 
 	return (
 		<button
 			className={className}
 			onClick={() => {
-				dispatch(toggleImagePanelOpen())
+				dispatch(setImagePanelExpansion(nextExpansion))
+				if (nextExpansion === 'BUTTONS') {
+					if (colorPickerOpen) {
+						dispatch(toggleColorPickerOpen())
+					} else if (rawImagesOpen) {
+						dispatch(toggleImageListExpanded(1))
+					} else if (cutoutImagesOpen) {
+						dispatch(toggleImageListExpanded(2))
+					} else if (imageImporterOpen) {
+						dispatch(toggleImageImporterOpen())
+					}
+				}
 			}}
 		>
-			<CloseIcon />
+			<BackArrowIcon />
 		</button>
 	)
 }
 
 const mapStateToProps = (state) => {
 	return {
-		panelOpen: state.imagePanel.open
+		panelExpansion: state.imagePanel.expansion,
+		colorPickerOpen: state.imagePanel.colorPicker.open,
+		rawImagesOpen: state.imagePanel.imageLists[0].expanded,
+		cutoutImagesOpen: state.imagePanel.imageLists[1].expanded,
+		imageImporterOpen: state.imagePanel.importPanel.open
 	}
 }
 

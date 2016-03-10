@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { toggleColorPickerOpen, toggleImageImporterOpen, toggleImageListExpanded } from '../../../actions'
+import { setImagePanelExpansion, toggleColorPickerOpen, toggleImageImporterOpen, toggleImageListExpanded } from '../../../actions'
 import ColorPickerIcon from '../../icons/ColorPickerIcon'
 import ImagesIcon from '../../icons/ImagesIcon'
 import CutoutsIcon from '../../icons/CutoutsIcon'
 import ImportImageIcon from '../../icons/ImportImageIcon'
 
-let ImagePanelSectionButton = ({ panel, colorPickerOpen, rawImagesOpen, cutoutImagesOpen, imageImporterOpen, dispatch }) => {
+let ImagePanelSectionButton = ({ panel, panelExpansion, colorPickerOpen, rawImagesOpen, cutoutImagesOpen, imageImporterOpen, dispatch }) => {
 	let disabled = ((panel === 'COLOR_PICKER' && colorPickerOpen) ||
 		(panel === 'RAW_IMAGES' && rawImagesOpen) ||
 		(panel === 'CUTOUT_IMAGES' && cutoutImagesOpen) ||
@@ -48,7 +48,7 @@ let ImagePanelSectionButton = ({ panel, colorPickerOpen, rawImagesOpen, cutoutIm
 							dispatch(toggleImageListExpanded(2))
 						}
 						dispatch(toggleColorPickerOpen())
-						return
+						break
 					case 'IMAGE_IMPORTER':
 						if (colorPickerOpen) {
 							dispatch(toggleColorPickerOpen())
@@ -58,7 +58,7 @@ let ImagePanelSectionButton = ({ panel, colorPickerOpen, rawImagesOpen, cutoutIm
 							dispatch(toggleImageListExpanded(2))
 						}
 						dispatch(toggleImageImporterOpen())
-						return
+						break
 					case 'RAW_IMAGES':
 						if (imageImporterOpen) {
 							dispatch(toggleImageImporterOpen())
@@ -68,7 +68,7 @@ let ImagePanelSectionButton = ({ panel, colorPickerOpen, rawImagesOpen, cutoutIm
 							dispatch(toggleImageListExpanded(2))
 						}
 						dispatch(toggleImageListExpanded(1))
-						return
+						break
 					case 'CUTOUT_IMAGES':
 						if (imageImporterOpen) {
 							dispatch(toggleImageImporterOpen())
@@ -78,7 +78,10 @@ let ImagePanelSectionButton = ({ panel, colorPickerOpen, rawImagesOpen, cutoutIm
 							dispatch(toggleColorPickerOpen())
 						}
 						dispatch(toggleImageListExpanded(2))
-						return
+						break
+				}
+				if (panelExpansion !== 'FULL') {
+					dispatch(setImagePanelExpansion('FULL'))
 				}
 			}}
 			disabled={disabled}
@@ -91,6 +94,7 @@ let ImagePanelSectionButton = ({ panel, colorPickerOpen, rawImagesOpen, cutoutIm
 
 const mapStateToProps = (state) => {
 	return {
+		panelExpansion: state.imagePanel.expansion,
 		colorPickerOpen: state.imagePanel.colorPicker.open,
 		rawImagesOpen: state.imagePanel.imageLists[0].expanded,
 		cutoutImagesOpen: state.imagePanel.imageLists[1].expanded,

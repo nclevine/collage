@@ -4,25 +4,24 @@ import ImagePanelSectionControls from '../../presentational/ImagePanel/ImagePane
 import ImagePanelSections from '../../presentational/ImagePanel/ImagePanelSections'
 import ImageEditorContainer from '../../container/ImageEditorContainer'
 
-let ImagePanel = ({ open, imageLists }) => {
+let ImagePanel = ({ expansion, imageLists }) => {
+	let overlayClass = (expansion === 'BUTTONS' || expansion === 'COLLAPSED') ?
+		'image-panel-overlay collapsed' :
+		'image-panel-overlay'
+
 	return (
-		<div
-			className='image-panel'
-			style={{
-				display: open ? 'block' : 'none'
-			}}
-		>
-			<div className='image-panel-overlay'></div>
-			<ImagePanelSectionControls />
+		<div className='image-panel'>
+			<div className={overlayClass}></div>
+			<ImagePanelSectionControls expansion={expansion} />
 			<ImageEditorContainer />
-			<ImagePanelSections imageLists={imageLists} />
+			<ImagePanelSections imageLists={imageLists} expansion={expansion} />
 		</div>
 	)
 }
 
 const mapStateToProps = (state) => {
 	return {
-		open: state.imagePanel.open,
+		expansion: state.imagePanel.expansion,
 		imageLists: state.imagePanel.imageLists
 	}
 }

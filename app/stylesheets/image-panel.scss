@@ -29,12 +29,17 @@ $darkBlue: #002d90;
 	width: 200%;
 	height: 100%;
 	background: $blackTransparent;
+	transition: 0.4s;
+
+	&.collapsed {
+		opacity: 0;
+	}
 }
 
 .image-importer,
 .image-search-result,
 .image-search-result img,
-.combined-image-list,
+.image-panel-sections,
 .color-picker,
 .color-picker-form,
 .image-list,
@@ -49,17 +54,7 @@ $darkBlue: #002d90;
 	clear: both;
 }
 
-.image-panel-section-controls {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	position: absolute;
-	top: 25%;
-	right: calc(100% + 1em);
-	height: max-content;
-}
-
-.toggle-image-panel-btn,
+.image-panel-expansion-btn,
 .image-panel-section-btn,
 .color-picker-options-btn,
 .image-editor-btn,
@@ -117,6 +112,36 @@ $darkBlue: #002d90;
 		svg {
 			transform: rotateZ(45deg);
 		}
+	}
+}
+
+.image-panel-section-controls {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	position: absolute;
+	top: 25%;
+	height: max-content;
+	transition: 1s;
+	
+	&.full {
+		right: calc(100% + 1em);
+	}
+
+	&.buttons, &.collapsed {
+		.image-panel-section-btn {
+			p {
+				color: $black;
+			}
+		}
+	}
+
+	&.buttons {
+		right: calc(150% - 5em);
+	}
+
+	&.collapsed {
+		right: calc(160%);
 	}
 }
 
@@ -187,7 +212,7 @@ $darkBlue: #002d90;
 	}
 }
 
-.toggle-image-panel-btn,
+.image-panel-expansion-btn,
 .editor-exit-btn {
 	svg {
 		width: 50%;
@@ -196,24 +221,65 @@ $darkBlue: #002d90;
 	}
 }
 
-.toggle-image-panel-btn {
+.image-panel-expansion-btn {
 	position: absolute;
+	top: 7.5%;
 	z-index: 2000;
+	background-color: transparent;
+	transition: left 1s;
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
 
 	&:hover {
 		svg {
 			transform: none;
+
+			g, path {
+				fill: $lightBlue;
+			}
 		}
 	}
 
-	&.open {
-		top: 7.5%;
-		left: 75%;
+	&.full {
+		left: calc(25% - 7em);
 	}
 
-	&.closed {
-		bottom: 0;
-		left: 0;
+	&.buttons, &.collapsed {
+		left: 1.5em;
+
+		svg {
+			g, path {
+				fill: $black;
+			}
+		}
+
+		&:hover {
+			svg {
+				g, path {
+					fill: $lightBlue;
+				}
+			}
+		}
+	}
+
+	&.collapsed {
+		svg {
+			transform: rotateZ(180deg)
+		}
+	}
+}
+
+.image-panel-sections {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	transition: 1s;
+
+	&.collapsed {
+		left: 200%;
 	}
 }
 
@@ -267,11 +333,6 @@ $darkBlue: #002d90;
 	}
 }
 
-.combined-image-list {
-	position: absolute;
-	height: 100%;
-}
-
 .color-picker, .image-importer, .image-list {
 	position: relative;
 	height: 85%;
@@ -302,6 +363,11 @@ $darkBlue: #002d90;
 	width: 85%;
 	height: 50%;
 	border-radius: 50%;
+
+	svg {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 .color-picker-options {

@@ -1,21 +1,21 @@
 import { combineReducers } from 'redux'
-import { TOGGLE_IMAGE_PANEL_OPEN } from '../../actions'
+import { SET_IMAGE_PANEL_EXPANSION } from '../../actions'
 import importPanel from './importPanel'
 import colorPicker from './colorPicker'
 import imageLists from './imageLists'
 import editor from './editor'
 
-const open = (state = true, action) => {
+const expansion = (state = 'FULL', action) => {
 	switch (action.type) {
-		case TOGGLE_IMAGE_PANEL_OPEN:
-			return !state
+		case SET_IMAGE_PANEL_EXPANSION:
+			return action.expansion
 		default:
 			return state
 	}
 }
 
 const imagePanel = combineReducers({
-	open,
+	expansion,
 	importPanel,
 	colorPicker,
 	imageLists,

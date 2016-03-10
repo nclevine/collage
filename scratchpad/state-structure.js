@@ -30,7 +30,7 @@ const { ARTSY, TUMBLR } = IMPORT_SEARCH_SOURCES
 
 const initialState = {
 	imagePanel: {
-		open: true,
+		expansion: 'FULL',
 		importPanel: {
 			open: false,
 			method: BY_URL,

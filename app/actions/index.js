@@ -1,7 +1,8 @@
-export const TOGGLE_IMAGE_PANEL_OPEN = 'TOGGLE_IMAGE_PANEL_OPEN'
-export const toggleImagePanelOpen = () => {
+export const SET_IMAGE_PANEL_EXPANSION = 'SET_IMAGE_PANEL_EXPANSION'
+export const setImagePanelExpansion = (expansion) => {
 	return {
-		type: TOGGLE_IMAGE_PANEL_OPEN
+		type: SET_IMAGE_PANEL_EXPANSION,
+		expansion
 	}
 }
 

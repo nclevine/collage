@@ -3,9 +3,13 @@ import ImageList from './ImageList'
 import ColorPickerContainer from '../../container/ColorPickerContainer'
 import ImageImporterContainer from '../../container/ImageImporterContainer'
 
-const ImagePanelSections = ({ imageLists }) => {
+const ImagePanelSections = ({ imageLists, expansion }) => {
+	let className = expansion === 'FULL' ?
+		'image-panel-sections' :
+		'image-panel-sections collapsed'
+
 	return (
-		<div className='combined-image-list'>
+		<div className={className}>
 			<ColorPickerContainer />
 			<ImageImporterContainer />
 			{imageLists.map(imageList => 
