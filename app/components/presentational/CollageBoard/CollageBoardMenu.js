@@ -4,19 +4,26 @@ import DeleteSelectedElementsButton from '../../mixed/CollageBoard/DeleteSelecte
 import ArrangeSelectedButton from '../../mixed/CollageBoard/ArrangeSelectedButton'
 import ClearBackgroundButton from '../../mixed/CollageBoard/ClearBackgroundButton'
 
-const CollageBoardMenu = ({ open }) => {
+const CollageBoardMenu = ({ open, selectedElements }) => {
+	let className = open ?
+		'collage-board-menu open' :
+		'collage-board-menu'
+
+	let selectedClass = selectedElements.length ?
+		'selected-items-menu selected' :
+		'selected-items-menu'
+
 	return (
-		<div
-			className='collage-board-menu'
-			style={{
-				display: open ? 'block' : 'none'
-			}}
-		>
-			<ClearBoardButton />
-			<DeleteSelectedElementsButton />
-			<ArrangeSelectedButton direction='BACK' />
-			<ArrangeSelectedButton direction='FORWARD' />
-			<ClearBackgroundButton />
+		<div className={className}>
+			<div className='main-menu'>
+				<ClearBoardButton />
+				<ClearBackgroundButton />
+			</div>
+			<div className={selectedClass}>
+				<ArrangeSelectedButton direction='BACK' />
+				<ArrangeSelectedButton direction='FORWARD' />
+				<DeleteSelectedElementsButton />
+			</div>
 		</div>
 	)
 }

@@ -1,9 +1,122 @@
+@import 'variables';
+
 .collage-board {
 	position: relative;
 	overflow: hidden;
 	width: 100%;
 	height: 100%;
 	z-index: 0;
+}
+
+.collage-board-menu {
+	position: relative;
+	width: 100%;
+	top: -10em;
+	transition: 0.6s;
+	z-index: 2000;
+
+	&.open {
+		top: 0;
+	}
+
+	.main-menu, .selected-items-menu {
+		display: flex;
+		justify-content: space-around;
+		position: absolute;
+		top: 1em;
+		width: max-content;
+		transition: 0.6s;
+	}
+
+	.main-menu {
+		left: 6em;
+	}
+
+	.selected-items-menu {
+		top: -10em;
+		right: 3em;
+
+		&.selected {
+			top: 1em;
+		}
+	}
+}
+
+.toggle-collage-menu-btn,
+.clear-board-btn,
+.clear-background-btn,
+.arrange-selected-btn,
+.delete-elements-btn {
+	position: relative;
+	margin: 0 3em;
+	width: 5em;
+	height: 5em;
+	background-color: $black;
+	border-radius: 50%;
+	transition: 0.4s;
+
+	svg {
+		display: block;
+		width: 65%;
+		height: 65%;
+		margin: 17.5% auto;
+		g, path {
+			fill: $white;
+			transition: 0.4s;
+		}
+		transition: transform 0.4s;
+	}
+
+	p {
+		position: absolute;
+		top: calc(100% + 0.3em);
+		left: -50%;
+		width: 200%;
+		text-align: center;
+		color: $black;
+		font-size: 1.2em;
+	}
+
+	&:hover {
+		svg {
+			transform: rotateZ(20deg);
+		}
+	}
+}
+
+.toggle-collage-menu-btn {
+	position: absolute;
+	top: 2em;
+	left: 4em;
+	width: 3em;
+	height: 3em;
+	background-color: transparent;
+
+	svg {
+		width: 100%;
+		height: 100%;
+		transform: rotateZ(-90deg);
+
+		g, path {
+			fill: $black;
+		}
+	}
+
+	&.open {
+		svg {
+			transform: rotateZ(90deg);
+		}
+	}
+
+	&:hover {
+		svg {
+			transform: none;
+
+			g, path {
+				fill: $lightBlue;
+			}
+		}
+	}
 }
 
 .collage-element {

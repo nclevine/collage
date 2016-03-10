@@ -12,8 +12,8 @@ const element = (state, action) => {
 					height: action.image.height
 				},
 				position: {
-					top: '10%',
-					left: '10%'
+					top: '20%',
+					left: '20%'
 				}
 			}
 		case UPDATE_COLLAGE_ELEMENT:

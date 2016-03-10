@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { clearAllElements, deselectAllElements } from '../../../actions'
+import DeleteIcon from '../../icons/DeleteIcon'
 
 let ClearBoardButton = ({ dispatch }) => {
 	return (
@@ -11,7 +12,8 @@ let ClearBoardButton = ({ dispatch }) => {
 				dispatch(clearAllElements())
 			}}
 		>
-			Clear Board
+			<DeleteIcon />
+			<p>Clear Board</p>
 		</button>
 	)
 }

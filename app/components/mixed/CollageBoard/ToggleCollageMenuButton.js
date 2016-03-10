@@ -1,19 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { toggleCollageBoardMenuOpen } from '../../../actions'
+import ArrowIcon from '../../icons/ArrowIcon'
 
 let ToggleCollageMenuButton = ({ menuOpen, dispatch }) => {
-	let text = menuOpen ?
-		'Close Menu' :
-		'Open Menu'
+	let className = menuOpen ?
+		'toggle-collage-menu-btn open' :
+		'toggle-collage-menu-btn'
+
 	return (
 		<button
-			className='toggle-collage-menu-btn'
+			className={className}
 			onClick={() => {
 				dispatch(toggleCollageBoardMenuOpen())
 			}}
 		>
-			{text}
+			<ArrowIcon />
 		</button>
 	)
 }

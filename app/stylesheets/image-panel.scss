@@ -1,17 +1,4 @@
-$defaultFont: 'Chivo', sans-serif;
-
-$black: #111;
-$blackTransparent: rgba($black,0.8);
-$midGray: #aaa;
-$white: #F0F0F0;
-$whiteTransparent: rgba($white, 0.8);
-$red: #ff4136;
-$darkRed: #c9001a;
-$green: #2ecc40;
-$darkGreen: #086d25;
-$lightBlue: #9DEFFF;
-$blue: #0074d9;
-$darkBlue: #002d90;
+@import 'variables';
 
 .image-panel {
 	position: absolute;
@@ -114,7 +101,7 @@ $darkBlue: #002d90;
 
 	&:hover {
 		svg {
-			transform: rotateZ(45deg);
+			transform: rotateZ(20deg);
 		}
 	}
 }
@@ -231,7 +218,7 @@ $darkBlue: #002d90;
 	top: 7.5%;
 	z-index: 2000;
 	background-color: transparent;
-	transition: left 0.6s;
+	transition: 0.6s;
 
 	svg {
 		width: 100%;
@@ -253,7 +240,9 @@ $darkBlue: #002d90;
 	}
 
 	&.buttons, &.collapsed {
-		left: 1.5em;
+		left: 3em;
+		width: 3em;
+		height: 3em;
 
 		svg {
 			g, path {
@@ -270,7 +259,12 @@ $darkBlue: #002d90;
 		}
 	}
 
+	&.buttons {
+		top: 20%;
+	}
+
 	&.collapsed {
+		top: 2em;
 		svg {
 			transform: rotateZ(180deg)
 		}
@@ -352,13 +346,13 @@ $darkBlue: #002d90;
 .color-picker, .image-importer, .image-list {
 	position: relative;
 	height: 85%;
-	top: 7.5%;
+	top: 10%;
 	background-color: $white;
 	border-radius: 3px;
 
 	h1 {
 		position: absolute;
-		bottom: 100%;
+		bottom: 101%;
 		color: $white;
 	}
 

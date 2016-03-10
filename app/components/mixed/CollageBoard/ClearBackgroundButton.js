@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { setCollageBackground } from '../../../actions'
+import ClearBackgroundIcon from '../../icons/ClearBackgroundIcon'
 
 let ClearBackgroundButton = ({ background, dispatch }) => {
 	return (
@@ -11,7 +12,8 @@ let ClearBackgroundButton = ({ background, dispatch }) => {
 			}}
 			disabled={background === 'none'}
 		>
-			Clear Background
+			<ClearBackgroundIcon />
+			<p>Clear Background</p>
 		</button>
 	)
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BackArrowIcon = () => {
+const ArrowIcon = () => {
 	return (
 		<svg width="76px" height="46px" viewBox="0 0 76 46" version="1.1" xmlns="http://www.w3.org/2000/svg">
 		    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -10,4 +10,4 @@ const BackArrowIcon = () => {
 	)
 }
 
-export default BackArrowIcon
+export default ArrowIcon

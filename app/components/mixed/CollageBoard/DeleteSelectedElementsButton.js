@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { removeCollageElement, deselectAllElements } from '../../../actions'
+import DeleteElementIcon from '../../icons/DeleteElementIcon'
 
 let DeleteSelectedElementsButton = ({ selectedElements, dispatch }) => {
 	let numSelected = selectedElements.length
@@ -16,7 +17,8 @@ let DeleteSelectedElementsButton = ({ selectedElements, dispatch }) => {
 			}}
 			disabled={!numSelected}
 		>
-			Delete Selected
+			<DeleteElementIcon />
+			<p>Delete Selected</p>
 		</button>
 	)
 }

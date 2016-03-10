@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { setImagePanelExpansion, toggleColorPickerOpen, toggleImageImporterOpen, toggleImageListExpanded } from '../../../actions'
-import BackArrowIcon from '../../icons/BackArrowIcon'
+import ArrowIcon from '../../icons/ArrowIcon'
 
 let ToggleImagePanelButton = ({ panelExpansion, colorPickerOpen, rawImagesOpen, cutoutImagesOpen, imageImporterOpen, dispatch }) => {
 	let className = 'image-panel-expansion-btn '
@@ -40,7 +40,7 @@ let ToggleImagePanelButton = ({ panelExpansion, colorPickerOpen, rawImagesOpen, 
 				}
 			}}
 		>
-			<BackArrowIcon />
+			<ArrowIcon />
 		</button>
 	)
 }

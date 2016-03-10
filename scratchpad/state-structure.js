@@ -30,7 +30,7 @@ const { ARTSY, TUMBLR } = IMPORT_SEARCH_SOURCES
 
 const initialState = {
 	imagePanel: {
-		expansion: 'FULL',
+		expansion: 'BUTTONS',
 		importPanel: {
 			open: false,
 			method: BY_URL,
@@ -43,7 +43,7 @@ const initialState = {
 			]
 		},
 		colorPicker: {
-			open: true,
+			open: false,
 			red: 128,
 			green: 128,
 			blue: 128,
