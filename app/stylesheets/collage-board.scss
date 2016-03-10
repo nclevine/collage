@@ -140,28 +140,35 @@
 .ui-resizable-handle {
 	position: absolute;
 	opacity: 0;
-	width: 10px;
-	height: 10px;
-	background-color: #2ECC40;
-	border: 1px solid white;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: $lightBlue;
+	background-size: 55% 55%;
+	background-repeat: no-repeat;
+    background-position: center;
 }
 
 .ui-resizable-nw {
-	top: 0;
-	left: 0;
+	top: -5px;
+	left: -5px;
+	background-image: url('../images/arrow-nw.svg');
 }
 
 .ui-resizable-ne {
-	top: 0;
-	right: 0;
+	top: -5px;
+	right: -5px;
+	background-image: url('../images/arrow-ne.svg');
 }
 
 .ui-resizable-sw {
-	bottom: 0;
-	left: 0;
+	bottom: -5px;
+	left: -5px;
+	background-image: url('../images/arrow-sw.svg');
 }
 
 .ui-resizable-se {
-	bottom: 0;
-	right: 0;
+	bottom: -5px;
+	right: -5px;
+	background-image: url('../images/arrow-se.svg');
 }

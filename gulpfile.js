@@ -43,13 +43,18 @@ gulp.task('sass:watch', function () {
   gulp.watch('./app/stylesheets/**/*.scss', ['sass']);
 });
 
+gulp.task('images', function () {
+	return gulp.src('./app/images/**')
+		.pipe(gulp.dest('./web/images'));
+});
+
 gulp.task('watch', ['scripts:watch','sass:watch']);
 
 gulp.task('deploy', function (){
 	bundleApp(true);
 });
 
-gulp.task('default', ['scripts','sass','watch']);
+gulp.task('default', ['scripts','sass', 'images', 'watch']);
 
 // Private Functions
 // ----------------------------------------------------------------------------

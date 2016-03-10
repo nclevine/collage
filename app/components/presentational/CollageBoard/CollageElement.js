@@ -15,7 +15,7 @@ class CollageElement extends Component {
 		let { top, left } = this.props.position
 		let { width, height } = this.props.dimensions
 		let outline = this.props.isSelected ?
-			'2px solid green' :
+			'2px dashed #111' :
 			'none'
 		let element = this.props.image.url ?
 			<RawImage url={this.props.image.url} /> :
