@@ -25,17 +25,20 @@ export const setImageImportMethod = (method) => {
 	}
 }
 
-export const ImageSearchSources = {
-	ARTSY: 'ARTSY',
-	TUMBLR: 'TUMBLR'
-}
-export const SET_IMAGE_SEARCH_SOURCE = 'SET_IMAGE_SEARCH_SOURCE'
-export const setImageSearchSource = (source) => {
+export const REQUEST_SEARCH_IMAGES = 'REQUEST_SEARCH_IMAGES'
+export const requestSearchImages = () => {
 	return {
-		type: SET_IMAGE_SEARCH_SOURCE,
-		source
+		type: REQUEST_SEARCH_IMAGES
 	}
 }
+
+export const RECEIVE_SEARCH_IMAGES = 'RECEIVE_SEARCH_IMAGES'
+export const receiveSearchImages = () => {
+	return {
+		type: RECEIVE_SEARCH_IMAGES
+	}
+}
+
 
 let nextSearchImageId = 0
 export const ADD_IMAGE_SEARCH_RESULT = 'ADD_IMAGE_SEARCH_RESULT'
@@ -44,6 +47,22 @@ export const addImageSearchResult = (url) => {
 		type: ADD_IMAGE_SEARCH_RESULT,
 		id: nextSearchImageId++,
 		url
+	}
+}
+
+export const fetchSearchImages = (query) => {
+	return function (dispatch) {
+		dispatch(requestSearchImages())
+
+		$.ajax({
+			dataType: 'json',
+			url: 'https://www.googleapis.com/customsearch/v1?key=AIzaSyA6YsyAibry_HPXD8zykvkfNiKZMXuv360&cx=011542181941797942738:nfzizxqapw0&searchType=image&q=' + query
+		}).done(json => {
+			dispatch(receiveSearchImages())
+			json.items.forEach(item => {
+				dispatch(addImageSearchResult(item.link))
+			})
+		})
 	}
 }
 

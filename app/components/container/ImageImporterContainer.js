@@ -1,22 +1,25 @@
 import { connect } from 'react-redux'
 import ImageImporter from '../presentational/ImagePanel/ImageImporter'
-import { addImageSearchResult, clearImageSearchResults } from '../../actions'
+import { fetchSearchImages, addImageSearchResult, clearImageSearchResults } from '../../actions'
 
 const mapStateToProps = (state) => {
 	let { open, method, source, results } = state.imagePanel.importPanel
 	return {
 		open: open,
 		importMethod: method,
-		searchSource: source,
-		searchResults: results,
+		searchResults: results
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onSearchSubmit: (url) => {
+		onURLSubmit: (url) => {
 			dispatch(clearImageSearchResults())
 			dispatch(addImageSearchResult(url))
+		},
+		onSearchSubmit: (query) => {
+			dispatch(clearImageSearchResults())
+			dispatch(fetchSearchImages(query))
 		}
 	}
 }

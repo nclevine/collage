@@ -9,10 +9,11 @@ const ImageSearchResultsList = ({ imageList }) => {
 				display: imageList.length > 0 ? 'block' : 'none'
 			}}
 		>
-			<p>Search Results</p>
-			{imageList.map(image =>
-				<ImageSearchResult key={image.id} url={image.url} />
-			)}
+			<div className='image-search-results-list-inner'>
+				{imageList.map(image =>
+					<ImageSearchResult key={image.id} url={image.url} />
+				)}
+			</div>
 		</div>
 	)
 }

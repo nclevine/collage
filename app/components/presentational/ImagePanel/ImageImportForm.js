@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
 
-const ImageImportForm = ({ importMethod, searchSource, onSubmit }) => {
+const ImageImportForm = ({ importMethod, onURLSubmit, onSearchSubmit }) => {
 	let input
 	let placeholder = importMethod === 'BY_URL' ?
 		'Enter image URL' :
-		'Search for images on ' + searchSource
+		'Search for Images'
 	let buttonText = importMethod === 'BY_URL' ?
 		'Load' :
 		'Search'
@@ -14,7 +14,11 @@ const ImageImportForm = ({ importMethod, searchSource, onSubmit }) => {
 			className='image-import-form'
 			onSubmit={(e) => {
 				e.preventDefault()
-				onSubmit(input.value)
+				if (importMethod === 'BY_URL') {
+					onURLSubmit(input.value)
+				} else {
+					onSearchSubmit(input.value)
+				}
 				input.value = ''
 			}}
 		>
@@ -34,8 +38,8 @@ const ImageImportForm = ({ importMethod, searchSource, onSubmit }) => {
 
 ImageImportForm.propTypes = {
 	importMethod: PropTypes.string.isRequired,
-	searchSource: PropTypes.string.isRequired,
-	onSubmit: PropTypes.func.isRequired
+	onURLSubmit: PropTypes.func.isRequired,
+	onSearchSubmit: PropTypes.func.isRequired
 }
 
 export default ImageImportForm

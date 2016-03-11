@@ -30,7 +30,7 @@ let ImagePanelSectionButton = ({ panel, panelExpansion, colorPickerOpen, rawImag
 			break
 		case 'IMAGE_IMPORTER':
 			buttonIcon = <ImportImageIcon />
-			buttonText = 'Import Image'
+			buttonText = 'Importer'
 			break
 	}
 

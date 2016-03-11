@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
-import { TOGGLE_IMAGE_IMPORTER_OPEN, ImportMethods, SET_IMAGE_IMPORT_METHOD, SET_IMAGE_SEARCH_SOURCE, ImageSearchSources, ADD_IMAGE_SEARCH_RESULT, CLEAR_IMAGE_SEARCH_RESULTS } from '../../actions'
+import { TOGGLE_IMAGE_IMPORTER_OPEN, ImportMethods, SET_IMAGE_IMPORT_METHOD, REQUEST_SEARCH_IMAGES, RECEIVE_SEARCH_IMAGES, ADD_IMAGE_SEARCH_RESULT, CLEAR_IMAGE_SEARCH_RESULTS } from '../../actions'
 const { BY_URL } = ImportMethods
-const { ARTSY } = ImageSearchSources
 
 const open = (state = false, action) => {
 	switch (action.type) {
@@ -21,10 +20,12 @@ const method = (state = BY_URL, action) => {
 	}
 }
 
-const source = (state = ARTSY, action) => {
+const isFetching = (state = false, action) => {
 	switch (action.type) {
-		case SET_IMAGE_SEARCH_SOURCE:
-			return action.source
+		case REQUEST_SEARCH_IMAGES:
+			return true
+		case RECEIVE_SEARCH_IMAGES:
+			return false
 		default:
 			return state
 	}
@@ -59,7 +60,7 @@ const results = (state = [], action) => {
 const importPanel = combineReducers({
 	open,
 	method,
-	source,
+	isFetching,
 	results
 })
 

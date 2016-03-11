@@ -21,20 +21,13 @@ const IMPORT_METHODS = {
 
 const { BY_URL, BY_SEARCH } = IMPORT_METHODS
 
-const IMPORT_SEARCH_SOURCES = {
-	ARTSY: 'ARTSY',
-	TUMBLR: 'TUMBLR'
-}
-
-const { ARTSY, TUMBLR } = IMPORT_SEARCH_SOURCES
-
 const initialState = {
 	imagePanel: {
 		expansion: 'BUTTONS',
 		importPanel: {
 			open: false,
-			method: BY_URL,
-			source: ARTSY,
+			method: BY_SEARCH,
+			isFetching: false,
 			results: [
 				// {
 				// 	id: 1,
