@@ -9,6 +9,13 @@ if (window.localStorage.redux) {
 	numCollageElements = collageBoard.elements.length
 }
 
+export const TOGGLE_HELP_WINDOW_OPEN = 'TOGGLE_HELP_WINDOW_OPEN'
+export const toggleHelpWindowOpen = () => {
+	return {
+		type: TOGGLE_HELP_WINDOW_OPEN
+	}
+}
+
 export const SET_IMAGE_PANEL_EXPANSION = 'SET_IMAGE_PANEL_EXPANSION'
 export const setImagePanelExpansion = (expansion) => {
 	return {

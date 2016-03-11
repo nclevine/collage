@@ -46,7 +46,8 @@
 .clear-board-btn,
 .clear-background-btn,
 .arrange-selected-btn,
-.delete-elements-btn {
+.delete-elements-btn,
+.help-window-toggle-btn {
 	position: relative;
 	margin: 0 3em;
 	width: 5em;
@@ -153,7 +154,7 @@
 	background-color: $lightBlue;
 	background-size: 55% 55%;
 	background-repeat: no-repeat;
-    background-position: center;
+	background-position: center;
 }
 
 .ui-resizable-nw {
@@ -178,4 +179,84 @@
 	bottom: -5px;
 	right: -5px;
 	background-image: url('../images/arrow-se.svg');
+}
+
+.help-window {
+	position: absolute;
+	top: 20%;
+	left: 100%;
+	padding: 2em;
+	width: 60%;
+	height: 60%;
+	transition: 0.6s;
+
+	border-radius: 3px;
+	background-color: $blackTransparent;
+	color: $white;
+
+	&.open {
+		left: 20%;
+	}
+
+	.help-window-inner {
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+
+		&::-webkit-scrollbar { 
+			display: none; 
+		}
+	}
+
+	h1, h2, h3 {
+		padding: 10px 0;
+	}
+
+	p, li {
+		padding: 5px 0;
+		color: $lightBlue;
+	}
+
+	li {
+		padding-left: 1em;
+	}
+}
+
+.help-window-toggle-btn {
+	position: absolute;
+	right: 1em;
+	bottom: 1em;
+	margin: 0;
+	width: 2em;
+	height: 2em;
+	transition: 0.6s;
+
+	&:hover {
+		background-color: $lightBlue;
+		
+		svg {
+			transform: none;
+
+			g, path {
+				fill: $black
+			}
+		}
+	}
+
+	&.open {
+		bottom: calc(80% - 4em);
+		right: calc(20% + 1.5em);
+		width: 3em;
+		height: 3em;
+		border-radius: 0;
+		background-color: transparent;
+
+		&:hover {
+			svg {
+				g, path {
+					fill: $lightBlue;
+				}
+			}
+		}
+	}
 }

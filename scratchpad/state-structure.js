@@ -119,7 +119,8 @@ const initialState = {
 			// }
 		],
 		selectedElements: []
-	}
+	},
+	helpWindowOpen: true
 }
 
 export default initialState
