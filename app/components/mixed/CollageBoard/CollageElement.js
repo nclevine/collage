@@ -1,14 +1,43 @@
 import React, { Component, PropTypes } from 'react'
-import RawImage from '../ImagePanel/RawImage'
-import CutoutImage from '../ImagePanel/CutoutImage'
+import { connect } from 'react-redux'
+import { updateCollageElement } from '../../../actions'
+import RawImage from '../../presentational/ImagePanel/RawImage'
+import CutoutImage from '../../presentational/ImagePanel/CutoutImage'
 
 class CollageElement extends Component {
 	componentDidMount () {
 		$(this.container)
 			.resizable({
-				handles: 'nw, ne, sw, se'
+				handles: 'nw, ne, sw, se',
+				stop: (e, ui) => {
+					this.props.dispatch(updateCollageElement(
+						this.props.id,
+						{
+							width: ui.size.width,
+							height: ui.size.height
+						},
+						{
+							top: ui.position.top,
+							left: ui.position.left
+						}
+					))
+				}
 			})
-			.draggable()
+			.draggable({
+				stop: (e, ui) => {
+					this.props.dispatch(updateCollageElement(
+						this.props.id,
+						{
+							width: this.props.dimensions.width,
+							height: this.props.dimensions.height
+						},
+						{
+							top: ui.position.top,
+							left: ui.position.left
+						}
+					))
+				}
+			})
 	}
 
 	render () {
@@ -44,5 +73,7 @@ class CollageElement extends Component {
 		)
 	}
 }
+
+CollageElement = connect()(CollageElement)
 
 export default CollageElement

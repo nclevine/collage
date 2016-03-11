@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import CollageBoardMenu from './CollageBoardMenu'
-import CollageElement from './CollageElement'
+import CollageElement from '../../mixed/CollageBoard/CollageElement'
 import ToggleCollageMenuButton from '../../mixed/CollageBoard/ToggleCollageMenuButton'
 
 const CollageBoard = ({ active, menuOpen, background, elements, selectedElements, onBoardClick, onElementClick }) => {
