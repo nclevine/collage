@@ -8,9 +8,13 @@ import App from './components/App'
 import initialState from '../scratchpad/state-structure'
 
 if (window.chrome) {
+	let applicationState = window.localStorage.applicationState ?
+		JSON.parse(window.localStorage.applicationState) :
+		initialState
+
 	let store = createStore(
 		collageBoardApp,
-		initialState,
+		applicationState,
 		applyMiddleware(thunkMiddleware)
 	)
 
