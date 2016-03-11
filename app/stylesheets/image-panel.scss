@@ -112,7 +112,7 @@
 	flex-direction: column;
 	justify-content: space-around;
 	position: absolute;
-	top: 22%;
+	top: 25%;
 	height: max-content;
 	z-index: 2000;
 	transition: 0.6s;
@@ -285,7 +285,7 @@
 	}
 
 	&.buttons {
-		top: 17%;
+		top: 20%;
 	}
 
 	&.collapsed {

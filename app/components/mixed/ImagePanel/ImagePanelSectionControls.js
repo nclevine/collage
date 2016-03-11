@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import ImagePanelSectionButton from './ImagePanelSectionButton'
-import SaveLocallyButton from './SaveLocallyButton'
 
 let ImagePanelSectionControls = ({ expansion }) => {
 	let className = 'image-panel-section-controls '
@@ -24,7 +23,6 @@ let ImagePanelSectionControls = ({ expansion }) => {
 			<ImagePanelSectionButton panel='RAW_IMAGES' />
 			<ImagePanelSectionButton panel='CUTOUT_IMAGES' />
 			<ImagePanelSectionButton panel='IMAGE_IMPORTER' />
-			<SaveLocallyButton />
 		</div>
 	)
 }

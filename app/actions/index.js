@@ -1,3 +1,14 @@
+let numRawImages = 0
+let numCutouts = 0
+let numCollageElements = 0
+
+if (window.localStorage.redux) {
+	const { collageBoard, imagePanel } = JSON.parse(window.localStorage.redux)
+	numRawImages = imagePanel.imageLists[0].images.length
+	numCutouts = imagePanel.imageLists[1].images.length
+	numCollageElements = collageBoard.elements.length
+}
+
 export const SET_IMAGE_PANEL_EXPANSION = 'SET_IMAGE_PANEL_EXPANSION'
 export const setImagePanelExpansion = (expansion) => {
 	return {
@@ -176,7 +187,7 @@ export const toggleImageListExpanded = (listId) => {
 	}
 }
 
-let nextRawImageId = 0
+let nextRawImageId = numRawImages
 export const ADD_RAW_IMAGE = 'ADD_RAW_IMAGE'
 export const addRawImage = (listId, url, width, height) => {
 	return {
@@ -189,7 +200,7 @@ export const addRawImage = (listId, url, width, height) => {
 	}
 }
 
-let nextCutoutImageId = 0
+let nextCutoutImageId = numCutouts
 export const ADD_CUTOUT_IMAGE = 'ADD_CUTOUT_IMAGE'
 export const addCutoutImage = (listId, SVGString, width, height) => {
 	return {
@@ -233,7 +244,7 @@ export const setCollageBackground = (background) => {
 	}
 }
 
-let nextCollageElementId = 0
+let nextCollageElementId = numCollageElements
 export const ADD_COLLAGE_ELEMENT = 'ADD_COLLAGE_ELEMENT'
 export const addCollageElement = (image) => {
 	return {

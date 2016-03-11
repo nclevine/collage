@@ -40,6 +40,20 @@ export const importImage = (url, size) => {
 	})
 	ImportedImage.on('load', () => {
 		ImportedImage.size = size
+		try {
+			ImportedImage.source
+		} catch (e) {
+			console.log('got here')
+			try {
+				ImportedImage = new paper.Raster({
+					crossOrigin: 'anonymous',
+					source: url,
+					position: EditorProject.view.center,
+				})
+			} catch (e) {
+				console.log('got here too')
+			}
+		}
 		// source = ImportedImage.source
 		// console.log(source)
 		// newRaster = ImportedImage.rasterize()
