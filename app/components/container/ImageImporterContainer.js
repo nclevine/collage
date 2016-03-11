@@ -3,10 +3,11 @@ import ImageImporter from '../presentational/ImagePanel/ImageImporter'
 import { fetchSearchImages, addImageSearchResult, clearImageSearchResults } from '../../actions'
 
 const mapStateToProps = (state) => {
-	let { open, method, source, results } = state.imagePanel.importPanel
+	let { open, method, isFetching, results } = state.imagePanel.importPanel
 	return {
 		open: open,
 		importMethod: method,
+		isFetching: isFetching,
 		searchResults: results
 	}
 }

@@ -30,16 +30,24 @@ export const clearProject = () => {
 }
 
 export const importImage = (url, size) => {
+	// let newRaster
+	// let source = 'null'
 	clearProject()
 	ImportedImage = new paper.Raster({
+		// crossOrigin: needsCORS ? 'anonymous' : '',
 		source: url,
 		position: EditorProject.view.center,
 	})
 	ImportedImage.on('load', () => {
 		ImportedImage.size = size
+		// source = ImportedImage.source
+		// console.log(source)
+		// newRaster = ImportedImage.rasterize()
+		// ImportedImage.remove()
+		// console.log(newRaster)
+		// console.log(EditorProject.activeLayer.getItems({}))
 	})
 	updateProject()
-	// checkContents()
 }
 
 export const importColor = (color) => {
@@ -102,7 +110,6 @@ const clearPaths = () => {
 	})
 	CropPath = undefined
 	updateProject()
-	// checkContents()
 	cropped = false
 }
 

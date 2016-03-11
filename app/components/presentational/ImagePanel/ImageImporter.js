@@ -3,7 +3,7 @@ import ImageImportForm from './ImageImportForm'
 import ImageSearchResultsList from './ImageSearchResultsList'
 import ToggleImportMethodButton from '../../mixed/ImagePanel/ToggleImportMethodButton'
 
-const ImageImporter = ({ open, importMethod, searchResults, onURLSubmit, onSearchSubmit }) => {
+const ImageImporter = ({ open, importMethod, isFetching, searchResults, onURLSubmit, onSearchSubmit }) => {
 	return (
 		<div
 			className='image-importer'
@@ -22,6 +22,14 @@ const ImageImporter = ({ open, importMethod, searchResults, onURLSubmit, onSearc
 				onSearchSubmit={onSearchSubmit}
 			/>
 			<ImageSearchResultsList imageList={searchResults} />
+			<div
+				className='image-search-loading'
+				style={{
+					opacity: isFetching ? 1 : 0
+				}}
+			>
+				Loading...
+			</div>
 		</div>
 	)
 }

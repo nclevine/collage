@@ -176,7 +176,7 @@ export const toggleImageListExpanded = (listId) => {
 	}
 }
 
-let nextRawImageId = 3 // set to two to account for two preloaded images
+let nextRawImageId = 0
 export const ADD_RAW_IMAGE = 'ADD_RAW_IMAGE'
 export const addRawImage = (listId, url, width, height) => {
 	return {

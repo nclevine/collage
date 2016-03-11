@@ -422,6 +422,17 @@
 	height: calc(100% - 70px);
 }
 
+.image-search-loading {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 1.5em;
+	color: $black;
+	transition: 0.4s;
+}
+
 .image,
 .image-search-result {
 	position: relative;

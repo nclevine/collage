@@ -48,18 +48,18 @@ const initialState = {
 				name: 'Images',
 				expanded: false,
 				images: [
-					{
-						id: 1,
-						url: 'http://41.media.tumblr.com/86a94b309e87329c6d815cebe05b4462/tumblr_o1xzaeRnuN1qfdys9o1_500.jpg',
-						width: 500,
-						height: 385
-					},
-					{
-						id: 2,
-						url: 'http://36.media.tumblr.com/502b55ce226934abda882ddeec1effa2/tumblr_mu9zkn51g61rhhuhgo1_400.png',
-						width: 400,
-						height: 382
-					}
+					// {
+					// 	id: 1,
+					// 	url: 'http://41.media.tumblr.com/86a94b309e87329c6d815cebe05b4462/tumblr_o1xzaeRnuN1qfdys9o1_500.jpg',
+					// 	width: 500,
+					// 	height: 385
+					// },
+					// {
+					// 	id: 2,
+					// 	url: 'http://36.media.tumblr.com/502b55ce226934abda882ddeec1effa2/tumblr_mu9zkn51g61rhhuhgo1_400.png',
+					// 	width: 400,
+					// 	height: 382
+					// }
 				]
 			},
 			{
