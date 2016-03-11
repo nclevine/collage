@@ -138,6 +138,13 @@ const nodeToString = (node) => {
 	return temp.innerHTML
 }
 
+let lastClipPathId = 0
+
+if (window.localStorage.redux) {
+	let { imagePanel } = JSON.parse(window.localStorage.redux)
+	lastClipPathId = imagePanel.imageLists[1].images.length
+}
+
 export const exportCrop = () => {
 	if (!CropPath || !CropPath.clipMask) {
 		return undefined
@@ -155,10 +162,15 @@ export const exportCrop = () => {
 	SVG.setAttribute('width', bounds.width)
 	SVG.setAttribute('height', bounds.height)
 
+	lastClipPathId++
+	let nextClipPathId = 'clip-number-' + lastClipPathId
+	let SVGString = nodeToString(SVG)
+	SVGString = SVGString.replace(/clip-1/g, nextClipPathId)
+
 	cropped = false
 
 	return {
-		SVGString: nodeToString(SVG),
+		SVGString: SVGString,
 		width: bounds.width,
 		height: bounds.height
 	}
