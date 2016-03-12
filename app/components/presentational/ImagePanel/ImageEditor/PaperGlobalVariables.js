@@ -46,7 +46,7 @@ export const importImage = (url, size) => {
 			console.log('got here')
 			try {
 				ImportedImage = new paper.Raster({
-					crossOrigin: 'anonymous',
+					// crossOrigin: 'anonymous',
 					source: url,
 					position: EditorProject.view.center,
 				})
