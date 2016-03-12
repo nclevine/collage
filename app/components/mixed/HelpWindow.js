@@ -25,7 +25,6 @@ let HelpWindow = ({ open, dispatch }) => {
 				<li>Once you've drawn a path, you can click the crop button to toggle the crop on and off, or you can click the eraser to clear all paths.</li>
 				<li>Overlap paths to create interesting intersections!</li>
 				<li>Once you have created a crop, click the save button at the bottom to export the crop to the cutouts list.</li>
-				<li>(Note: If the save button fails to export a cutout, it is because the image is unavailble cross-browser. Sorry! This will be fixed in the future.)</li>
 				</ul>
 
 				<h3>Collage Board Panel:</h3>
