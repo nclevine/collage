@@ -29,12 +29,11 @@ export const clearProject = () => {
 	ImportedColor = undefined
 }
 
+let taintedImageInfo = null
+
 export const importImage = (url, size) => {
-	// let newRaster
-	// let source = 'null'
 	clearProject()
 	ImportedImage = new paper.Raster({
-		// crossOrigin: needsCORS ? 'anonymous' : '',
 		source: url,
 		position: EditorProject.view.center,
 	})
@@ -43,23 +42,12 @@ export const importImage = (url, size) => {
 		try {
 			ImportedImage.source
 		} catch (e) {
-			console.log('got here')
-			try {
-				ImportedImage = new paper.Raster({
-					// crossOrigin: 'anonymous',
-					source: url,
-					position: EditorProject.view.center,
-				})
-			} catch (e) {
-				console.log('got here too')
+			console.log('tainted image in canvas, will be replaced by string upon export')
+			taintedImageInfo = {
+				url: url,
+				size:size
 			}
 		}
-		// source = ImportedImage.source
-		// console.log(source)
-		// newRaster = ImportedImage.rasterize()
-		// ImportedImage.remove()
-		// console.log(newRaster)
-		// console.log(EditorProject.activeLayer.getItems({}))
 	})
 	updateProject()
 }
@@ -155,6 +143,10 @@ export const exportCrop = () => {
 		bounds.width + ' ' + 
 		bounds.height
 	let layer = EditorProject.activeLayer
+
+	if (taintedImageInfo) {
+		layer.getItems({ class: paper.Raster })[0].remove()
+	}
 	let SVG = layer.exportSVG({ embedImages: false })
 	
 	SVG.setAttribute('viewBox', viewBoxString)
@@ -166,7 +158,18 @@ export const exportCrop = () => {
 	let nextClipPathId = 'clip-number-' + lastClipPathId
 	let SVGString = nodeToString(SVG)
 	SVGString = SVGString.replace(/clip-1/g, nextClipPathId)
+	if (taintedImageInfo) {
+		let imageString = '<image x="0" y="0" width="' + taintedImageInfo.size[0] + 
+			'" height="' + taintedImageInfo.size[1] +
+			'" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="' + taintedImageInfo.url +
+			'"></image>'
 
+		let endIndex = SVGString.indexOf('</g></svg>')
+
+		SVGString = SVGString.slice(0, endIndex) + imageString + SVGString.slice(endIndex)
+	}
+
+	taintedImageInfo = null
 	cropped = false
 
 	return {
