@@ -19,8 +19,8 @@ const mapDispatchToProps = (dispatch) => {
 		onBoardClick: () => {
 			dispatch(deselectAllElements())
 		},
-		onElementClick: (id) => {
-			dispatch(toggleSelectedElement(id))
+		onElementClick: (element) => {
+			dispatch(toggleSelectedElement(element))
 		}
 	}
 }

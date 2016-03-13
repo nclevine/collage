@@ -32,7 +32,12 @@ const background = (state = '#FFF', action) => {
 const selectedElements = (state = [], action) => {
 	switch (action.type) {
 		case TOGGLE_SELECTED_ELEMENT:
-			let index = state.indexOf(action.id)
+			let index = -1
+			state.forEach((el, i) => {
+				if (el.id === action.element.id) {
+					index = i
+				}
+			})
 			if (index > -1) {
 				return [
 					...state.slice(0, index),
@@ -41,7 +46,7 @@ const selectedElements = (state = [], action) => {
 			} else {
 				return [
 					...state,
-					action.id
+					action.element
 				]
 			}
 		case DESELECT_ALL_ELEMENTS:

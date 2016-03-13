@@ -1,6 +1,7 @@
 let numRawImages = 0
 let numCutouts = 0
 let numCollageElements = 0
+let maxZIndex = 0
 
 if (window.localStorage.redux) {
 	const { collageBoard, imagePanel } = JSON.parse(window.localStorage.redux)
@@ -251,13 +252,14 @@ export const setCollageBackground = (background) => {
 	}
 }
 
-let nextCollageElementId = numCollageElements
+let nextCollageElement = numCollageElements
 export const ADD_COLLAGE_ELEMENT = 'ADD_COLLAGE_ELEMENT'
 export const addCollageElement = (image) => {
 	return {
 		type: ADD_COLLAGE_ELEMENT,
-		id: nextCollageElementId++,
-		image
+		id: nextCollageElement++,
+		image,
+		zIndex: nextCollageElement++
 	}
 }
 
@@ -287,10 +289,10 @@ export const clearAllElements = () => {
 }
 
 export const TOGGLE_SELECTED_ELEMENT = 'TOGGLE_SELECTED_ELEMENT'
-export const toggleSelectedElement = (id) => {
+export const toggleSelectedElement = (element) => {
 	return {
 		type: TOGGLE_SELECTED_ELEMENT,
-		id
+		element
 	}
 }
 

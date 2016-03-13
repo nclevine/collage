@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import ClearBoardButton from '../../mixed/CollageBoard/ClearBoardButton'
-import DeleteSelectedElementsButton from '../../mixed/CollageBoard/DeleteSelectedElementsButton'
-import ArrangeSelectedButton from '../../mixed/CollageBoard/ArrangeSelectedButton'
+import DeleteSelectedElementsButton from './DeleteSelectedElementsButton'
+import ArrangeSelectedButton from './ArrangeSelectedButton'
 import ClearBackgroundButton from '../../mixed/CollageBoard/ClearBackgroundButton'
 
 const CollageBoardMenu = ({ open, selectedElements }) => {
@@ -20,9 +20,9 @@ const CollageBoardMenu = ({ open, selectedElements }) => {
 				<ClearBackgroundButton />
 			</div>
 			<div className={selectedClass}>
-				<ArrangeSelectedButton direction='BACK' />
-				<ArrangeSelectedButton direction='FORWARD' />
-				<DeleteSelectedElementsButton />
+				<ArrangeSelectedButton selectedElements={selectedElements} direction='BACK' />
+				<ArrangeSelectedButton selectedElements={selectedElements} direction='FORWARD' />
+				<DeleteSelectedElementsButton selectedElements={selectedElements} />
 			</div>
 		</div>
 	)

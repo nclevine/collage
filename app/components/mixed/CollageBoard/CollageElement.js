@@ -18,7 +18,8 @@ class CollageElement extends Component {
 						},
 						{
 							top: ui.position.top,
-							left: ui.position.left
+							left: ui.position.left,
+							zIndex: this.props.position.zIndex
 						}
 					))
 				}
@@ -33,7 +34,8 @@ class CollageElement extends Component {
 						},
 						{
 							top: ui.position.top,
-							left: ui.position.left
+							left: ui.position.left,
+							zIndex: this.props.position.zIndex
 						}
 					))
 				}
@@ -41,7 +43,7 @@ class CollageElement extends Component {
 	}
 
 	render () {
-		let { top, left } = this.props.position
+		let { top, left, zIndex } = this.props.position
 		let { width, height } = this.props.dimensions
 		let outline = this.props.isSelected ?
 			'2px dashed #111' :
@@ -62,10 +64,14 @@ class CollageElement extends Component {
 					width: width,
 					height: height,
 					outline: outline,
-					zIndex: 1
+					zIndex: zIndex
 				}}
 				onClick={() => {
-					this.props.onClick(this.props.id)
+					this.props.onClick({
+						id: this.props.id,
+						dimensions: this.props.dimensions,
+						position: this.props.position
+					})
 				}}
 			>
 				{element}

@@ -23,7 +23,9 @@ const CollageBoard = ({ active, menuOpen, background, elements, selectedElements
 			<CollageBoardMenu open={menuOpen} selectedElements={selectedElements} />
 			<ToggleCollageMenuButton />
 			{elements.map(element => {
-				let isSelected = selectedElements.includes(element.id)
+				let isSelected = selectedElements.filter((el, i) => {
+					return el.id === element.id
+				}).length > 0
 				return (
 					<CollageElement
 						key={element.id}

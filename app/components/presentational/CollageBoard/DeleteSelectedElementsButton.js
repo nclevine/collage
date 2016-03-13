@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { removeCollageElement, deselectAllElements } from '../../../actions'
 import DeleteElementIcon from '../../icons/DeleteElementIcon'
 
-let DeleteSelectedElementsButton = ({ selectedElements, dispatch }) => {
+const DeleteSelectedElementsButton = ({ selectedElements, dispatch }) => {
 	let numSelected = selectedElements.length
 
 	return (
@@ -22,13 +22,5 @@ let DeleteSelectedElementsButton = ({ selectedElements, dispatch }) => {
 		</button>
 	)
 }
-
-const mapStateToProps = (state) => {
-	return {
-		selectedElements: state.collageBoard.selectedElements
-	}
-}
-
-DeleteSelectedElementsButton = connect(mapStateToProps)(DeleteSelectedElementsButton)
 
 export default DeleteSelectedElementsButton

@@ -98,8 +98,9 @@ const initialState = {
 			// 		height: 200
 			// 	},
 			// 	position: {
-			// 		top: 30
+			// 		top: 30,
 			// 		left: 400,
+			//		zIndex: 5
 			// 	}
 			// },
 			// {
@@ -113,8 +114,9 @@ const initialState = {
 			// 		height: 100
 			// 	},
 			// 	position: {
-			// 		top: 300
+			// 		top: 300,
 			// 		left: 20,
+			//		zIndex: 5
 			// 	}
 			// }
 		],

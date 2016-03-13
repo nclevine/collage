@@ -13,7 +13,8 @@ const element = (state, action) => {
 				},
 				position: {
 					top: '20%',
-					left: '20%'
+					left: '20%',
+					zIndex: action.zIndex
 				}
 			}
 		case UPDATE_COLLAGE_ELEMENT:
