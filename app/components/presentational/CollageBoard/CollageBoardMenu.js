@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import ClearBoardButton from '../../mixed/CollageBoard/ClearBoardButton'
-import DeleteSelectedElementsButton from './DeleteSelectedElementsButton'
+import DeleteSelectedElementsButton from '../../mixed/CollageBoard/DeleteSelectedElementsButton'
 import ArrangeSelectedButton from './ArrangeSelectedButton'
 import ClearBackgroundButton from '../../mixed/CollageBoard/ClearBackgroundButton'
 

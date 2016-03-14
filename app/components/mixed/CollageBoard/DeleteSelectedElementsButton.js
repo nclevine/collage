@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { removeCollageElement, deselectAllElements } from '../../../actions'
 import DeleteElementIcon from '../../icons/DeleteElementIcon'
 
-const DeleteSelectedElementsButton = ({ selectedElements, dispatch }) => {
+let DeleteSelectedElementsButton = ({ selectedElements, dispatch }) => {
 	let numSelected = selectedElements.length
 
 	return (
@@ -11,7 +11,7 @@ const DeleteSelectedElementsButton = ({ selectedElements, dispatch }) => {
 			className='delete-elements-btn'
 			onClick={() => {
 				selectedElements.forEach((el) => {
-					dispatch(removeCollageElement(el))
+					dispatch(removeCollageElement(el.id))
 				})
 				dispatch(deselectAllElements())
 			}}
@@ -22,5 +22,7 @@ const DeleteSelectedElementsButton = ({ selectedElements, dispatch }) => {
 		</button>
 	)
 }
+
+DeleteSelectedElementsButton = connect()(DeleteSelectedElementsButton)
 
 export default DeleteSelectedElementsButton
