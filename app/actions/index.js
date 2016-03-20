@@ -259,7 +259,7 @@ export const addCollageElement = (image) => {
 		type: ADD_COLLAGE_ELEMENT,
 		id: nextCollageElement++,
 		image,
-		zIndex: nextCollageElement++
+		zIndex: nextCollageElement
 	}
 }
 
@@ -300,5 +300,13 @@ export const DESELECT_ALL_ELEMENTS = 'DESELECT_ALL_ELEMENTS'
 export const deselectAllElements = () => {
 	return {
 		type: DESELECT_ALL_ELEMENTS
+	}
+}
+
+export const UPDATE_SELECTED_ELEMENT = 'UPDATE_SELECTED_ELEMENT'
+export const updateSelectedElement = (element) => {
+	return {
+		type: UPDATE_SELECTED_ELEMENT,
+		element
 	}
 }
