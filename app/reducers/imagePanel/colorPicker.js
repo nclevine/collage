@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
-import { TOGGLE_COLOR_PICKER_OPEN, SET_RED_CHANNEL, SET_GREEN_CHANNEL, SET_BLUE_CHANNEL, SET_ALPHA_CHANNEL } from '../../actions'
+import { CLOSE_ALL_IMAGE_PANEL_SECTIONS, TOGGLE_COLOR_PICKER_OPEN, SET_RED_CHANNEL, SET_GREEN_CHANNEL, SET_BLUE_CHANNEL, SET_ALPHA_CHANNEL } from '../../actions'
 
 const open = (state = false, action) => {
 	switch (action.type) {
 		case TOGGLE_COLOR_PICKER_OPEN:
 			return !state
+		case CLOSE_ALL_IMAGE_PANEL_SECTIONS:
+			return false
 		default:
 			return state
 	}

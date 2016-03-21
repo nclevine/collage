@@ -25,6 +25,13 @@ export const setImagePanelExpansion = (expansion) => {
 	}
 }
 
+export const CLOSE_ALL_IMAGE_PANEL_SECTIONS = 'CLOSE_ALL_IMAGE_PANEL_SECTIONS'
+export const closeAllImagePanelSections = () => {
+	return {
+		type: CLOSE_ALL_IMAGE_PANEL_SECTIONS
+	}
+}
+
 export const TOGGLE_IMAGE_IMPORTER_OPEN = 'TOGGLE_IMAGE_IMPORTER_OPEN'
 export const toggleImageImporterOpen = () => {
 	return {

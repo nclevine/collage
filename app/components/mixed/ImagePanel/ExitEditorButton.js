@@ -19,6 +19,7 @@ let ExitEditorButton = ({ cropped, dispatch }) => {
 			}}
 		>
 			<CloseIcon />
+			<p>Exit</p>
 		</button>
 	)
 }

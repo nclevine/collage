@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { ADD_IMAGE_LIST, REMOVE_IMAGE_LIST, TOGGLE_IMAGE_LIST_EXPANDED, ADD_RAW_IMAGE, ADD_CUTOUT_IMAGE, REMOVE_IMAGE } from '../../actions'
+import { CLOSE_ALL_IMAGE_PANEL_SECTIONS, ADD_IMAGE_LIST, REMOVE_IMAGE_LIST, TOGGLE_IMAGE_LIST_EXPANDED, ADD_RAW_IMAGE, ADD_CUTOUT_IMAGE, REMOVE_IMAGE } from '../../actions'
 
 const image = (state, action) => {
 	switch (action.type) {
@@ -49,6 +49,10 @@ const list = (state, action) => {
 			return Object.assign({}, state, {
 				expanded: !state.expanded
 			})
+		case CLOSE_ALL_IMAGE_PANEL_SECTIONS:
+			return Object.assign({}, state, {
+				expanded: false
+			})
 		default:
 			return state
 	}
@@ -88,6 +92,10 @@ const imageLists = (state = initialState, action) => {
 				if (l.id !== action.listId) {
 					return l
 				}
+				return list(l, action)
+			})
+		case CLOSE_ALL_IMAGE_PANEL_SECTIONS:
+			return state.map(l => {
 				return list(l, action)
 			})
 		default:

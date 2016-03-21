@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux'
-import { TOGGLE_IMAGE_IMPORTER_OPEN, ImportMethods, SET_IMAGE_IMPORT_METHOD, REQUEST_SEARCH_IMAGES, RECEIVE_SEARCH_IMAGES, ADD_IMAGE_SEARCH_RESULT, CLEAR_IMAGE_SEARCH_RESULTS } from '../../actions'
+import { CLOSE_ALL_IMAGE_PANEL_SECTIONS, TOGGLE_IMAGE_IMPORTER_OPEN, ImportMethods, SET_IMAGE_IMPORT_METHOD, REQUEST_SEARCH_IMAGES, RECEIVE_SEARCH_IMAGES, ADD_IMAGE_SEARCH_RESULT, CLEAR_IMAGE_SEARCH_RESULTS } from '../../actions'
 const { BY_URL } = ImportMethods
 
 const open = (state = false, action) => {
 	switch (action.type) {
 		case TOGGLE_IMAGE_IMPORTER_OPEN:
 			return !state
+		case CLOSE_ALL_IMAGE_PANEL_SECTIONS:
+			return false
 		default:
 			return state
 	}

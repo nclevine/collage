@@ -5,6 +5,8 @@ import { addCutoutImage, toggleColorPickerOpen, toggleImageListExpanded, toggleI
 import ExportIcon from '../../icons/ExportIcon'
 
 let ExportCropButton = ({ cropped, colorPickerOpen, rawImagesOpen, dispatch }) => {
+	let text = cropped ? 'Save Cutout' : ''
+
 	return (
 		<button
 			className='editor-export-btn'
@@ -27,6 +29,7 @@ let ExportCropButton = ({ cropped, colorPickerOpen, rawImagesOpen, dispatch }) =
 			disabled={!cropped}
 		>
 			<ExportIcon />
+			<p>{text}</p>
 		</button>
 	)
 }

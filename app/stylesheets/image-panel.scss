@@ -191,6 +191,21 @@
 	}
 }
 
+.image-editor-btn {
+	p {
+		top: -1.5em;
+		color: $black;
+		opacity: 0;
+		transition: 0.2s;
+	}
+
+	&:hover {
+		p {
+			opacity: 1;
+		}
+	}
+}
+
 .crop-btn {
 	&.cropped {
 		svg {
@@ -206,6 +221,21 @@
 					fill: $white;
 				}
 			}
+		}
+	}
+}
+
+.editor-export-btn,
+.editor-exit-btn {
+	p {
+		color: $black;
+		opacity: 0;
+		transition: 0.2s;
+	}
+
+	&:hover {
+		p {
+			opacity: 1;
 		}
 	}
 }

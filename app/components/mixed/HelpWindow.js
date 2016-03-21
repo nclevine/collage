@@ -22,6 +22,7 @@ let HelpWindow = ({ open, dispatch }) => {
 				<h3>Editor Panel:</h3>
 				<ul>
 				<li>The tool buttons up top correspond to a Lasso, Polygon Lasso, Marquee, and Ellipse.</li>
+				<li>When using Polygon Lasso, press 'Q' to complete the path.</li>
 				<li>Once you've drawn a path, you can click the crop button to toggle the crop on and off, or you can click the eraser to clear all paths.</li>
 				<li>Overlap paths to create interesting intersections!</li>
 				<li>Once you have created a crop, click the save button at the bottom to export the crop to the cutouts list.</li>

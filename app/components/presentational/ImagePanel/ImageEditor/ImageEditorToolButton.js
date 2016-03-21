@@ -15,19 +15,24 @@ const ImageEditorToolButton = ({ tool, isActive, onClick }) => {
 	}
 
 	let toolIcon
+	let toolText
 
 	switch (tool) {
 		case 'LASSO':
 			toolIcon = <LassoIcon />
+			toolText = 'Lasso'
 			break
 		case 'POLYGON_LASSO':
 			toolIcon = <PolygonLassoIcon />
+			toolText = 'Polygon Lasso'
 			break
 		case 'MARQUEE':
 			toolIcon = <MarqueeIcon />
+			toolText = 'Marquee'
 			break
 		case 'ELLIPSE':
 			toolIcon = <EllipseIcon />
+			toolText = 'Ellipse'
 			break
 	}
 
@@ -40,6 +45,7 @@ const ImageEditorToolButton = ({ tool, isActive, onClick }) => {
 			disabled={isActive}
 		>
 			{toolIcon}
+			<p>{toolText}</p>
 		</button>
 	)
 }

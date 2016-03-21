@@ -128,6 +128,12 @@
 }
 
 .collage-element {
+	cursor: -webkit-grab;
+
+	&:active {
+		cursor: -webkit-grabbing;
+	}
+
 	.raw-image, .cutout-image, .cutout-image svg {
 		width: 100%;
 		height: 100%;
@@ -161,24 +167,28 @@
 	top: -5px;
 	left: -5px;
 	background-image: url('../images/arrow-nw.svg');
+	cursor: nw-resize;
 }
 
 .ui-resizable-ne {
 	top: -5px;
 	right: -5px;
 	background-image: url('../images/arrow-ne.svg');
+	cursor: ne-resize;
 }
 
 .ui-resizable-sw {
 	bottom: -5px;
 	left: -5px;
 	background-image: url('../images/arrow-sw.svg');
+	cursor: sw-resize;
 }
 
 .ui-resizable-se {
 	bottom: -5px;
 	right: -5px;
 	background-image: url('../images/arrow-se.svg');
+	cursor: se-resize;
 }
 
 .help-window {

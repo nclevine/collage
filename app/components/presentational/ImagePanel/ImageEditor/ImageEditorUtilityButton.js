@@ -19,13 +19,16 @@ const ImageEditorUtilityButton = ({ utility, cropped, onCropClick }) => {
 	}
 
 	let utilityIcon
+	let text
 
 	switch (utility) {
 		case 'TOGGLE_CROP':
 			utilityIcon = <CropIcon />
+			text = cropped ? 'Remove Crop' : 'Apply Crop'
 			break
 		case 'CLEAR_PATHS':
 			utilityIcon = <ClearPathsIcon />
+			text = 'Clear'
 			break
 	}
 
@@ -37,6 +40,7 @@ const ImageEditorUtilityButton = ({ utility, cropped, onCropClick }) => {
 			}}
 		>
 			{utilityIcon}
+			<p>{text}</p>
 		</button>
 	)
 }
